@@ -5,12 +5,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     chunkSizeWarningLimit: 1200,
-  rollupOptions: {
+    rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          'motion': ['framer-motion'],
-          'icons': ['lucide-react'],
+          motion: ['framer-motion'],
+          icons: ['lucide-react'],
         },
       },
     },
