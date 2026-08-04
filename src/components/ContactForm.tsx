@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle2 } from 'lucide-react'
 
+const WHATSAPP_NUMBER = '919891128882'
+
 interface ContactFormProps {
   variant?: 'light' | 'tinted'
   subject?: string
@@ -11,8 +13,33 @@ export default function ContactForm({ variant = 'light', subject }: ContactFormP
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [sent, setSent] = useState(false)
 
-  const submit = (e: React.FormEvent) => {
+  const validateAndOpenWhatsApp = (e: React.FormEvent) => {
     e.preventDefault()
+
+    if (!form.name.trim() || !form.email.trim() || !form.phone.trim() || !form.message.trim()) {
+      setSent(false)
+      return
+    }
+
+    const message = [
+      'Hello Destiny Buildwell,',
+      '',
+      'I would like to enquire about your services.',
+      '',
+      `Name: ${form.name.trim()}`,
+      `Email: ${form.email.trim()}`,
+      `Phone: ${form.phone.trim()}`,
+      `Interested In: ${subject || 'General Inquiry'}`,
+      '',
+      'Message:',
+      form.message.trim(),
+      '',
+      'Please contact me.',
+    ].join('\n')
+
+    const encodedMessage = encodeURIComponent(message)
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank', 'noopener,noreferrer')
+
     setSent(true)
     setForm({ name: '', email: '', phone: '', message: '' })
     setTimeout(() => setSent(false), 4000)
@@ -26,7 +53,7 @@ export default function ContactForm({ variant = 'light', subject }: ContactFormP
   }
 
   return (
-    <form onSubmit={submit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+    <form onSubmit={validateAndOpenWhatsApp} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       {subject && <input type="hidden" value={subject} />}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }} className="form-row">
         <input required placeholder="Full Name *" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-light-blue)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />

@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop'
 import WhatsAppFloat from './components/WhatsAppFloat'
 
 const Home = lazy(() => import('./pages/Home'))
+const AboutUs = lazy(() => import('./pages/AboutUs'))
 const Properties = lazy(() => import('./pages/Properties'))
 const PropertyDetail = lazy(() => import('./pages/PropertyDetail'))
 const Projects = lazy(() => import('./pages/Projects'))
@@ -31,6 +32,7 @@ export default function App() {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutUs />} />
             <Route path="/properties" element={<Properties />} />
             <Route path="/properties/:id" element={<PropertyDetail />} />
             <Route path="/projects" element={<Projects />} />

@@ -5,10 +5,10 @@ import Reveal from '../components/Reveal'
 import aboutImage from '../assets/Architecture.jpg'
 
 const stats = [
-  { value: '22+', label: 'Years of Experience' },
-  { value: '1,200+', label: 'Happy Families' },
-  { value: '18', label: 'Projects Delivered' },
-  { value: '4.8/5', label: 'Customer Rating' },
+  { value: '22+', label: 'Years of Market Expertise' },
+  { value: '1,200+', label: 'Happy Investors' },
+  { value: '18', label: 'Premium Real Estate Projects' },
+  { value: '4.8/5', label: 'End-to-End Assistance' },
 ]
 
 const achievements = [
@@ -51,7 +51,7 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <span className="eyebrow">About Destiny Buildwell</span>
+          <span className="eyebrow">About Us</span>
           <h2 style={{ fontSize: 'clamp(1.9rem, 3.5vw, 2.6rem)', marginBottom: 18 }}>
             Crafting Spaces Where Destinies Are Built
           </h2>
@@ -109,19 +109,17 @@ export default function About() {
       <div className="container-wide mv-grid" style={{ marginTop: 56, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
         <Reveal>
           <div className="card" style={{ padding: 36 }}>
-            <h3 style={{ fontSize: '1.3rem', marginBottom: 12 }}>Our Mission</h3>
+            <h3 style={{ fontSize: '1.3rem', marginBottom: 12 }}>Mission</h3>
             <p className="muted" style={{ fontSize: '0.95rem' }}>
-              To deliver premium spaces that enrich lives - through transparent processes, superior
-              construction quality and a relentless focus on customer satisfaction, on every project we undertake.
+              To redefine trust in real estate through research-driven advisory, transparent practices, and future-ready developments.
             </p>
           </div>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="card" style={{ padding: 36 }}>
-            <h3 style={{ fontSize: '1.3rem', marginBottom: 12 }}>Our Vision</h3>
+            <h3 style={{ fontSize: '1.3rem', marginBottom: 12 }}>Vision</h3>
             <p className="muted" style={{ fontSize: '0.95rem' }}>
-              To be South India's most trusted real estate brand - recognised for timeless design, ethical
-              practices and communities that stand the test of time for generations to come.
+              To become India's No.1 real estate investment and development brand, setting the benchmark in trust, transparency, innovation, and conscious wealth creation.
             </p>
           </div>
         </Reveal>

@@ -6,8 +6,8 @@ import logo from '../assets/logo/logo.png'
 
 const navLinks = [
   { label: 'Home', to: '/' },
-  { label: 'About', to: '/#about' },
-  { label: 'Properties', to: '/#properties', children: [
+  { label: 'About Us', to: '/about' },
+  { label: 'Properties', to: '/properties', children: [
     { label: 'Luxury Villas', to: '/properties?type=Villa' },
     { label: 'Apartments', to: '/properties?type=Apartment' },
     { label: 'Commercial', to: '/properties?type=Commercial' },
@@ -18,9 +18,7 @@ const navLinks = [
     { label: 'Completed', to: '/projects?category=Completed' },
     { label: 'Upcoming', to: '/projects?category=Upcoming' },
   ]},
-  { label: 'Gallery', to: '/#gallery' },
-  { label: 'Blogs', to: '/#blogs' },
-  { label: 'Contact', to: '/#contact' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 export default function Navbar() {
@@ -59,25 +57,25 @@ export default function Navbar() {
         position: 'fixed',
         top: 0, left: 0, right: 0,
         zIndex: 1000,
-        background: scrolled ? 'rgba(255,255,255,0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        boxShadow: scrolled ? '0 4px 20px rgba(31,93,134,0.08)' : 'none',
-        borderBottom: scrolled ? '1px solid var(--color-border)' : '1px solid transparent',
+        background: scrolled ? 'rgba(9, 30, 47, 0.96)' : 'rgba(7, 24, 39, 0.82)',
+        backdropFilter: scrolled ? 'blur(14px)' : 'blur(10px)',
+        boxShadow: scrolled ? '0 8px 24px rgba(0, 0, 0, 0.16)' : '0 4px 18px rgba(0, 0, 0, 0.12)',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.08)',
         transition: 'all 0.35s ease',
       }}
     >
       <nav className="container-wide" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
         <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src={logo} alt="Destiny Buildwell logo" style={{ width: 42, height: 42, objectFit: 'contain' }} />
+          <img src={logo} alt="Destiny Buildwell logo" style={{ width: 100, height: 100, maxWidth: 100, maxHeight: 100, objectFit: 'contain' }} />
           <div style={{ lineHeight: 1.1 }}>
             <div style={{
               fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem',
-              color: scrolled ? 'var(--color-primary)' : '#fff',
+              color: scrolled ? '#fff' : '#fff',
               letterSpacing: '0.02em', transition: 'color 0.35s ease',
             }}>DESTINY</div>
             <div style={{
               fontSize: '0.62rem', letterSpacing: '0.28em', fontWeight: 500,
-              color: scrolled ? 'var(--color-secondary)' : 'rgba(255,255,255,0.85)',
+              color: scrolled ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.9)',
               transition: 'color 0.35s ease',
             }}>BUILDWELL</div>
           </div>
@@ -97,8 +95,9 @@ export default function Navbar() {
                 style={({ isActive }) => ({
                   display: 'flex', alignItems: 'center', gap: 4,
                   padding: '8px 14px', fontSize: '0.9rem', fontWeight: 500,
-                  color: scrolled ? (isActive ? 'var(--color-primary)' : 'var(--color-dark-text)') : '#fff',
-                  borderBottom: isActive ? '2px solid var(--color-primary)' : '2px solid transparent',
+                  color: scrolled ? (isActive ? '#fff' : 'rgba(255,255,255,0.92)') : '#fff',
+                  borderBottom: isActive ? '2px solid #fff' : '2px solid transparent',
+                  textShadow: isActive ? '0 1px 2px rgba(0,0,0,0.18)' : 'none',
                   transition: 'all 0.3s ease',
                 })}
               >
@@ -137,15 +136,15 @@ export default function Navbar() {
         </ul>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }} className="nav-cta">
-          <a href="tel:+918012345678" style={{
+          <a href="tel:+919891128882" style={{
             display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.85rem', fontWeight: 500,
-            color: scrolled ? 'var(--color-primary)' : '#fff',
-          }} className="nav-phone"><Phone size={15} /> +91 80 1234 5678</a>
+            color: scrolled ? '#fff' : '#fff',
+          }} className="nav-phone"><Phone size={15} /> +91 9891128882</a>
           <Link to="/contact" className="btn btn-primary" style={{ padding: '10px 22px' }}>Book Consultation</Link>
         </div>
 
         <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu" style={{
-          display: 'none', color: scrolled ? 'var(--color-primary)' : '#fff',
+          display: 'none', color: scrolled ? '#fff' : '#fff',
         }}>
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>

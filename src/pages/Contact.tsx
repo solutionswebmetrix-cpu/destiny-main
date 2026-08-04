@@ -6,9 +6,9 @@ import { MapPin, Phone, Mail, MessageCircle, Clock } from 'lucide-react'
 
 const contactInfo = [
   { icon: MapPin, label: 'Visit Us', value: 'A-106, ATS Bouquet, Sector 132, Noida, Uttar Pradesh 201304' },
-  { icon: Phone, label: 'Call Us', value: '+91 80 1234 5678', href: 'tel:+918012345678' },
-  { icon: Mail, label: 'Email Us', value: 'hello@destinybuildwell.com', href: 'mailto:hello@destinybuildwell.com' },
-  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat with us', href: 'https://wa.me/918012345678' },
+  { icon: Phone, label: 'Call Us', value: '+91 9891128882', href: 'tel:+919891128882' },
+  { icon: Mail, label: 'Email Us', value: 'destinybuildwell@gmail.com', href: 'mailto:destinybuildwell@gmail.com' },
+  { icon: MessageCircle, label: 'WhatsApp', value: 'Chat with us', href: 'https://wa.me/919891128882' },
   { icon: Clock, label: 'Office Hours', value: 'Mon - Sat: 9:30 AM - 7:00 PM' },
 ]
 

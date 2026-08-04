@@ -53,11 +53,11 @@ export default function Footer() {
             <h4 style={{ color: '#fff', fontSize: '1.05rem', marginBottom: 18 }}>Company</h4>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: 11 }}>
               {[
-                { l: 'About Us', to: '/#about' },
+                { l: 'About Us', to: '/about' },
                 { l: 'Why Choose Us', to: '/#why' },
                 { l: 'Leadership', to: '/#leadership' },
                 { l: 'Blogs', to: '/#blogs' },
-                { l: 'Contact', to: '/#contact' },
+                { l: 'Contact', to: '/contact' },
               ].map((x) => (
                 <li key={x.l}><Link to={x.to} style={{ fontSize: '0.88rem', opacity: 0.82, transition: 'opacity 0.2s' }}
                   onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}

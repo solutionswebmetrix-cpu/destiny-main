@@ -13,14 +13,14 @@ import aboutImage from './assets/Architecture.jpg'
 import projectOne from './assets/Project/one.jpeg'
 
 import teamDirector from './assets/id card/Director.jpeg'
-import teamAman from './assets/id card/Aman-Panday.png'
-import teamAnkit from './assets/id card/Ankit-Tomar.png'
-import teamDigvijay from './assets/id card/Digvijay-singh.png'
-import teamNikhil from './assets/id card/Nikhil-Thakrani.png'
-import teamNitesh from './assets/id card/Nitesh Kumar.png'
-import teamReshma from './assets/id card/Reshma-rajput.png'
-import teamSneha from './assets/id card/Sneha-mishra.png'
-import teamVinay from './assets/id card/Vinay-kumar.png'
+import teamAman from './assets/id card/Aman.jpeg'
+import teamAnkit from './assets/id card/Ankit.jpeg'
+import teamDigvijay from './assets/id card/DigVijay.jpeg'
+import teamNikhil from './assets/id card/nikhil.jpeg'
+import teamNitesh from './assets/id card/Director.jpeg'
+import teamReshma from './assets/id card/Varun.jpeg'
+import teamSneha from './assets/id card/Director.jpeg'
+import teamVinay from './assets/id card/Vinay.jpeg'
 
 import galleryAerialView from './assets/gallery/Aerial View.png'
 import galleryAzureHeights from './assets/gallery/Azure Heights.png'
@@ -283,7 +283,7 @@ const blogSvg = (label: string) =>
   )
 
 export const heroSlides = [
-  { image: heroBanner, title: 'Building Destinies, Shaping Skylines', subtitle: 'Premium residential & commercial spaces crafted with precision and passion.' },
+  { image: heroBanner, title: 'Building Destinies, Shaping Skylines', subtitle: '' },
   { image: heroResidential, title: 'Luxury Villas & Residences', subtitle: 'Where architecture meets elegance and every detail is intentional.' },
   { image: heroCommercial, title: 'Commercial Landmarks', subtitle: 'Future-ready workspaces designed for ambitious businesses.' },
 ]
@@ -432,21 +432,35 @@ export const properties: Property[] = [
 ]
 
 export const services: Service[] = [
-  { title: 'Residential Construction', description: 'Custom homes and villas built with precision engineering and premium finishes.', icon: Home },
-  { title: 'Commercial Construction', description: 'Grade-A offices, retail and mixed-use spaces designed for performance.', icon: Building2 },
-  { title: 'Interior Design', description: 'Thoughtful interiors that blend function, comfort and timeless aesthetics.', icon: Sofa },
+  { title: 'Investment Advisory', description: 'We provide research-driven real estate investment advisory, helping clients identify high-growth opportunities with complete transparency and confidence.', icon: Home },
+  { title: 'Residential & Commercial Solutions', description: 'From premium residential spaces to high-potential commercial investments, we deliver future-ready real estate solutions tailored to every investor\'s goals.', icon: Building2 },
+  { title: 'Real Estate Development', description: 'We develop sustainable and value-driven real estate projects with a strong focus on quality, innovation, timely execution, and long-term wealth creation.', icon: Sofa },
   { title: 'Architecture', description: 'Innovative architectural design rooted in context and sustainability.', icon: Compass },
   { title: 'Renovation', description: 'Breathe new life into existing spaces with expert renovation services.', icon: Hammer },
   { title: 'Luxury Villas', description: 'Bespoke luxury villas crafted for discerning families and lifestyles.', icon: Castle },
 ]
 
 export const whyChooseUs: WhyChoose[] = [
-  { title: 'Government Approved', description: 'All projects are RERA registered with clear titles and complete approvals.', icon: ShieldCheck },
-  { title: 'Experienced Team', description: 'Two decades of expertise across residential and commercial construction.', icon: Users },
-  { title: 'Premium Quality', description: 'Grade-A materials and rigorous quality checks at every stage.', icon: Award },
-  { title: 'Transparent Pricing', description: 'No hidden costs. Clear, itemised pricing from day one.', icon: BadgeDollarSign },
-  { title: 'Timely Delivery', description: 'On-time possession, backed by strong project management.', icon: Clock },
-  { title: 'Customer Satisfaction', description: 'A 4.8/5 average rating from 1,200+ happy families.', icon: Smile },
+  {
+    title: 'Quality Assurance',
+    description: 'We maintain the highest standards of quality in every project through strict inspections, premium materials, and expert supervision, ensuring long-lasting value and customer satisfaction.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Sustainable Practices',
+    description: 'We integrate environmentally responsible practices and energy-efficient solutions into every development, creating sustainable spaces for future generations.',
+    icon: Users,
+  },
+  {
+    title: 'Innovative Designs',
+    description: 'Our projects feature modern architecture, smart planning, and functional layouts that combine aesthetics with practical living and business requirements.',
+    icon: Award,
+  },
+  {
+    title: 'Client Commitment',
+    description: 'We prioritize transparency, personalized service, and continuous support, ensuring every client enjoys a smooth and trustworthy real estate experience.',
+    icon: BadgeDollarSign,
+  },
 ]
 
 export const amenities: Amenity[] = [
@@ -605,12 +619,9 @@ export const galleryImages = [
 ]
 
 export const testimonials: Testimonial[] = [
-  { name: 'Suresh & Lakshmi', role: 'Homeowners', location: 'Serene Luxury Villas', rating: 5, text: 'From booking to handover, the team kept every promise. The quality of construction and finishes exceeded our expectations. We finally have our dream home.' },
-  { name: 'Arjun Patel', role: 'Investor', location: 'Meridian Business Plaza', rating: 5, text: 'I invested in two office units at Meridian. The location, build quality and leasing support have made it a fantastic decision. Highly professional team.' },
-  { name: 'The Rao Family', role: 'Homeowners', location: 'Palm Grove Villas', rating: 5, text: 'The resort-style amenities and the attention to detail in our villa are remarkable. The clubhouse and pool feel like a permanent holiday. Truly premium living.' },
-  { name: 'Divya Krishnan', role: 'First-time Buyer', location: 'Skyline Park Residences', rating: 4, text: 'As a first-time buyer I had many questions. The sales team was patient and transparent throughout. Construction updates every month keep me confident and excited.' },
-  { name: 'Manish Gupta', role: 'Business Owner', location: 'Meridian Business Plaza', rating: 5, text: 'We moved our headquarters to Meridian. The building management is top-notch and the space reflects the professionalism of our brand. Couldn\'t be happier.' },
-  { name: 'Sneha & Family', role: 'Homeowners', location: 'Serene Luxury Villas', rating: 5, text: 'The smart-home features and the community feel are wonderful. Our kids have a safe, beautiful place to grow up. Destiny Buildwell delivered what they showed us.' },
+  { name: 'Priya & Kunal Joshi', role: 'Homeowners', location: 'Vrindavan', rating: 5, text: 'Choosing Destiny Buildwell was the best decision we made while searching for our dream home. The team was supportive, transparent, and delivered exactly what they promised.' },
+  { name: 'Anjali Mehta', role: 'Investor', location: 'Delhi', rating: 5, text: 'We invested in a property in Vrindavan, and the entire experience was smooth and trustworthy. Highly recommended for first-time buyers.' },
+  { name: 'Vikram Sinha', role: 'Homeowner', location: 'Noida Extension', rating: 5, text: 'Destiny Buildwell doesn\'t just build properties—they build confidence. We loved how timely and professional the entire process was.' },
 ]
 
 export const blogPosts: BlogPost[] = [

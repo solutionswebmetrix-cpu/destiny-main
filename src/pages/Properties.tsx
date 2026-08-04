@@ -7,33 +7,80 @@ import { properties, type PropertyType } from '../data'
 
 const types: ('All' | PropertyType)[] = ['All', 'Villa', 'Apartment', 'Commercial', 'Plot']
 const budgets = ['Any', '₹50L - ₹1Cr', '₹1Cr - ₹2Cr', '₹2Cr & Above']
-const locations = ['All Locations', 'Whitefield', 'Hebbal', 'Marathahalli', 'Sarjapur Road', 'Devanahalli', 'Yelahanka']
+const locations = ['All Locations', 'Whitefield', 'Hebbal', 'Marathahalli', 'Sarjapur Road', 'Devanahalli', 'Yelahanka', 'Vrindavan']
+
+const isPropertyType = (value: string | null): value is 'All' | PropertyType =>
+  value === 'All' || value === 'Villa' || value === 'Apartment' || value === 'Commercial' || value === 'Plot'
+
+const parsePriceToLakhs = (price: string) => {
+  const lower = price.toLowerCase()
+  const croreMatch = lower.match(/([\d.]+)\s*cr/)
+  if (croreMatch) return parseFloat(croreMatch[1]) * 100
+
+  const lakhMatch = lower.match(/([\d.]+)\s*l/)
+  if (lakhMatch) return parseFloat(lakhMatch[1])
+
+  return 0
+}
+
+const matchesBudget = (price: string, selectedBudget: string) => {
+  const value = parsePriceToLakhs(price)
+
+  switch (selectedBudget) {
+    case '₹50L - ₹1Cr':
+      return value <= 100
+    case '₹1Cr - ₹2Cr':
+      return value > 100 && value <= 200
+    case '₹2Cr & Above':
+      return value > 200
+    default:
+      return true
+  }
+}
 
 export default function Properties() {
   const [params, setParams] = useSearchParams()
-  const [type, setType] = useState<'All' | PropertyType>((params.get('type') as PropertyType) || 'All')
-  const [budget, setBudget] = useState('Any')
-  const [location, setLocation] = useState('All Locations')
+  const [type, setType] = useState<'All' | PropertyType>(() => {
+    const value = params.get('type')
+    return isPropertyType(value) ? value : 'All'
+  })
+  const [budget, setBudget] = useState(() => {
+    const value = params.get('budget')
+    return value && budgets.includes(value) ? value : 'Any'
+  })
+  const [location, setLocation] = useState(() => {
+    const value = params.get('location')
+    return value && locations.includes(value) ? value : 'All Locations'
+  })
   const [query, setQuery] = useState('')
 
   useEffect(() => {
-    const t = params.get('type') as PropertyType | null
-    if (t) setType(t)
+    const typeValue = params.get('type')
+    setType(isPropertyType(typeValue) ? typeValue : 'All')
+
+    const locationValue = params.get('location')
+    setLocation(locationValue && locations.includes(locationValue) ? locationValue : 'All Locations')
+
+    const budgetValue = params.get('budget')
+    setBudget(budgetValue && budgets.includes(budgetValue) ? budgetValue : 'Any')
   }, [params])
 
   const filtered = useMemo(() => {
     return properties.filter((p) => {
       if (type !== 'All' && p.type !== type) return false
       if (location !== 'All Locations' && !p.location.includes(location)) return false
+      if (budget !== 'Any' && !matchesBudget(p.price, budget)) return false
       if (query && !p.title.toLowerCase().includes(query.toLowerCase()) && !p.location.toLowerCase().includes(query.toLowerCase())) return false
       return true
     })
-  }, [type, location, query])
+  }, [type, location, budget, query])
 
-  const setTypeParam = (t: 'All' | PropertyType) => {
-    setType(t)
-    if (t === 'All') setParams({})
-    else setParams({ type: t })
+  const updateParams = (nextType = type, nextLocation = location, nextBudget = budget) => {
+    const nextParams = new URLSearchParams()
+    if (nextType !== 'All') nextParams.set('type', nextType)
+    if (nextLocation !== 'All Locations') nextParams.set('location', nextLocation)
+    if (nextBudget !== 'Any') nextParams.set('budget', nextBudget)
+    setParams(nextParams)
   }
 
   return (
@@ -46,19 +93,31 @@ export default function Properties() {
             <div className="card" style={{ padding: '22px 24px', marginBottom: 36, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, alignItems: 'end' }}>
               <div>
                 <label style={labelStyle}><SlidersHorizontal size={13} /> Property Type</label>
-                <select value={type} onChange={(e) => setTypeParam(e.target.value as 'All' | PropertyType)} style={selectStyle}>
+                <select value={type} onChange={(e) => {
+                  const nextType = e.target.value as 'All' | PropertyType
+                  setType(nextType)
+                  updateParams(nextType, location, budget)
+                }} style={selectStyle}>
                   {types.map((t) => <option key={t} value={t}>{t === 'All' ? 'All Types' : t}</option>)}
                 </select>
               </div>
               <div>
                 <label style={labelStyle}><MapPin size={13} /> Location</label>
-                <select value={location} onChange={(e) => setLocation(e.target.value)} style={selectStyle}>
+                <select value={location} onChange={(e) => {
+                  const nextLocation = e.target.value
+                  setLocation(nextLocation)
+                  updateParams(type, nextLocation, budget)
+                }} style={selectStyle}>
                   {locations.map((l) => <option key={l} value={l}>{l}</option>)}
                 </select>
               </div>
               <div>
                 <label style={labelStyle}>Budget</label>
-                <select value={budget} onChange={(e) => setBudget(e.target.value)} style={selectStyle}>
+                <select value={budget} onChange={(e) => {
+                  const nextBudget = e.target.value
+                  setBudget(nextBudget)
+                  updateParams(type, location, nextBudget)
+                }} style={selectStyle}>
                   {budgets.map((b) => <option key={b} value={b}>{b}</option>)}
                 </select>
               </div>
@@ -104,7 +163,13 @@ export default function Properties() {
           {filtered.length === 0 && (
             <div style={{ textAlign: 'center', padding: '60px 20px' }}>
               <p className="muted" style={{ fontSize: '1rem', marginBottom: 16 }}>No properties match your filters.</p>
-              <button className="btn btn-outline" onClick={() => { setType('All'); setLocation('All Locations'); setQuery(''); setParams({}) }}>Clear Filters</button>
+              <button className="btn btn-outline" onClick={() => {
+                setType('All')
+                setLocation('All Locations')
+                setBudget('Any')
+                setQuery('')
+                setParams(new URLSearchParams())
+              }}>Clear Filters</button>
             </div>
           )}
         </div>

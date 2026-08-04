@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Search, MapPin, Home, Building2, Castle, LandPlot, ArrowRight } from 'lucide-react'
 import { heroSlides } from '../data'
@@ -9,7 +9,21 @@ const locations = ['All Locations', 'Whitefield', 'Hebbal', 'Marathahalli', 'Sar
 
 export default function Hero() {
   const [search, setSearch] = useState({ type: 'All', location: 'All Locations', budget: '' })
+  const navigate = useNavigate()
   const banner = heroSlides[0]
+
+  const handleSearch = () => {
+    const params = new URLSearchParams()
+
+    if (search.type !== 'All') params.set('type', search.type)
+    if (search.location !== 'All Locations') params.set('location', search.location)
+    if (search.budget) params.set('budget', search.budget)
+
+    navigate({
+      pathname: '/properties',
+      search: params.toString() ? `?${params.toString()}` : '',
+    })
+  }
 
   return (
     <section id="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
@@ -61,18 +75,18 @@ export default function Hero() {
         >
           <div>
             <label style={{ fontSize: '0.74rem', fontWeight: 600, color: 'var(--color-secondary)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
-              <Home size={13} style={{ display: 'inline', marginRight: 4 }} />Property Type
-            </label>
-            <select value={search.type} onChange={(e) => setSearch({ ...search, type: e.target.value })} style={selectStyle}>
-              {propertyTypes.map((t) => <option key={t} value={t}>{t}</option>)}
-            </select>
-          </div>
-          <div>
-            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: 'var(--color-secondary)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
               <MapPin size={13} style={{ display: 'inline', marginRight: 4 }} />Location
             </label>
             <select value={search.location} onChange={(e) => setSearch({ ...search, location: e.target.value })} style={selectStyle}>
               {locations.map((l) => <option key={l} value={l}>{l}</option>)}
+            </select>
+          </div>
+          <div>
+            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: 'var(--color-secondary)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
+              <Home size={13} style={{ display: 'inline', marginRight: 4 }} />Property Type
+            </label>
+            <select value={search.type} onChange={(e) => setSearch({ ...search, type: e.target.value })} style={selectStyle}>
+              {propertyTypes.map((t) => <option key={t} value={t}>{t}</option>)}
             </select>
           </div>
           <div>
@@ -86,9 +100,9 @@ export default function Hero() {
               <option value="200+">₹2Cr & Above</option>
             </select>
           </div>
-          <Link to="/properties" className="btn btn-primary" style={{ height: 48, gap: 8 }}>
+          <button type="button" className="btn btn-primary" onClick={handleSearch} style={{ height: 48, gap: 8 }}>
             <Search size={17} /> Search
-          </Link>
+          </button>
         </motion.div>
 
         {/* Quick type chips */}

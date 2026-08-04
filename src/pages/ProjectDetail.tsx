@@ -131,8 +131,8 @@ export default function ProjectDetail() {
                   <ContactForm variant="tinted" subject={project.name} />
                   <div style={{ marginTop: 22, paddingTop: 22, borderTop: '1px solid var(--color-border)' }}>
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: 8 }}>Or contact us directly</div>
-                    <a href="tel:+918012345678" style={{ display: 'block', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-primary)', marginBottom: 4 }}>+91 80 1234 5678</a>
-                    <a href="mailto:hello@destinybuildwell.com" style={{ fontSize: '0.86rem', color: 'var(--color-secondary)' }}>hello@destinybuildwell.com</a>
+                    <a href="tel:+919891128882" style={{ display: 'block', fontSize: '0.92rem', fontWeight: 600, color: 'var(--color-primary)', marginBottom: 4 }}>+91 9891128882</a>
+                    <a href="mailto:destinybuildwell@gmail.com" style={{ fontSize: '0.86rem', color: 'var(--color-secondary)' }}>destinybuildwell@gmail.com</a>
                   </div>
                 </div>
               </Reveal>
