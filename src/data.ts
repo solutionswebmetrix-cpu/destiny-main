@@ -17,9 +17,7 @@ import teamAman from './assets/id card/Aman.jpeg'
 import teamAnkit from './assets/id card/Ankit.jpeg'
 import teamDigvijay from './assets/id card/DigVijay.jpeg'
 import teamNikhil from './assets/id card/nikhil.jpeg'
-import teamNitesh from './assets/id card/Director.jpeg'
-import teamReshma from './assets/id card/Varun.jpeg'
-import teamSneha from './assets/id card/Director.jpeg'
+import teamVarun from './assets/id card/Varun.jpeg'
 import teamVinay from './assets/id card/Vinay.jpeg'
 
 import galleryAerialView from './assets/gallery/Aerial View.png'
@@ -283,7 +281,7 @@ const blogSvg = (label: string) =>
   )
 
 export const heroSlides = [
-  { image: heroBanner, title: 'Building Destinies, Shaping Skylines', subtitle: '' },
+  { image: heroBanner, title: 'Building Future, Shaping Destinies', subtitle: '' },
   { image: heroResidential, title: 'Luxury Villas & Residences', subtitle: 'Where architecture meets elegance and every detail is intentional.' },
   { image: heroCommercial, title: 'Commercial Landmarks', subtitle: 'Future-ready workspaces designed for ambitious businesses.' },
 ]
@@ -593,14 +591,13 @@ export const projects: Project[] = [
 
 export const team: TeamMember[] = [
   { name: 'Aditya Bhardwaj', role: 'Founder & Managing Director', image: teamDirector, bio: '' },
-  { name: 'Nitesh Kumar', role: 'Executive Director', image: teamNitesh, bio: '' },
+  { name: 'Bijay Agarwal', role: 'Legal Associate & Legal Partner', image: '', bio: '' },
+  { name: 'Nikhil Thakrani', role: 'Sales Head & Manager', image: teamNikhil, bio: '' },
   { name: 'Aman Pandey', role: 'Senior Project Lead', image: teamAman, bio: '' },
   { name: 'Vinay Kumar', role: 'Operation Head', image: teamVinay, bio: '' },
-  { name: 'Sneha Mishra', role: 'Sales Consultant', image: teamSneha, bio: '' },
   { name: 'Ankit Tomar', role: 'Sales Executive', image: teamAnkit, bio: '' },
   { name: 'Digvijay Singh', role: 'Business Development Lead', image: teamDigvijay, bio: '' },
-  { name: 'Reshma Rajpoot', role: 'Sales Executive', image: teamReshma, bio: '' },
-  { name: 'Nikhil Thakrani', role: 'Manager', image: teamNikhil, bio: '' },
+  { name: 'Varun Panday', role: 'Sales Executive', image: teamVarun, bio: '' },
 ]
 
 export const galleryImages = [

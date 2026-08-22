@@ -7,6 +7,7 @@ import WhatsAppFloat from './components/WhatsAppFloat'
 
 const Home = lazy(() => import('./pages/Home'))
 const AboutUs = lazy(() => import('./pages/AboutUs'))
+const OurTeam = lazy(() => import('./pages/OurTeam'))
 const Properties = lazy(() => import('./pages/Properties'))
 const PropertyDetail = lazy(() => import('./pages/PropertyDetail'))
 const Projects = lazy(() => import('./pages/Projects'))
@@ -33,6 +34,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/our-team" element={<OurTeam />} />
             <Route path="/properties" element={<Properties />} />
             <Route path="/properties/:id" element={<PropertyDetail />} />
             <Route path="/projects" element={<Projects />} />

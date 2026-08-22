@@ -8,10 +8,10 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="section">
+    <section id="faq" className="section faq-section">
       <div className="container-wide" style={{ maxWidth: 820 }}>
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+          <div className="faq-heading" style={{ textAlign: 'center' }}>
             <span className="eyebrow">FAQ</span>
             <h2 className="section-title">Questions, Answered</h2>
             <div className="divider" />
@@ -21,14 +21,14 @@ export default function Faq() {
           </div>
         </Reveal>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+        <div className="faq-list" style={{ display: 'flex', flexDirection: 'column' }}>
           {faqs.map((f, i) => (
             <Reveal key={i} delay={i * 0.05}>
               <div className="card" style={{ overflow: 'hidden' }}>
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
                   style={{
-                    width: '100%', padding: '20px 24px', display: 'flex', justifyContent: 'space-between',
+                    width: '100%', padding: '16px 20px', display: 'flex', justifyContent: 'space-between',
                     alignItems: 'center', textAlign: 'left', background: 'transparent',
                   }}
                 >
@@ -46,7 +46,7 @@ export default function Faq() {
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
                       style={{ overflow: 'hidden' }}
                     >
-                      <p className="muted" style={{ padding: '0 24px 22px', fontSize: '0.92rem', lineHeight: 1.8 }}>{f.answer}</p>
+                      <p className="muted" style={{ padding: '0 20px 16px', fontSize: '0.92rem', lineHeight: 1.8 }}>{f.answer}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

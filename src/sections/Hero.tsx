@@ -5,7 +5,7 @@ import { Search, MapPin, Home, Building2, Castle, LandPlot, ArrowRight } from 'l
 import { heroSlides } from '../data'
 
 const propertyTypes = ['All', 'Villa', 'Apartment', 'Commercial', 'Plot']
-const locations = ['All Locations', 'Whitefield', 'Hebbal', 'Marathahalli', 'Sarjapur Road', 'Devanahalli', 'Yelahanka']
+const locations = ['Noida']
 
 export default function Hero() {
   const [search, setSearch] = useState({ type: 'All', location: 'All Locations', budget: '' })

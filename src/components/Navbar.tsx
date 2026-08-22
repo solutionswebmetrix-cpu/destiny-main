@@ -6,7 +6,10 @@ import logo from '../assets/logo/logo.png'
 
 const navLinks = [
   { label: 'Home', to: '/' },
-  { label: 'About Us', to: '/about' },
+  { label: 'About ', to: '/about', children: [
+    { label: 'About Us', to: '/about' },
+    { label: 'Our Team', to: '/our-team' },
+  ] },
   { label: 'Properties', to: '/properties', children: [
     { label: 'Luxury Villas', to: '/properties?type=Villa' },
     { label: 'Apartments', to: '/properties?type=Apartment' },
@@ -25,6 +28,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [dropdown, setDropdown] = useState<string | null>(null)
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -34,7 +38,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => { setOpen(false); setDropdown(null) }, [location])
+  useEffect(() => { setOpen(false); setDropdown(null); setMobileDropdown(null) }, [location])
 
   const handleHash = (to: string) => {
     if (to.includes('#')) {
@@ -92,14 +96,17 @@ export default function Navbar() {
               <NavLink
                 to={link.to.includes('#') ? link.to.split('#')[0] : link.to}
                 onClick={(e) => { if (link.to.includes('#')) { e.preventDefault(); handleHash(link.to) } }}
-                style={({ isActive }) => ({
+                style={({ isActive }) => {
+                  const isAboutActive = link.label === 'About Us' && (location.pathname === '/about' || location.pathname === '/our-team')
+                  return ({
                   display: 'flex', alignItems: 'center', gap: 4,
                   padding: '8px 14px', fontSize: '0.9rem', fontWeight: 500,
-                  color: scrolled ? (isActive ? '#fff' : 'rgba(255,255,255,0.92)') : '#fff',
-                  borderBottom: isActive ? '2px solid #fff' : '2px solid transparent',
-                  textShadow: isActive ? '0 1px 2px rgba(0,0,0,0.18)' : 'none',
+                  color: scrolled ? (isActive || isAboutActive ? '#fff' : 'rgba(255,255,255,0.92)') : '#fff',
+                  borderBottom: isActive || isAboutActive ? '2px solid #fff' : '2px solid transparent',
+                  textShadow: isActive || isAboutActive ? '0 1px 2px rgba(0,0,0,0.18)' : 'none',
                   transition: 'all 0.3s ease',
                 })}
+                }
               >
                 {link.label}
                 {link.children && <ChevronDown size={14} style={{ opacity: 0.7 }} />}
@@ -163,12 +170,27 @@ export default function Navbar() {
             <ul style={{ padding: '16px 24px', listStyle: 'none' }}>
               {navLinks.map((link) => (
                 <li key={link.label} style={{ borderBottom: '1px solid var(--color-border)' }}>
-                  <Link
-                    to={link.to.includes('#') ? link.to.split('#')[0] : link.to}
-                    onClick={(e) => { if (link.to.includes('#')) { e.preventDefault(); handleHash(link.to); setOpen(false) } else setOpen(false) }}
-                    style={{ display: 'block', padding: '14px 0', color: 'var(--color-dark-text)', fontWeight: 500 }}
-                  >{link.label}</Link>
-                  {link.children && (
+                  {link.children && link.label === 'About Us' ? (
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <Link to={link.to} onClick={() => setOpen(false)} style={{ display: 'block', padding: '14px 0', color: 'var(--color-dark-text)', fontWeight: 500 }}>{link.label}</Link>
+                      <button
+                        type="button"
+                        aria-label="Toggle About Us submenu"
+                        aria-expanded={mobileDropdown === link.label}
+                        onClick={() => setMobileDropdown(mobileDropdown === link.label ? null : link.label)}
+                        style={{ padding: 10, color: 'var(--color-primary)' }}
+                      >
+                        <ChevronDown size={17} style={{ transform: mobileDropdown === link.label ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s ease' }} />
+                      </button>
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.to.includes('#') ? link.to.split('#')[0] : link.to}
+                      onClick={(e) => { if (link.to.includes('#')) { e.preventDefault(); handleHash(link.to); setOpen(false) } else setOpen(false) }}
+                      style={{ display: 'block', padding: '14px 0', color: 'var(--color-dark-text)', fontWeight: 500 }}
+                    >{link.label}</Link>
+                  )}
+                  {link.children && (!('label' in link) || link.label !== 'About Us' || mobileDropdown === link.label) && (
                     <div style={{ paddingBottom: 8 }}>
                       {link.children.map((c) => (
                         <Link key={c.label} to={c.to} onClick={() => setOpen(false)} style={{
