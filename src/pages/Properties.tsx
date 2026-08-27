@@ -85,7 +85,7 @@ export default function Properties() {
 
   return (
     <>
-      <PageHero title="Our Properties" subtitle="Discover premium villas, apartments, commercial spaces and plots across Bengaluru." breadcrumb="Properties" />
+      <PageHero title="Our Properties" subtitle="Discover premium villas, apartments, commercial spaces and plots across Noida." breadcrumb="Properties" />
       <section className="section">
         <div className="container-wide">
           {/* Filter bar */}

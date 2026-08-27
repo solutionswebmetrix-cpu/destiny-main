@@ -17,8 +17,8 @@ const navLinks = [
     { label: 'Plots', to: '/properties?type=Plot' },
   ]},
   { label: 'Projects', to: '/#projects', children: [
-    { label: 'Ongoing', to: '/projects?category=Ongoing' },
-    { label: 'Completed', to: '/projects?category=Completed' },
+    { label: 'Under construction ', to: '/projects?category=Under construction ' },
+    { label: 'Ready to move ', to: '/projects?category=Ready to move ' },
     { label: 'Upcoming', to: '/projects?category=Upcoming' },
   ]},
   { label: 'Contact', to: '/contact' },

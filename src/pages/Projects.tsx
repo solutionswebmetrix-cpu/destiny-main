@@ -27,7 +27,7 @@ export default function Projects() {
 
   return (
     <>
-      <PageHero title="Our Projects" subtitle="Ongoing, completed and upcoming developments that shape Bengaluru's skyline." breadcrumb="Projects" />
+      <PageHero title="Our Projects" subtitle="Underconstruction , Ready to move  and upcoming developments that shape Noida's skyline." breadcrumb="Projects" />
       <section className="section">
         <div className="container-wide">
           <Reveal>
