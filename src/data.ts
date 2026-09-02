@@ -527,11 +527,7 @@ export const projects: Project[] = [
       { label: 'Units', value: '48 (All Occupied)' },
       { label: 'Handed Over', value: '2023' },
     ],
-<<<<<<< HEAD
     status: 'Ready To Move - Handed Over 2023',
-=======
-    status: 'Completed - Handed Over 2023',
->>>>>>> 8a1f9eb9068189e8121be57b9b0b6f274e1ce980
     brochure: brochureFiles[8],
     gallery: [propertySvg('Serene - Exterior'), propertySvg('Serene - Interior'), gallerySvg('Serene Living')],
   },
@@ -550,11 +546,7 @@ export const projects: Project[] = [
       { label: 'Units', value: '36' },
       { label: 'Handed Over', value: '2022' },
     ],
-<<<<<<< HEAD
     status: 'Ready To Move - Handed Over 2022',
-=======
-    status: 'Completed - Handed Over 2022',
->>>>>>> 8a1f9eb9068189e8121be57b9b0b6f274e1ce980
     brochure: brochureFiles[9],
     gallery: [propertySvg('Palm Grove - Exterior'), gallerySvg('Palm Grove')],
   },
