@@ -8,11 +8,19 @@ export default function Testimonials() {
       <div className="container-wide">
         <Reveal>
           <div className="testimonials-heading">
+<<<<<<< HEAD
             <span className="eyebrow">Client Stories</span>
             <h2 className="section-title">Happy Clients</h2>
             <div className="divider" />
             <p className="section-subtitle">
               Real stories from homeowners and investors who trusted Destiny Buildwell with their dreams.
+=======
+            <span className="eyebrow">Client Testimonials</span>
+            <h2 className="section-title">What Our Families Say</h2>
+            <div className="divider" />
+            <p className="section-subtitle">
+              Real stories from real homeowners and investors who trusted Destiny Buildwell with their dreams.
+>>>>>>> 8a1f9eb9068189e8121be57b9b0b6f274e1ce980
             </p>
           </div>
         </Reveal>

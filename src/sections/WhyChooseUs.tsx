@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 import { motion } from 'framer-motion'
+=======
+>>>>>>> 8a1f9eb9068189e8121be57b9b0b6f274e1ce980
 import Reveal from '../components/Reveal'
 import { whyChooseUs } from '../data'
 
@@ -7,6 +10,7 @@ export default function WhyChooseUs() {
     <section id="why" className="section why-section">
       <div className="container-wide">
         <Reveal>
+<<<<<<< HEAD
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
             <span className="eyebrow">Our Difference</span>
             <h2 className="section-title why-title">What Makes Us Better</h2>
@@ -65,10 +69,23 @@ export default function WhyChooseUs() {
                   {w.description}
                 </p>
               </motion.div>
+=======
+          <h2 className="section-title why-title">Why Choose Us</h2>
+        </Reveal>
+
+        <div className="why-grid">
+          {whyChooseUs.map((w, i) => (
+            <Reveal key={w.title} delay={i * 0.07}>
+              <div className="why-item">
+                <div className="why-icon"><w.icon size={22} /></div>
+                <h3>{w.title}</h3>
+              </div>
+>>>>>>> 8a1f9eb9068189e8121be57b9b0b6f274e1ce980
             </Reveal>
           ))}
         </div>
       </div>
+<<<<<<< HEAD
 
       {/* Responsive Styles */}
       <style>{`
@@ -93,6 +110,8 @@ export default function WhyChooseUs() {
           }
         }
       `}</style>
+=======
+>>>>>>> 8a1f9eb9068189e8121be57b9b0b6f274e1ce980
     </section>
   )
 }
