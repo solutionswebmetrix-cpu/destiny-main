@@ -54,7 +54,7 @@ export default function Partners() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [itemsPerView, setItemsPerView] = useState(5)
   const carouselRef = useRef<HTMLDivElement>(null)
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null)
+  const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   // Update items per view based on screen size
   useEffect(() => {
