@@ -38,22 +38,32 @@ export default function Founder() {
           {/* Right: Content */}
           <Reveal delay={0.1}>
             <div>
-              <span className="eyebrow">Founder's Message</span>
+              <span className="eyebrow">FOUNDER'S MESSAGE</span>
               <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', marginBottom: 20, color: 'var(--heading)' }}>
-                {founder.name}
+                12+ Years of Trust in Real Estate
               </h2>
               <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: 'var(--text)' }}>
-                At Destiny Buildwell, we believe that every home represents more than just a structure—it embodies dreams, aspirations, and the foundation of a family's future. Since our inception, we've been committed to building not just properties, but lasting legacies.
+                For over 12 years, Destiny Buildwell has been a trusted name in the real estate industry, helping customers find the right property opportunities with confidence and peace of mind.
               </p>
               <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: 'var(--text)' }}>
-                Our philosophy is simple: transparency, quality, and unwavering commitment to our clients. We understand that choosing a property or investing in a project is one of life's most significant decisions. That's why every project we undertake is executed with meticulous attention to detail, using premium materials, and guided by a team of experienced professionals.
+                Our journey has been built on trust, transparency, professional guidance, and strong customer relationships. With more than a decade of experience, we understand the importance of making the right real estate decision—whether it is for investment, business, or securing a property for the future.
               </p>
               <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: 'var(--text)' }}>
-                We don't just complete construction timelines—we deliver peace of mind. From the moment you trust us with your investment, you become part of the Destiny Buildwell family. Your satisfaction, your trust, and your long-term success are the true measures of our achievement.
+                At Destiny Buildwell, we believe every home, office, or investment decision should be backed by clarity, confidence, and expert support. We are committed to helping clients move forward with trust, transparency, and lasting value.
               </p>
-              <p style={{ fontSize: '1rem', lineHeight: 1.8, color: 'var(--text)' }}>
-                Together, let's build not just homes, but destinies.
-              </p>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12, marginTop: 18 }}>
+                {['One of the Trusted Real Estate Companies', 'Professional Guidance', 'Own Office', 'Customer-Focused Real Estate Solutions'].map((item) => (
+                  <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(31,93,134,0.04)', border: '1px solid var(--color-border)', borderRadius: 12, padding: '10px 12px', fontSize: '0.82rem', color: 'var(--color-dark-text)', fontWeight: 600 }}>
+                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--color-primary)', display: 'block' }} />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ marginTop: 24, paddingTop: 18, borderTop: '1px solid var(--color-border)' }}>
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--heading)', marginBottom: 4 }}>— Aditya Bhardwaj</div>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Founder, Destiny Buildwell</div>
+              </div>
             </div>
           </Reveal>
         </div>

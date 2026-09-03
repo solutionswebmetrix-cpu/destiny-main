@@ -44,7 +44,7 @@ export default function OurPresence() {
             <h2 className="section-title">Our Presence</h2>
             <div className="divider" />
             <p className="section-subtitle">
-              Destiny Buildwell serves premium real estate markets across key NCR locations, with a presence in 4 strategic cities.
+              Destiny Buildwell serves premium real estate markets across key NCR locations with a strong presence in Noida, Greater Noida, South Delhi and Faridabad. JP Expressway is a featured project by Destiny Buildwell.
             </p>
           </div>
         </Reveal>

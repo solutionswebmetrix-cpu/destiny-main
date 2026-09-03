@@ -17,7 +17,7 @@ export default function Projects() {
         <Reveal>
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
             <span className="eyebrow">Our Projects</span>
-            <h2 className="section-title">Building Landmarks Across Bengaluru</h2>
+            <h2 className="section-title">Building Landmarks Across Noida, Greater Noida, South Delhi & Faridabad</h2>
             <div className="divider" />
             <p className="section-subtitle" style={{ marginBottom: 32 }}>
               Explore our ongoing, completed and upcoming developments - each a testament to our commitment

@@ -56,9 +56,7 @@ export default function About() {
             Crafting Spaces Where Destinies Are Built
           </h2>
           <p className="muted" style={{ marginBottom: 18, fontSize: '1rem' }}>
-            Founded in 2003 by Mr. Rajesh Menon, Destiny Buildwell has grown into one of Bengaluru's most
-            trusted names in premium residential and commercial construction. Our philosophy is simple -
-            build with integrity, deliver on time, and never compromise on quality.
+            For over 12 years, Destiny Buildwell has been a trusted name in the real estate industry, helping customers find the right property opportunities with confidence and peace of mind.
           </p>
           <p className="muted" style={{ marginBottom: 28, fontSize: '1rem' }}>
             From luxury villas to landmark commercial towers, every project reflects our commitment to

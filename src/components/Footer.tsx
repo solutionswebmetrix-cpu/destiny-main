@@ -20,12 +20,12 @@ export default function Footer() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
               <img src={logo} alt="Destiny Buildwell logo" style={{ width: 42, height: 42, objectFit: 'contain' }} />
               <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem' }}>DESTINY</div>
-                <div style={{ fontSize: '0.62rem', letterSpacing: '0.28em', opacity: 0.85 }}>BUILDWELL</div>
+                <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem' }}>DESTINY BUILDWELL</div>
+                <div style={{ fontSize: '0.62rem', letterSpacing: '0.18em', opacity: 0.85 }}>12+ YEARS OF TRUST</div>
               </div>
             </div>
             <p style={{ fontSize: '0.88rem', opacity: 0.82, lineHeight: 1.7, marginBottom: 20 }}>
-              Building premium homes and commercial landmarks with trust, transparency and timeless design since 2003.
+              Destiny Buildwell — 12+ Years of Trust in Real Estate. JP Expressway is a featured project by Destiny Buildwell.
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
               <a href="https://www.facebook.com/people/Destiny-Buildwell/61573041865713/#" target="_blank" rel="noreferrer" aria-label="Destiny Buildwell Facebook" style={{

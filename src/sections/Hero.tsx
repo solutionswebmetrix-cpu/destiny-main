@@ -5,7 +5,7 @@ import { Search, MapPin, Home, Building2, Castle, LandPlot, ArrowRight } from 'l
 import { heroSlides } from '../data'
 
 const propertyTypes = ['All', 'Villa', 'Apartment', 'Commercial', 'Plot']
-const locations = ['Noida']
+const locations = ['All Locations', 'Noida', 'Greater Noida', 'South Delhi', 'Faridabad']
 
 export default function Hero() {
   const [search, setSearch] = useState({ type: 'All', location: 'All Locations', budget: '' })
@@ -49,7 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           style={{ maxWidth: 760, color: '#fff' }}
         >
-          <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.9)' }}>Premium Real Estate & Construction</span>
+          <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.9)' }}>Destiny Buildwell | Featured Project: JP Expressway</span>
           <h1 style={{ color: '#fff', fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)', lineHeight: 1.1, marginBottom: 22, textShadow: '0 2px 20px rgba(0,0,0,0.2)' }}>
             {banner.title}
           </h1>

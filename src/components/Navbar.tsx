@@ -16,7 +16,7 @@ const navLinks = [
     { label: 'Commercial', to: '/properties?type=Commercial' },
     { label: 'Plots', to: '/properties?type=Plot' },
   ]},
-  { label: 'Projects', to: '/#projects', children: [
+  { label: 'Projects', to: '/projects', children: [
     { label: 'Under construction ', to: '/projects?category=Under construction ' },
     { label: 'Ready to move ', to: '/projects?category=Ready to move ' },
     { label: 'Upcoming', to: '/projects?category=Upcoming' },
@@ -76,12 +76,7 @@ export default function Navbar() {
               fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem',
               color: scrolled ? '#fff' : '#fff',
               letterSpacing: '0.02em', transition: 'color 0.35s ease',
-            }}>DESTINY</div>
-            <div style={{
-              fontSize: '0.62rem', letterSpacing: '0.28em', fontWeight: 500,
-              color: scrolled ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.9)',
-              transition: 'color 0.35s ease',
-            }}>BUILDWELL</div>
+            }}>DESTINY BUILDWELL</div>
           </div>
         </Link>
 

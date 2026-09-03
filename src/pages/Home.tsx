@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Hero from '../sections/Hero'
 import Founder from '../sections/Founder'
+import CompanyStory from '../sections/CompanyStory'
 import OurPresence from '../sections/OurPresence'
 import ResidentialProjects from '../sections/ResidentialProjects'
 import CommercialProjects from '../sections/CommercialProjects'
@@ -24,6 +25,7 @@ export default function Home() {
     <>
       <Hero />
       <Founder />
+      <CompanyStory />
       <OurPresence />
       <ResidentialProjects />
       <CommercialProjects />

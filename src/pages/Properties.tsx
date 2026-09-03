@@ -7,7 +7,7 @@ import { properties, type PropertyType } from '../data'
 
 const types: ('All' | PropertyType)[] = ['All', 'Villa', 'Apartment', 'Commercial', 'Plot']
 const budgets = ['Any', '₹50L - ₹1Cr', '₹1Cr - ₹2Cr', '₹2Cr & Above']
-const locations = ['All Locations', 'Whitefield', 'Hebbal', 'Marathahalli', 'Sarjapur Road', 'Devanahalli', 'Yelahanka', 'Vrindavan']
+const locations = ['All Locations', 'Noida', 'Greater Noida', 'South Delhi', 'Faridabad']
 
 const isPropertyType = (value: string | null): value is 'All' | PropertyType =>
   value === 'All' || value === 'Villa' || value === 'Apartment' || value === 'Commercial' || value === 'Plot'
