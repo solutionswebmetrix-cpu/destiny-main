@@ -71,12 +71,13 @@ export default function Navbar() {
       <nav className="container-wide" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
         <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <img src={logo} alt="Destiny Buildwell logo" style={{ width: 100, height: 100, maxWidth: 100, maxHeight: 100, objectFit: 'contain' }} />
-          <div style={{ lineHeight: 1.1 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.1 }}>
             <div style={{
               fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem',
               color: scrolled ? '#fff' : '#fff',
               letterSpacing: '0.02em', transition: 'color 0.35s ease',
             }}>DESTINY BUILDWELL</div>
+            <span className="navbar-tagline">Destiny always finds its way</span>
           </div>
         </Link>
 
