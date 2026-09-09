@@ -18,12 +18,12 @@ export default function WhatsAppFloat() {
         width: 56, height: 56, borderRadius: '50%',
         background: 'var(--color-primary)', color: '#fff',
         display: 'grid', placeItems: 'center',
-        boxShadow: '0 8px 24px rgba(31,93,134,0.35)',
+        boxShadow: '0 8px 24px rgba(212,175,55,0.3)',
       }}
     >
       <MessageCircle size={26} />
       <motion.span
-        style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '2px solid var(--color-light-blue)' }}
+        style={{ position: 'absolute', inset: 0, borderRadius: '50%', border: '2px solid var(--color-accent-gold)' }}
         animate={{ scale: [1, 1.4], opacity: [0.6, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       />

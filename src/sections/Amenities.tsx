@@ -31,7 +31,7 @@ export default function Amenities() {
                   transition={{ duration: 0.3 }}
                   style={{
                     width: 72, height: 72, borderRadius: '50%', margin: '0 auto 18px',
-                    background: 'linear-gradient(135deg, var(--color-primary), var(--color-light-blue))',
+                    background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))',
                     display: 'grid', placeItems: 'center', color: '#fff',
                   }}
                 >

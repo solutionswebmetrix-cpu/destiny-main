@@ -53,7 +53,7 @@ export default function Services() {
                   transition={{ duration: 0.3 }}
                   style={{
                     width: 64, height: 64, borderRadius: 'var(--radius-md)',
-                    background: 'linear-gradient(135deg, var(--color-primary), var(--color-light-blue))',
+                    background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))',
                     display: 'grid', placeItems: 'center', color: '#fff', marginBottom: 22, overflow: 'hidden',
                   }}
                 >

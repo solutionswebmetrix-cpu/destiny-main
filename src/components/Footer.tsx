@@ -13,7 +13,7 @@ export default function Footer() {
   }
 
   return (
-    <footer style={{ background: 'var(--color-primary)', color: '#fff', paddingTop: 72 }}>
+    <footer style={{ background: '#0a0a0a', color: '#fff', paddingTop: 72 }}>
       <div className="container-wide">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, paddingBottom: 56 }}>
           <div>
@@ -21,29 +21,29 @@ export default function Footer() {
               <img src={logo} alt="Destiny Buildwell logo" style={{ width: 42, height: 42, objectFit: 'contain' }} />
               <div>
                 <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem' }}>DESTINY BUILDWELL</div>
-                <div style={{ fontSize: '0.62rem', letterSpacing: '0.18em', opacity: 0.85 }}>12+ YEARS OF TRUST</div>
+                <div style={{ fontSize: '0.62rem', letterSpacing: '0.18em', opacity: 0.85 }}>16+ YEARS OF TRUST</div>
               </div>
             </div>
             <p style={{ fontSize: '0.88rem', opacity: 0.82, lineHeight: 1.7, marginBottom: 20 }}>
-              Destiny Buildwell — 12+ Years of Trust in Real Estate. JP Expressway is a featured project by Destiny Buildwell.
+              Destiny Buildwell — 16+ Years of Trust in Real Estate. JAYPEE is a featured project by Destiny Buildwell.
             </p>
             <div style={{ display: 'flex', gap: 10 }}>
               <a href="https://www.facebook.com/people/Destiny-Buildwell/61573041865713/#" target="_blank" rel="noreferrer" aria-label="Destiny Buildwell Facebook" style={{
                 width: 38, height: 38, borderRadius: '50%', display: 'grid', placeItems: 'center',
-                background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
+                background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)',
                 transition: 'all 0.3s ease', color: '#fff',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = 'var(--color-primary)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#fff' }}>
+              onMouseEnter={(e) => { e.currentTarget.style.background = '#d4af37'; e.currentTarget.style.color = '#111111' }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.12)'; e.currentTarget.style.color = '#fff' }}>
                 <Facebook size={16} />
               </a>
               <a href="https://www.instagram.com/destiny_buildwell/" target="_blank" rel="noreferrer" aria-label="Destiny Buildwell Instagram" style={{
                 width: 38, height: 38, borderRadius: '50%', display: 'grid', placeItems: 'center',
-                background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
+                background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)',
                 transition: 'all 0.3s ease', color: '#fff',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = 'var(--color-primary)' }}
-              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#fff' }}>
+              onMouseEnter={(e) => { e.currentTarget.style.background = '#d4af37'; e.currentTarget.style.color = '#111111' }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.12)'; e.currentTarget.style.color = '#fff' }}>
                 <Instagram size={16} />
               </a>
             </div>
@@ -100,7 +100,7 @@ export default function Footer() {
                 placeholder="Your email"
                 style={{ width: '100%', padding: '12px 48px 12px 16px', borderRadius: 999, border: '1px solid rgba(255,255,255,0.25)', background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: '0.85rem', outline: 'none' }}
               />
-              <button type="submit" aria-label="Subscribe" style={{ position: 'absolute', right: 6, top: '50%', transform: 'translateY(-50%)', width: 36, height: 36, borderRadius: '50%', background: '#fff', color: 'var(--color-primary)', display: 'grid', placeItems: 'center' }}>
+              <button type="submit" aria-label="Subscribe" style={{ position: 'absolute', right: 6, top: '50%', transform: 'translateY(-50%)', width: 36, height: 36, borderRadius: '50%', background: 'var(--color-primary)', color: '#0B0B0B', display: 'grid', placeItems: 'center' }}>
                 <Send size={15} />
               </button>
             </form>
@@ -108,7 +108,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', padding: '24px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+        <div style={{ borderTop: '1px solid rgba(212,175,55,0.2)', padding: '24px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
           <p style={{ fontSize: '0.82rem', opacity: 0.75 }}>© {new Date().getFullYear()} Destiny Buildwell. All rights reserved.</p>
           <div style={{ display: 'flex', gap: 20, fontSize: '0.82rem', opacity: 0.75 }}>
             <a href="#">Privacy Policy</a>

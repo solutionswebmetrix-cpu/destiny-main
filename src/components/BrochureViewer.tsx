@@ -37,7 +37,7 @@ export default function BrochureViewer({ brochure, title }: BrochureViewerProps)
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             style={{
-              position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(31,93,134,0.4)',
+              position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(0,0,0,0.72)',
               backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
             }}
             onClick={() => setOpen(false)}
@@ -47,7 +47,7 @@ export default function BrochureViewer({ brochure, title }: BrochureViewerProps)
               transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
               style={{
-                background: '#fff', borderRadius: 'var(--radius-lg)', width: '100%', maxWidth: 820,
+                background: '#151515', borderRadius: 'var(--radius-lg)', width: '100%', maxWidth: 820,
                 maxHeight: '90vh', display: 'flex', flexDirection: 'column', overflow: 'hidden',
                 boxShadow: 'var(--shadow-lg)',
               }}

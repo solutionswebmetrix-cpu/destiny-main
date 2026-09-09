@@ -123,7 +123,7 @@ export default function Properties() {
               </div>
               <div>
                 <label style={labelStyle}><Search size={13} /> Search</label>
-                <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Name or location" style={{ ...selectStyle, background: '#fff' }} />
+                <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Name or location" style={selectStyle} />
               </div>
             </div>
           </Reveal>
@@ -180,10 +180,10 @@ export default function Properties() {
 
 export function PageHero({ title, subtitle, breadcrumb }: { title: string; subtitle: string; breadcrumb: string }) {
   return (
-    <section style={{ position: 'relative', paddingTop: 120, paddingBottom: 64, background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))', overflow: 'hidden' }}>
+    <section style={{ position: 'relative', paddingTop: 120, paddingBottom: 64, background: '#0B0B0B', borderBottom: '1px solid rgba(212,175,55,.28)', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, opacity: 0.08, backgroundImage: 'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 1px, transparent 40px)' }} />
       <div className="container-wide" style={{ position: 'relative', textAlign: 'center', color: '#fff' }}>
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ color: '#fff', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: 12 }}>{title}</motion.h1>
+        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ color: '#D4AF37', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: 12 }}>{title}</motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} style={{ opacity: 0.92, maxWidth: 620, margin: '0 auto 18px', fontSize: '1.05rem' }}>{subtitle}</motion.p>
         <div style={{ fontSize: '0.84rem', opacity: 0.85 }}>
           <Link to="/" style={{ opacity: 0.8 }}>Home</Link> <span style={{ margin: '0 8px' }}>/</span> <span>{breadcrumb}</span>

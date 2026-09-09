@@ -3,18 +3,21 @@ import Reveal from '../components/Reveal'
 import { team } from '../data'
 
 export default function Founder() {
-  // Get founder image from team data
-  const founder = team.find(m => m.role.includes('Founder')) || team[0]
+  const founder = team.find((m) => m.role.includes('Founder')) || team[0]
 
   return (
-    <section id="founder" className="section" style={{ background: '#fff', paddingTop: 72, paddingBottom: 72 }}>
+    <section id="founder" className="section" style={{ background: '#080808', paddingTop: 72, paddingBottom: 72 }}>
       <div className="container-wide">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
-          {/* Left: Founder Image */}
+        <div className="founder-mobile-heading">
+          <span className="eyebrow">A MESSAGE FROM THE FOUNDER</span>
+          <h2>A Message from the Founder</h2>
+        </div>
+        <div className="founder-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 56, alignItems: 'center' }}>
           <Reveal delay={0}>
             <motion.div
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3 }}
+              className="founder-image"
               style={{
                 borderRadius: 'var(--radius-lg)',
                 overflow: 'hidden',
@@ -35,47 +38,103 @@ export default function Founder() {
             </motion.div>
           </Reveal>
 
-          {/* Right: Content */}
           <Reveal delay={0.1}>
-            <div>
-              <span className="eyebrow">FOUNDER'S MESSAGE</span>
-              <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', marginBottom: 20, color: 'var(--heading)' }}>
-                12+ Years of Trust in Real Estate
-              </h2>
-              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: 'var(--text)' }}>
-                For over 12 years, Destiny Buildwell has been a trusted name in the real estate industry, helping customers find the right property opportunities with confidence and peace of mind.
-              </p>
-              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: 'var(--text)' }}>
-                Our journey has been built on trust, transparency, professional guidance, and strong customer relationships. With more than a decade of experience, we understand the importance of making the right real estate decision—whether it is for investment, business, or securing a property for the future.
-              </p>
-              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: 'var(--text)' }}>
-                At Destiny Buildwell, we believe every home, office, or investment decision should be backed by clarity, confidence, and expert support. We are committed to helping clients move forward with trust, transparency, and lasting value.
-              </p>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12, marginTop: 18 }}>
-                {['One of the Trusted Real Estate Companies', 'Professional Guidance', 'Own Office', 'Customer-Focused Real Estate Solutions'].map((item) => (
-                  <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'rgba(31,93,134,0.04)', border: '1px solid var(--color-border)', borderRadius: 12, padding: '10px 12px', fontSize: '0.82rem', color: 'var(--color-dark-text)', fontWeight: 600 }}>
-                    <span style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--color-primary)', display: 'block' }} />
-                    {item}
-                  </div>
-                ))}
+            <div className="founder-copy">
+              <div className="founder-heading">
+                <span className="eyebrow">A MESSAGE FROM THE FOUNDER</span>
+                <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.6rem)', marginBottom: 20, color: 'var(--heading)' }}>
+                A Message from the Founder
+                </h2>
               </div>
+              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: '#F5F5F5' }}>
+                At Destiny Buildwell, we believe that finding your dream home should not mean compromising on your budget, expectations, or peace of mind.
+              </p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: '#F5F5F5' }}>
+                When I founded Destiny Buildwell in 2014, my vision was simple — to offer the best homes and real-estate investment solutions across different budgets, while always keeping our customers’ needs and interests first. Whether you are looking for your family home or a smart investment, we strive to help you make the right choice.
+              </p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: '#F5F5F5' }}>
+                For us, real estate is about more than just building properties. It is about understanding our customers, offering genuine value, and creating a trusted experience.
+              </p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: '#F5F5F5' }}>
+                Our commitment is to deliver best-in-class quality, services and transparency, while putting our customers first at every step.
+              </p>
+              <p style={{ fontSize: '1rem', lineHeight: 1.8, marginBottom: 18, color: '#8a6a12', fontWeight: 700 }}>
+                Your budget matters. Your needs matter. Your future matters.
+              </p>
 
-              <div style={{ marginTop: 24, paddingTop: 18, borderTop: '1px solid var(--color-border)' }}>
+              <div className="founder-signature" style={{ marginTop: 24, paddingTop: 18, borderTop: '1px solid var(--color-border)' }}>
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--heading)', marginBottom: 4 }}>— Aditya Bhardwaj</div>
-                <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Founder, Destiny Buildwell</div>
+                <div style={{ fontSize: '0.9rem', color: '#EAEAEA', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Founder &amp; Managing Director</div>
               </div>
             </div>
           </Reveal>
         </div>
       </div>
 
-      {/* Mobile responsive styles */}
       <style>{`
-        @media (max-width: 1024px) {
+        .founder-mobile-heading {
+          display: none;
+        }
+
+        @media (max-width: 767px) {
           #founder > .container-wide {
-            display: grid !important;
+            padding-left: 20px;
+            padding-right: 20px;
+            overflow-x: hidden;
+          }
+
+          .founder-mobile-heading {
+            display: block;
+            margin-bottom: 28px;
+            text-align: center;
+          }
+
+          .founder-mobile-heading .eyebrow {
+            font-size: clamp(1.125rem, 5vw, 1.375rem);
+            color: #D4AF37;
+          }
+
+          .founder-mobile-heading h2 {
+            max-width: 100%;
+            margin-top: 10px;
+            color: #D4AF37;
+            font-size: clamp(1.75rem, 8vw, 2.25rem);
+            line-height: 1.15;
+            overflow-wrap: anywhere;
+          }
+
+          .founder-layout {
             grid-template-columns: 1fr !important;
-            gap: 40px !important;
+            gap: 30px !important;
+            align-items: stretch !important;
+          }
+
+          .founder-image {
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+          }
+
+          .founder-copy {
+            width: 100%;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+          }
+
+          .founder-copy .founder-heading {
+            display: none;
+          }
+
+          .founder-copy > p {
+            order: 2;
+            width: 100%;
+          }
+
+          .founder-copy .founder-signature {
+            order: 1;
+            margin-top: 0 !important;
+            margin-bottom: 2px;
           }
         }
       `}</style>

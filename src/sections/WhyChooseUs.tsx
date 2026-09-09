@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
                   width: 60,
                   height: 60,
                   borderRadius: 'var(--radius-md)',
-                  background: 'linear-gradient(135deg, var(--color-primary), var(--color-light-blue))',
+                  background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',

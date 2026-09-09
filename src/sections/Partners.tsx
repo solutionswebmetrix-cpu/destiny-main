@@ -20,7 +20,7 @@ const partners = [
 
 // Generate SVG logo placeholder with partner name
 const generatePartnerLogo = (name: string, id: number) => {
-  const colors = ['#1F5D86', '#2D6F98', '#4F8FBC', '#21658F', '#1A4D6D']
+  const colors = ['#0B0B0B', '#151515', '#1A1A1A', '#111111', '#202020']
   const color = colors[id % colors.length]
   
   // Extract initials from partner name
@@ -114,7 +114,7 @@ export default function Partners() {
   const maxIndex = Math.max(0, partners.length - itemsPerView)
 
   return (
-    <section id="partners" className="section" style={{ background: '#ffffff' }}>
+    <section id="partners" className="section" style={{ background: '#080808' }}>
       <div className="container-wide">
         <Reveal>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
@@ -161,11 +161,11 @@ export default function Partners() {
                 >
                   <div
                     style={{
-                      background: '#f7f7f7',
+                      background: '#151515',
                       borderRadius: '12px',
                       padding: 20,
                       textAlign: 'center',
-                      border: '1px solid #e5e5e5',
+                      border: '1px solid rgba(212,175,55,.28)',
                       boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
                       transition: 'all 0.3s ease',
                       height: '100%',
@@ -176,12 +176,12 @@ export default function Partners() {
                       cursor: 'pointer',
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 16px rgba(31, 93, 134, 0.12)'
-                      ;(e.currentTarget as HTMLDivElement).style.borderColor = '#1F5D86'
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 16px rgba(212,175,55,0.16)'
+                      ;(e.currentTarget as HTMLDivElement).style.borderColor = '#D4AF37'
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLDivElement).style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)'
-                      ;(e.currentTarget as HTMLDivElement).style.borderColor = '#e5e5e5'
+                      ;(e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(212,175,55,.28)'
                     }}
                   >
                     <img
@@ -199,7 +199,7 @@ export default function Partners() {
                       style={{
                         fontSize: '0.95rem',
                         fontWeight: 600,
-                        color: '#1F5D86',
+                        color: '#D4AF37',
                         margin: 0,
                         fontFamily: 'Poppins, sans-serif',
                       }}
@@ -215,7 +215,7 @@ export default function Partners() {
             {maxIndex > 0 && (
               <>
                 <motion.button
-                  whileHover={{ scale: 1.1, backgroundColor: '#2D6F98' }}
+                  whileHover={{ scale: 1.1, backgroundColor: '#B8941F' }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePrev}
                   style={{
@@ -224,7 +224,7 @@ export default function Partners() {
                     top: '50%',
                     transform: 'translateY(-50%)',
                     zIndex: 10,
-                    background: '#1F5D86',
+                    background: '#D4AF37',
                     border: 'none',
                     borderRadius: '8px',
                     padding: '12px',
@@ -240,7 +240,7 @@ export default function Partners() {
                 </motion.button>
 
                 <motion.button
-                  whileHover={{ scale: 1.1, backgroundColor: '#2D6F98' }}
+                  whileHover={{ scale: 1.1, backgroundColor: '#B8941F' }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleNext}
                   style={{
@@ -249,7 +249,7 @@ export default function Partners() {
                     top: '50%',
                     transform: 'translateY(-50%)',
                     zIndex: 10,
-                    background: '#1F5D86',
+                    background: '#D4AF37',
                     border: 'none',
                     borderRadius: '8px',
                     padding: '12px',
@@ -286,7 +286,7 @@ export default function Partners() {
                     width: currentIndex === index ? 28 : 8,
                     height: 8,
                     borderRadius: 4,
-                    background: currentIndex === index ? '#1F5D86' : '#d0d0d0',
+                    background: currentIndex === index ? '#D4AF37' : '#3A321D',
                     border: 'none',
                     cursor: 'pointer',
                     transition: 'all 0.3s ease',

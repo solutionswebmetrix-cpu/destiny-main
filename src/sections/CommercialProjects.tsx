@@ -13,7 +13,7 @@ const commercialCategories = [
 
 export default function CommercialProjects() {
   return (
-    <section id="commercial-projects" className="section" style={{ background: '#f7f7f7' }}>
+    <section id="commercial-projects" className="section" style={{ background: '#080808' }}>
       <div className="container-wide">
         {/* Section Header */}
         <Reveal>
@@ -64,7 +64,7 @@ export default function CommercialProjects() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             style={{
-              background: '#fff',
+              background: '#151515',
               borderRadius: 'var(--radius-lg)',
               padding: '80px 40px',
               textAlign: 'center',
@@ -74,7 +74,7 @@ export default function CommercialProjects() {
             <div style={{
               width: 80,
               height: 80,
-              background: 'linear-gradient(135deg, var(--color-primary), var(--color-light-blue))',
+              background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))',
               borderRadius: '50%',
               display: 'flex',
               alignItems: 'center',

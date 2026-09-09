@@ -47,7 +47,7 @@ export default function ContactForm({ variant = 'light', subject }: ContactFormP
 
   const fieldStyle: React.CSSProperties = {
     width: '100%', padding: '13px 16px', borderRadius: 'var(--radius-sm)',
-    border: '1px solid var(--color-border)', background: variant === 'tinted' ? '#fff' : 'var(--color-light-grey)',
+    border: '1px solid var(--color-border)', background: 'var(--color-light-grey)',
     fontSize: '0.9rem', color: 'var(--color-dark-text)', outline: 'none', transition: 'border 0.2s ease',
     fontFamily: 'var(--font-body)',
   }
@@ -56,14 +56,14 @@ export default function ContactForm({ variant = 'light', subject }: ContactFormP
     <form onSubmit={validateAndOpenWhatsApp} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       {subject && <input type="hidden" value={subject} />}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }} className="form-row">
-        <input required placeholder="Full Name *" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-light-blue)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
-        <input required type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-light-blue)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
+        <input required placeholder="Full Name *" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-accent-gold)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
+        <input required type="email" placeholder="Email Address *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-accent-gold)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }} className="form-row">
-        <input required placeholder="Phone Number *" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-light-blue)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
-        <input placeholder="Interested In" value={subject || ''} readOnly={!!subject} onChange={() => {}} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-light-blue)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
+        <input required placeholder="Phone Number *" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-accent-gold)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
+        <input placeholder="Interested In" value={subject || ''} readOnly={!!subject} onChange={() => {}} style={fieldStyle} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-accent-gold)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
       </div>
-      <textarea required placeholder="Your Message *" rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} style={{ ...fieldStyle, resize: 'vertical' }} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-light-blue)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
+      <textarea required placeholder="Your Message *" rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} style={{ ...fieldStyle, resize: 'vertical' }} onFocus={(e) => e.currentTarget.style.borderColor = 'var(--color-accent-gold)'} onBlur={(e) => e.currentTarget.style.borderColor = 'var(--color-border)'} />
       <button type="submit" className="btn btn-primary" style={{ alignSelf: 'flex-start', gap: 8 }}>
         {sent ? <><CheckCircle2 size={17} /> Message Sent</> : <><Send size={17} /> Send Inquiry</>}
       </button>

@@ -16,6 +16,7 @@ export default function ProjectDetail() {
 
   if (!project) return <Navigate to="/projects" replace />
   const gallery = project.gallery.length ? project.gallery : [project.image]
+  const inventory = project.inventory ?? []
 
   return (
     <>
@@ -71,6 +72,45 @@ export default function ProjectDetail() {
                 </div>
               </Reveal>
 
+              <Reveal delay={0.13}>
+                <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Inventory</h2>
+                <div className="card project-inventory-panel" style={{ padding: 0, overflow: 'hidden', marginBottom: 36 }}>
+                  <div className="project-inventory-table">
+                    <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                      <thead>
+                        <tr style={{ background: 'var(--color-light-grey)' }}>
+                          <th style={{ textAlign: 'left', padding: '14px 18px', fontSize: '0.8rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Configuration</th>
+                          <th style={{ textAlign: 'left', padding: '14px 18px', fontSize: '0.8rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Size</th>
+                          <th style={{ textAlign: 'left', padding: '14px 18px', fontSize: '0.8rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {inventory.length > 0 ? inventory.map((item, index) => (
+                          <tr key={`${item.configuration}-${item.size}-${index}`} style={{ borderBottom: index < inventory.length - 1 ? '1px solid var(--color-border)' : 'none', background: index % 2 ? 'rgba(212,175,55,0.04)' : 'transparent' }}>
+                            <td style={{ padding: '14px 18px', fontSize: '0.9rem' }}>{item.configuration}</td>
+                            <td style={{ padding: '14px 18px', fontSize: '0.9rem' }}>{item.size}</td>
+                            <td style={{ padding: '14px 18px', fontSize: '0.9rem', fontWeight: 600, color: 'var(--color-primary)' }}>{item.price}</td>
+                          </tr>
+                        )) : (
+                          <tr>
+                            <td colSpan={3} style={{ padding: '18px', color: 'var(--text-muted)' }}>Inventory details are not available for this project.</td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="project-inventory-cards">
+                    {inventory.length > 0 ? inventory.map((item, index) => (
+                      <div className="project-inventory-card" key={`${item.configuration}-${item.size}-mobile-${index}`}>
+                        <div><span>Configuration</span><strong>{item.configuration}</strong></div>
+                        <div><span>Size</span><strong>{item.size}</strong></div>
+                        <div><span>Price</span><strong>{item.price}</strong></div>
+                      </div>
+                    )) : <p className="project-inventory-empty">Inventory details are not available for this project.</p>}
+                  </div>
+                </div>
+              </Reveal>
+
               <Reveal delay={0.14}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Amenities</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12, marginBottom: 36 }}>
@@ -104,16 +144,16 @@ export default function ProjectDetail() {
                     <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', fontWeight: 600 }}>{project.status}</span>
                   </div>
                   <div style={{ height: 10, borderRadius: 999, background: 'var(--color-light-grey)', overflow: 'hidden', marginBottom: 8 }}>
-                    <motion.div initial={{ width: 0 }} whileInView={{ width: project.category === 'Completed' ? '100%' : project.category === 'Upcoming' ? '15%' : '60%' }} viewport={{ once: true }} transition={{ duration: 1, ease: 'easeOut' }} style={{ height: '100%', background: 'linear-gradient(90deg, var(--color-primary), var(--color-light-blue))', borderRadius: 999 }} />
+                    <motion.div initial={{ width: 0 }} whileInView={{ width: project.category === 'Ready to Move' ? '100%' : '60%' }} viewport={{ once: true }} transition={{ duration: 1, ease: 'easeOut' }} style={{ height: '100%', background: 'linear-gradient(90deg, var(--color-primary), var(--color-accent-gold))', borderRadius: 999 }} />
                   </div>
-                  <p className="muted" style={{ fontSize: '0.84rem' }}>{project.category === 'Completed' ? 'Project completed and handed over to residents.' : project.category === 'Upcoming' ? 'Pre-launch phase - bookings opening soon.' : 'Construction in progress with monthly updates shared with booked customers.'}</p>
+                  <p className="muted" style={{ fontSize: '0.84rem' }}>{project.category === 'Ready to Move' ? 'Ready-to-move inventory is available for immediate review and booking.' : 'Construction in progress with monthly updates shared with booked customers.'}</p>
                 </div>
               </Reveal>
 
               <Reveal delay={0.2}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Download Brochure</h2>
                 <div className="card" style={{ padding: 28, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-                  <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, var(--color-primary), var(--color-light-blue))', display: 'grid', placeItems: 'center', color: '#fff', flexShrink: 0 }}><FileText size={26} /></div>
+                  <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))', display: 'grid', placeItems: 'center', color: '#fff', flexShrink: 0 }}><FileText size={26} /></div>
                   <div style={{ flex: 1, minWidth: 200 }}>
                     <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 600, marginBottom: 4 }}>{project.name} Brochure</div>
                     <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>PDF • Complete project details & specifications</div>
@@ -143,12 +183,25 @@ export default function ProjectDetail() {
 
       <AnimatePresence>
         {lightbox && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setLightbox(false)} style={{ position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(31,93,134,0.85)', backdropFilter: 'blur(8px)', display: 'grid', placeItems: 'center', padding: 24 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setLightbox(false)} style={{ position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(8px)', display: 'grid', placeItems: 'center', padding: 24 }}>
             <button onClick={() => setLightbox(false)} aria-label="Close" style={{ position: 'absolute', top: 24, right: 24, width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', display: 'grid', placeItems: 'center', color: '#fff' }}><X size={22} /></button>
             <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }} src={gallery[activeImg]} alt={project.name} style={{ maxWidth: '90%', maxHeight: '85vh', borderRadius: 'var(--radius-md)' }} />
           </motion.div>
         )}
       </AnimatePresence>
+      <style>{`
+        .project-inventory-cards { display: none; }
+        .project-inventory-card { display: grid; gap: 10px; padding: 18px; border-bottom: 1px solid var(--color-border); }
+        .project-inventory-card:last-child { border-bottom: 0; }
+        .project-inventory-card div { display: flex; justify-content: space-between; gap: 16px; }
+        .project-inventory-card span { color: var(--text-muted); font-size: .78rem; }
+        .project-inventory-card strong { text-align: right; color: var(--color-primary); font-size: .88rem; }
+        .project-inventory-empty { padding: 18px; color: var(--text-muted); }
+        @media (max-width: 768px) {
+          .project-inventory-table { display: none; }
+          .project-inventory-cards { display: block; }
+        }
+      `}</style>
     </>
   )
 }

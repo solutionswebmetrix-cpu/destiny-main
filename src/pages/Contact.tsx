@@ -30,7 +30,7 @@ export default function Contact() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 18, marginBottom: 30 }}>
                   {contactInfo.map((c) => (
                     <div key={c.label} className="card" style={{ padding: '18px 20px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                      <div style={{ width: 48, height: 48, borderRadius: '50%', flexShrink: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-light-blue))', display: 'grid', placeItems: 'center', color: '#fff' }}>
+                      <div style={{ width: 48, height: 48, borderRadius: '50%', flexShrink: 0, background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))', display: 'grid', placeItems: 'center', color: '#fff' }}>
                         <c.icon size={20} />
                       </div>
                       <div>

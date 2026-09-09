@@ -39,7 +39,7 @@ export default function Hero() {
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', imageRendering: 'auto', filter: 'none' }}
           loading="eager"
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(31,93,134,0.10) 0%, rgba(31,93,134,0.28) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0.58) 100%)' }} />
       </motion.div>
 
       <div className="container-wide" style={{ position: 'relative', zIndex: 2, paddingTop: 100, paddingBottom: 40 }}>
@@ -49,7 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           style={{ maxWidth: 760, color: '#fff' }}
         >
-          <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.9)' }}>Destiny Buildwell | Featured Project: JP Expressway</span>
+          <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.9)' }}>Destiny Buildwell | Featured Project: JAYPEE</span>
           <h1 style={{ color: '#fff', fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)', lineHeight: 1.1, marginBottom: 22, textShadow: '0 2px 20px rgba(0,0,0,0.2)' }}>
             {banner.title}
           </h1>
@@ -68,39 +68,39 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           style={{
-            marginTop: 56, background: 'rgba(255,255,255,0.97)', borderRadius: 'var(--radius-lg)',
-            padding: '22px 24px', boxShadow: 'var(--shadow-lg)', maxWidth: 920,
+            marginTop: 56, background: '#0B0B0B', border: '1px solid rgba(212,175,55,0.35)', borderRadius: 'var(--radius-lg)',
+            padding: '22px 24px', boxShadow: '0 16px 42px rgba(212,175,55,0.14)', maxWidth: 920,
             display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16, alignItems: 'end',
           }}
         >
           <div>
-            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: 'var(--color-secondary)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
+            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: '#D4AF37', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
               <MapPin size={13} style={{ display: 'inline', marginRight: 4 }} />Location
             </label>
-            <select value={search.location} onChange={(e) => setSearch({ ...search, location: e.target.value })} style={selectStyle}>
+            <select value={search.location} onChange={(e) => setSearch({ ...search, location: e.target.value })} onFocus={(e) => { e.currentTarget.style.borderColor = '#D4AF37'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(212,175,55,0.14)' }} onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.3)'; e.currentTarget.style.boxShadow = 'none' }} style={selectStyle}>
               {locations.map((l) => <option key={l} value={l}>{l}</option>)}
             </select>
           </div>
           <div>
-            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: 'var(--color-secondary)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
+            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: '#D4AF37', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
               <Home size={13} style={{ display: 'inline', marginRight: 4 }} />Property Type
             </label>
-            <select value={search.type} onChange={(e) => setSearch({ ...search, type: e.target.value })} style={selectStyle}>
+            <select value={search.type} onChange={(e) => setSearch({ ...search, type: e.target.value })} onFocus={(e) => { e.currentTarget.style.borderColor = '#D4AF37'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(212,175,55,0.14)' }} onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.3)'; e.currentTarget.style.boxShadow = 'none' }} style={selectStyle}>
               {propertyTypes.map((t) => <option key={t} value={t}>{t}</option>)}
             </select>
           </div>
           <div>
-            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: 'var(--color-secondary)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
+            <label style={{ fontSize: '0.74rem', fontWeight: 600, color: '#D4AF37', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 8 }}>
               <Search size={13} style={{ display: 'inline', marginRight: 4 }} />Budget
             </label>
-            <select value={search.budget} onChange={(e) => setSearch({ ...search, budget: e.target.value })} style={selectStyle}>
+            <select value={search.budget} onChange={(e) => setSearch({ ...search, budget: e.target.value })} onFocus={(e) => { e.currentTarget.style.borderColor = '#D4AF37'; e.currentTarget.style.boxShadow = '0 0 0 3px rgba(212,175,55,0.14)' }} onBlur={(e) => { e.currentTarget.style.borderColor = 'rgba(212,175,55,0.3)'; e.currentTarget.style.boxShadow = 'none' }} style={selectStyle}>
               <option value="">Any Budget</option>
               <option value="50-100">₹50L - ₹1Cr</option>
               <option value="100-200">₹1Cr - ₹2Cr</option>
               <option value="200+">₹2Cr & Above</option>
             </select>
           </div>
-          <button type="button" className="btn btn-primary" onClick={handleSearch} style={{ height: 48, gap: 8 }}>
+          <button type="button" className="btn btn-primary" onClick={handleSearch} style={{ height: 48, gap: 8, background: '#D4AF37', color: '#000000' }}>
             <Search size={17} /> Search
           </button>
         </motion.div>
@@ -133,7 +133,7 @@ export default function Hero() {
 
 const selectStyle: React.CSSProperties = {
   width: '100%', padding: '11px 14px', borderRadius: 'var(--radius-sm)',
-  border: '1px solid var(--color-border)', background: 'var(--color-light-grey)',
-  fontSize: '0.88rem', color: 'var(--color-dark-text)', outline: 'none', cursor: 'pointer',
+  border: '1px solid rgba(212,175,55,0.3)', background: '#151515',
+  fontSize: '0.88rem', color: '#F5F5F5', outline: 'none', cursor: 'pointer', colorScheme: 'dark',
   fontFamily: 'var(--font-body)',
 }

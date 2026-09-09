@@ -65,7 +65,7 @@ export default function FeaturedProperties() {
                     {p.type}
                   </div>
                   {p.tag && (
-                    <div style={{ position: 'absolute', top: 14, right: 14, background: '#fff', color: 'var(--color-primary)', padding: '5px 14px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 600 }}>
+                    <div style={{ position: 'absolute', top: 14, right: 14, background: '#151515', color: 'var(--color-primary)', padding: '5px 14px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 600 }}>
                       {p.tag}
                     </div>
                   )}

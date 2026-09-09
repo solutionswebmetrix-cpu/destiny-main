@@ -38,7 +38,7 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               style={{
-                position: 'absolute', bottom: -28, left: -28, background: '#fff',
+                position: 'absolute', bottom: -28, left: -28, background: '#151515',
                 borderRadius: 'var(--radius-lg)', padding: '24px 28px', boxShadow: 'var(--shadow-lg)',
                 border: '1px solid var(--color-border)',
               }}
@@ -56,7 +56,7 @@ export default function About() {
             Crafting Spaces Where Destinies Are Built
           </h2>
           <p className="muted" style={{ marginBottom: 18, fontSize: '1rem' }}>
-            For over 12 years, Destiny Buildwell has been a trusted name in the real estate industry, helping customers find the right property opportunities with confidence and peace of mind.
+            For over 16 years, Destiny Buildwell has been a trusted name in the real estate industry, helping customers find the right property opportunities with confidence and peace of mind.
           </p>
           <p className="muted" style={{ marginBottom: 28, fontSize: '1rem' }}>
             From luxury villas to landmark commercial towers, every project reflects our commitment to

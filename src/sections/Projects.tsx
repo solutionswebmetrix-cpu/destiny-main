@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MapPin, ArrowRight, Calendar, CheckCircle2 } from 'lucide-react'
+import { MapPin, ArrowRight, Calendar } from 'lucide-react'
 import Reveal from '../components/Reveal'
 import { projects, type Project } from '../data'
 
-const categories: ('All' | Project['category'])[] = ['All', 'Ongoing', 'Completed', 'Upcoming']
+const categories: ('All' | Project['category'])[] = ['All', 'Under Construction', 'Ready to Move']
 
 export default function Projects() {
   const [active, setActive] = useState<'All' | Project['category']>('All')
@@ -81,8 +81,8 @@ export default function Projects() {
                     <MapPin size={14} /> {p.location}
                   </div>
                   <p className="muted" style={{ fontSize: '0.86rem', marginBottom: 16, flex: 1 }}>{p.short}</p>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.8rem', color: p.category === 'Completed' ? 'var(--color-secondary)' : 'var(--color-primary)', marginBottom: 16, fontWeight: 500 }}>
-                    {p.category === 'Completed' ? <CheckCircle2 size={15} /> : <Calendar size={15} />} {p.status}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.8rem', color: 'var(--color-primary)', marginBottom: 16, fontWeight: 500 }}>
+                    <Calendar size={15} /> {p.status}
                   </div>
                   <Link to={`/projects/${p.id}`} className="btn btn-outline" style={{ alignSelf: 'flex-start', padding: '9px 18px', fontSize: '0.84rem', gap: 6 }}>
                     View Details <ArrowRight size={15} />

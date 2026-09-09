@@ -109,7 +109,7 @@ export default function PropertyDetail() {
               <Reveal delay={0.18}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Brochure</h2>
                 <div className="card" style={{ padding: 28, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap', marginBottom: 36 }}>
-                  <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, var(--color-primary), var(--color-light-blue))', display: 'grid', placeItems: 'center', color: '#fff', flexShrink: 0 }}><FileText size={26} /></div>
+                  <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))', display: 'grid', placeItems: 'center', color: '#fff', flexShrink: 0 }}><FileText size={26} /></div>
                   <div style={{ flex: 1, minWidth: 200 }}>
                     <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 600, marginBottom: 4 }}>{property.title} Brochure</div>
                     <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>PDF • Complete project details, floor plans & pricing</div>
@@ -169,7 +169,7 @@ export default function PropertyDetail() {
 
       <AnimatePresence>
         {lightbox && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setLightbox(false)} style={{ position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(31,93,134,0.85)', backdropFilter: 'blur(8px)', display: 'grid', placeItems: 'center', padding: 24 }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setLightbox(false)} style={{ position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(8px)', display: 'grid', placeItems: 'center', padding: 24 }}>
             <button onClick={() => setLightbox(false)} aria-label="Close" style={{ position: 'absolute', top: 24, right: 24, width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', display: 'grid', placeItems: 'center', color: '#fff' }}><X size={22} /></button>
             <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }} src={gallery[activeImg]} alt={property.title} style={{ maxWidth: '90%', maxHeight: '85vh', borderRadius: 'var(--radius-md)' }} />
           </motion.div>

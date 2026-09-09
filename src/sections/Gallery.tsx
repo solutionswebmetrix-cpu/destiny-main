@@ -96,7 +96,7 @@ export default function Gallery() {
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setLightboxIndex(null)}
-            style={{ position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(31,93,134,0.85)', backdropFilter: 'blur(8px)', display: 'grid', placeItems: 'center', padding: 24 }}
+            style={{ position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(8px)', display: 'grid', placeItems: 'center', padding: 24 }}
           >
             <button
               onClick={(e) => { e.stopPropagation(); setLightboxIndex(null) }}

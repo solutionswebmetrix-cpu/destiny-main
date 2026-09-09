@@ -36,15 +36,15 @@ const locations = [
 
 export default function OurPresence() {
   return (
-    <section id="presence" className="section" style={{ background: '#f7f7f7' }}>
+    <section id="presence" className="section" style={{ background: '#080808', color: '#F5F5F5' }}>
       <div className="container-wide">
         <Reveal>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
-            <span className="eyebrow">Our Operations</span>
-            <h2 className="section-title">Our Presence</h2>
+            <span className="eyebrow">Our Presence</span>
+            <h2 className="section-title" style={{ color: '#D4AF37' }}>Our Presence</h2>
             <div className="divider" />
             <p className="section-subtitle">
-              Destiny Buildwell serves premium real estate markets across key NCR locations with a strong presence in Noida, Greater Noida, South Delhi and Faridabad. JP Expressway is a featured project by Destiny Buildwell.
+              Destiny Buildwell serves premium real estate markets across key NCR locations with a strong presence in Noida, Greater Noida, South Delhi and Faridabad. JAYPEE is a featured project by Destiny Buildwell.
             </p>
           </div>
         </Reveal>
@@ -63,6 +63,7 @@ export default function OurPresence() {
                   height: 320,
                   cursor: 'pointer',
                   boxShadow: '0 18px 42px rgba(17, 24, 39, 0.12)',
+                  border: '1px solid rgba(212,175,55,0.28)',
                 }}
               >
                 <img
@@ -106,7 +107,7 @@ export default function OurPresence() {
                     size={36}
                     style={{
                       marginBottom: 20,
-                      color: '#FFFFFF',
+                      color: '#D4AF37',
                       filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.35))',
                     }}
                   />

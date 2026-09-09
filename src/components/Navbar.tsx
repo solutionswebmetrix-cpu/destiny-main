@@ -61,16 +61,16 @@ export default function Navbar() {
         position: 'fixed',
         top: 0, left: 0, right: 0,
         zIndex: 1000,
-        background: scrolled ? 'rgba(9, 30, 47, 0.96)' : 'rgba(7, 24, 39, 0.82)',
+        background: scrolled ? 'rgba(10, 10, 10, 0.96)' : 'rgba(10, 10, 10, 0.84)',
         backdropFilter: scrolled ? 'blur(14px)' : 'blur(10px)',
-        boxShadow: scrolled ? '0 8px 24px rgba(0, 0, 0, 0.16)' : '0 4px 18px rgba(0, 0, 0, 0.12)',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.08)',
+        boxShadow: scrolled ? '0 8px 24px rgba(0, 0, 0, 0.22)' : '0 4px 18px rgba(0, 0, 0, 0.14)',
+        borderBottom: scrolled ? '1px solid rgba(212,175,55,0.2)' : '1px solid rgba(212,175,55,0.12)',
         transition: 'all 0.35s ease',
       }}
     >
       <nav className="container-wide" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 76 }}>
         <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src={logo} alt="Destiny Buildwell logo" style={{ width: 100, height: 100, maxWidth: 100, maxHeight: 100, objectFit: 'contain' }} />
+          <img src={logo} alt="Destiny Buildwell logo" style={{ width: 86, height: 86, maxWidth: 86, maxHeight: 86, objectFit: 'contain' }} />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.1 }}>
             <div style={{
               fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem',
@@ -97,8 +97,8 @@ export default function Navbar() {
                   return ({
                   display: 'flex', alignItems: 'center', gap: 4,
                   padding: '8px 14px', fontSize: '0.9rem', fontWeight: 500,
-                  color: scrolled ? (isActive || isAboutActive ? '#fff' : 'rgba(255,255,255,0.92)') : '#fff',
-                  borderBottom: isActive || isAboutActive ? '2px solid #fff' : '2px solid transparent',
+                  color: scrolled ? (isActive || isAboutActive ? '#f5d77a' : 'rgba(255,255,255,0.92)') : '#fff',
+                  borderBottom: isActive || isAboutActive ? '2px solid #d4af37' : '2px solid transparent',
                   textShadow: isActive || isAboutActive ? '0 1px 2px rgba(0,0,0,0.18)' : 'none',
                   transition: 'all 0.3s ease',
                 })}
@@ -116,19 +116,19 @@ export default function Navbar() {
                     transition={{ duration: 0.2 }}
                     style={{
                       position: 'absolute', top: '100%', left: 0, minWidth: 200,
-                      background: '#fff', borderRadius: 'var(--radius-md)',
-                      boxShadow: 'var(--shadow-lg)', border: '1px solid var(--color-border)',
+                      background: '#111111', borderRadius: 'var(--radius-md)',
+                      boxShadow: '0 20px 50px rgba(0,0,0,0.24)', border: '1px solid rgba(212,175,55,0.2)',
                       padding: '8px', marginTop: 8,
                     }}
                   >
                     {link.children.map((c) => (
                       <Link key={c.label} to={c.to} style={{
                         display: 'block', padding: '10px 14px', fontSize: '0.88rem',
-                        color: 'var(--color-dark-text)', borderRadius: 'var(--radius-sm)',
+                        color: '#f5efe6', borderRadius: 'var(--radius-sm)',
                         transition: 'all 0.2s ease',
                       }}
-                      onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--color-light-grey)'; e.currentTarget.style.color = 'var(--color-primary)' }}
-                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--color-dark-text)' }}
+                      onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.12)'; e.currentTarget.style.color = '#f5d77a' }}
+                      onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#f5efe6' }}
                       >{c.label}</Link>
                     ))}
                   </motion.div>
@@ -143,7 +143,7 @@ export default function Navbar() {
             display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.85rem', fontWeight: 500,
             color: scrolled ? '#fff' : '#fff',
           }} className="nav-phone"><Phone size={15} /> +91 9891128882</a>
-          <Link to="/contact" className="btn btn-primary" style={{ padding: '10px 22px' }}>Book Consultation</Link>
+          <Link to="/contact" className="btn btn-primary" style={{ padding: '10px 22px', color: '#111111' }}>Book Consultation</Link>
         </div>
 
         <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu" style={{
@@ -160,7 +160,7 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            style={{ overflow: 'hidden', background: '#fff', borderTop: '1px solid var(--color-border)' }}
+            style={{ overflow: 'hidden', background: '#151515', borderTop: '1px solid var(--color-border)' }}
             className="mobile-menu"
           >
             <ul style={{ padding: '16px 24px', listStyle: 'none' }}>

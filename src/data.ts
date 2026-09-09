@@ -11,6 +11,11 @@ import heroResidential from './assets/Residential Construction.jpg'
 import heroCommercial from './assets/Commercial Projects.jpg'
 import aboutImage from './assets/Architecture.jpg'
 import projectOne from './assets/Project/one.jpeg'
+import projectImageOne from './assets/Project/Project.png'
+import projectImageTwo from './assets/Project/Project 1.png'
+import projectImageThree from './assets/Project/Project 2.png'
+
+const projectImages = [projectImageOne, projectImageTwo, projectImageThree]
 
 import teamDirector from './assets/id card/Director.jpeg'
 import teamAman from './assets/id card/Aman.jpeg'
@@ -71,10 +76,16 @@ export interface Property {
   status: 'Ready to Move' | 'Under Construction' | 'New Launch'
 }
 
+export interface ProjectInventoryItem {
+  configuration: string
+  size: string
+  price: string
+}
+
 export interface Project {
   id: string
   name: string
-  category: 'Ongoing' | 'Completed' | 'Upcoming'
+  category: 'Under Construction' | 'Ready to Move'
   location: string
   image: string
   short: string
@@ -85,6 +96,7 @@ export interface Project {
   status: string
   brochure: string
   gallery: string[]
+  inventory?: ProjectInventoryItem[]
 }
 
 export interface Service {
@@ -144,8 +156,8 @@ export const heroVisual =
     `<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='1000'>
       <defs>
         <linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>
-          <stop offset='0' stop-color='#1F5D86'/>
-          <stop offset='1' stop-color='#4F8FBC'/>
+          <stop offset='0' stop-color='#0B0B0B'/>
+          <stop offset='1' stop-color='#151515'/>
         </linearGradient>
         <pattern id='p' width='40' height='40' patternUnits='userSpaceOnUse'>
           <path d='M0 40 L40 0' stroke='rgba(255,255,255,0.06)' stroke-width='1'/>
@@ -161,7 +173,7 @@ export const heroVisual =
         <rect x='1040' y='420' width='240' height='460' rx='4'/>
         <rect x='1320' y='540' width='170' height='340' rx='4'/>
       </g>
-      <g fill='rgba(31,93,134,0.35)'>
+      <g fill='rgba(212,175,55,0.35)'>
         <rect x='140' y='560' width='40' height='40'/>
         <rect x='200' y='560' width='40' height='40'/>
         <rect x='140' y='620' width='40' height='40'/>
@@ -187,7 +199,7 @@ export const aboutVisual =
   encodeURIComponent(
     `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='900'>
       <defs><linearGradient id='ag' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='#2D6F98'/><stop offset='1' stop-color='#1F5D86'/>
+        <stop offset='0' stop-color='#151515'/><stop offset='1' stop-color='#0B0B0B'/>
       </linearGradient></defs>
       <rect width='800' height='900' fill='url(#ag)'/>
       <g fill='rgba(255,255,255,0.92)'>
@@ -195,7 +207,7 @@ export const aboutVisual =
         <rect x='320' y='340' width='240' height='500' rx='6'/>
         <rect x='600' y='480' width='160' height='360' rx='6'/>
       </g>
-      <g fill='rgba(31,93,134,0.3)'>
+      <g fill='rgba(212,175,55,0.3)'>
         <rect x='100' y='460' width='45' height='45'/><rect x='165' y='460' width='45' height='45'/>
         <rect x='230' y='460' width='45' height='45'/><rect x='100' y='520' width='45' height='45'/>
         <rect x='165' y='520' width='45' height='45'/><rect x='230' y='520' width='45' height='45'/>
@@ -211,8 +223,8 @@ const propertySvg = (label: string, tone: 'light' | 'dark' = 'light') =>
   encodeURIComponent(
     `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
       <defs><linearGradient id='pg' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='${tone === 'dark' ? '#1F5D86' : '#4F8FBC'}'/>
-        <stop offset='1' stop-color='${tone === 'dark' ? '#2D6F98' : '#1F5D86'}'/>
+        <stop offset='0' stop-color='${tone === 'dark' ? '#0B0B0B' : '#151515'}'/>
+        <stop offset='1' stop-color='${tone === 'dark' ? '#151515' : '#0B0B0B'}'/>
       </linearGradient></defs>
       <rect width='800' height='600' fill='url(#pg)'/>
       <g fill='rgba(255,255,255,0.9)'>
@@ -220,7 +232,7 @@ const propertySvg = (label: string, tone: 'light' | 'dark' = 'light') =>
         <rect x='340' y='240' width='220' height='320' rx='4'/>
         <rect x='600' y='320' width='160' height='240' rx='4'/>
       </g>
-      <g fill='rgba(31,93,134,0.28)'>
+      <g fill='rgba(212,175,55,0.28)'>
         <rect x='140' y='330' width='40' height='40'/><rect x='200' y='330' width='40' height='40'/>
         <rect x='140' y='390' width='40' height='40'/><rect x='200' y='390' width='40' height='40'/>
         <rect x='360' y='270' width='50' height='50'/><rect x='430' y='270' width='50' height='50'/>
@@ -237,7 +249,7 @@ const gallerySvg = (label: string) =>
   encodeURIComponent(
     `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
       <defs><linearGradient id='gg' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='#2D6F98'/><stop offset='1' stop-color='#1F5D86'/>
+        <stop offset='0' stop-color='#151515'/><stop offset='1' stop-color='#0B0B0B'/>
       </linearGradient></defs>
       <rect width='800' height='600' fill='url(#gg)'/>
       <g fill='rgba(255,255,255,0.85)'>
@@ -254,12 +266,12 @@ const teamSvg = (initials: string) =>
   encodeURIComponent(
     `<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'>
       <defs><linearGradient id='tg' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='#4F8FBC'/><stop offset='1' stop-color='#1F5D86'/>
+        <stop offset='0' stop-color='#151515'/><stop offset='1' stop-color='#0B0B0B'/>
       </linearGradient></defs>
       <rect width='400' height='400' fill='url(#tg)'/>
       <circle cx='200' cy='160' r='62' fill='rgba(255,255,255,0.92)'/>
       <path d='M90 360 Q200 240 310 360 Z' fill='rgba(255,255,255,0.92)'/>
-      <text x='200' y='175' font-family='Playfair Display, serif' font-size='44' fill='#1F5D86' text-anchor='middle' font-weight='700'>${initials}</text>
+      <text x='200' y='175' font-family='Playfair Display, serif' font-size='44' fill='#D4AF37' text-anchor='middle' font-weight='700'>${initials}</text>
     </svg>`
   )
 
@@ -268,7 +280,7 @@ const blogSvg = (label: string) =>
   encodeURIComponent(
     `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'>
       <defs><linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='#4F8FBC'/><stop offset='1' stop-color='#2D6F98'/>
+        <stop offset='0' stop-color='#151515'/><stop offset='1' stop-color='#0B0B0B'/>
       </linearGradient></defs>
       <rect width='800' height='500' fill='url(#bg)'/>
       <g fill='rgba(255,255,255,0.88)'>
@@ -474,118 +486,258 @@ export const amenities: Amenity[] = [
 
 export const projects: Project[] = [
   {
-    id: 'skyline-park',
-    name: 'Skyline Park Residences',
-    category: 'Ongoing',
+    id: 'krecent-homes',
+    name: 'Krecent Homes',
+    category: 'Under Construction',
     location: 'Noida',
-    image: heroResidential,
-    short: '2 & 3 BHK sky homes across two 32-storey towers.',
-    description: 'A landmark high-rise community with sky lounges and a central podium of amenities.',
-    overview: 'Skyline Park Residences is currently under construction with two towers rising to 32 floors. The project is 55% complete with possession scheduled for December 2026. Live construction updates are shared monthly with all booked customers.',
-    amenities: ['Sky Lounge', 'Infinity Pool', 'Gym', 'Co-Working', 'Multipurpose Hall', 'EV Charging'],
+    image: projectImageOne,
+    short: 'Premium under-construction residences with flexible BHK options.',
+    description: 'Under construction residential project with multiple inventory options.',
+    overview: 'Krecent Homes is an under-construction residential development offering a range of 2 BHK to 4 BHK + Servant configurations in a value-focused offering.',
+    amenities: ['Prime Location', 'Modern Living', 'Value Investment', 'Family-Friendly Layouts'],
     specifications: [
-      { label: 'Configuration', value: '2 & 3 BHK' },
-      { label: 'Towers', value: '2 (G+32)' },
-      { label: 'Units', value: '384' },
-      { label: 'Status', value: '55% Complete' },
+      { label: 'Configuration', value: '2 BHK • 3 BHK + Servant • 4 BHK + Servant' },
+      { label: 'Status', value: 'Under Construction' },
+      { label: 'Pricing Basis', value: '₹7000/ft²' },
     ],
-    status: 'Under Construction - 55% Complete',
-    brochure: brochureFiles[6],
-    gallery: [propertySvg('Skyline - Tower'), propertySvg('Skyline - Construction'), gallerySvg('Skyline Construction')],
+    status: 'Under Construction',
+    brochure: 'krescent home project details.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '2 BHK', size: '1115 ft²', price: '₹7000/ft²' },
+      { configuration: '2 BHK', size: '1230 ft²', price: '₹7000/ft²' },
+      { configuration: '3 BHK + Servant', size: '1680 ft²', price: '₹7000/ft²' },
+      { configuration: '3 BHK + Servant', size: '1980 ft²', price: '₹7000/ft²' },
+      { configuration: '4 BHK + Servant', size: '2375 ft²', price: '₹7000/ft²' },
+    ],
   },
   {
-    id: 'meridian-plaza-proj',
-    name: 'Meridian Business Plaza',
-    category: 'Ongoing',
+    id: 'kasa-isles',
+    name: 'Kasa Isles',
+    category: 'Under Construction',
     location: 'Noida',
-    image: heroCommercial,
-    short: 'Grade-A commercial tower with retail frontage.',
-    description: 'LEED-certified office development in Noida.',
-    overview: 'Meridian Business Plaza is a 14-storey commercial tower under construction in Noida. The structural framework is complete and facade installation is in progress. Possession is slated for March 2026.',
-    amenities: ['Grade-A Offices', 'Retail Frontage', 'Business Lounge', 'Central AC', 'Food Court'],
+    image: projectImageTwo,
+    short: 'A wide range of apartment sizes with under-construction pricing options.',
+    description: 'Under construction residential project with multiple apartment configuration options.',
+    overview: 'Kasa Isles offers a broad mix of apartment sizes designed to suit varied budgets and family requirements.',
+    amenities: ['Apartment Living', 'Flexible Options', 'Good Value', 'Family-Oriented Design'],
     specifications: [
-      { label: 'Typical Floor', value: '18,000 sq.ft' },
-      { label: 'Floors', value: 'G+14' },
-      { label: 'Status', value: 'Facade Installation' },
+      { label: 'Configuration', value: '1 BHK • 2 BHK • 3 BHK • 4 BHK' },
+      { label: 'Status', value: 'Under Construction' },
+      { label: 'Pricing Basis', value: '₹8000/ft² / 46 Lakh plus last demand' },
     ],
-    status: 'Under Construction - 70% Complete',
-    brochure: brochureFiles[7],
-    gallery: [propertySvg('Meridian - Tower'), gallerySvg('Meridian Construction')],
+    status: 'Under Construction',
+    brochure: 'kasa isles project.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '1 BHK', size: '535 ft²', price: '₹46 Lakh plus last demand' },
+      { configuration: 'Not specified', size: '920 ft²', price: '₹80 Lakh all inclusive' },
+      { configuration: 'Not specified', size: '1250 ft²', price: '₹8000/ft²' },
+      { configuration: 'Not specified', size: '1370 ft²', price: '₹8000/ft²' },
+      { configuration: 'Not specified', size: '1570 ft²', price: '₹8000/ft²' },
+      { configuration: 'Not specified', size: '1935 ft²', price: '₹8000/ft²' },
+      { configuration: 'Not specified', size: '1870 ft²', price: '₹8000/ft²' },
+      { configuration: 'Not specified', size: '1935 ft²', price: '₹8000/ft²' },
+      { configuration: 'Not specified', size: '2300 ft²', price: '₹8000/ft²' },
+    ],
   },
   {
-    id: 'serene-villas-proj',
-    name: 'Serene Luxury Villas',
-    category: 'Completed',
+    id: 'garden-isles',
+    name: 'Garden Isles',
+    category: 'Under Construction',
     location: 'Greater Noida',
-    image: projectOne,
-    short: '48 premium villas in a gated community.',
-    description: 'A completed villa community handed over to 48 happy families.',
-    overview: 'Serene Luxury Villas was completed and handed over in 2023. All 48 villas are occupied and the community is managed by an active residents association. The project reflects a premium villa lifestyle designed around comfort, privacy and long-term value.',
-    amenities: ['Private Garden', 'Clubhouse', 'Swimming Pool', 'Smart Home', 'Home Theatre'],
+    image: projectImageThree,
+    short: 'Residential layouts across multiple sizes and pricing bands.',
+    description: 'Under construction project with a range of apartment and villa-style sizes.',
+    overview: 'Garden Isles presents a wide spread of home sizes and pricing to cater to family and investment preferences.',
+    amenities: ['Urban Connectivity', 'Residential Layouts', 'Modern Planning', 'Family Convenience'],
     specifications: [
-      { label: 'Configuration', value: '4 & 5 BHK Villas' },
-      { label: 'Units', value: '48 (All Occupied)' },
-      { label: 'Handed Over', value: '2023' },
+      { label: 'Configuration', value: 'Multiple layouts' },
+      { label: 'Status', value: 'Under Construction' },
+      { label: 'Pricing Basis', value: '₹6000/ft² - ₹7000/ft²' },
     ],
-    status: 'Ready To Move - Handed Over 2023',
-    brochure: brochureFiles[8],
-    gallery: [propertySvg('Serene - Exterior'), propertySvg('Serene - Interior'), gallerySvg('Serene Living')],
+    status: 'Under Construction',
+    brochure: 'kasa isles project.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: 'Not specified', size: '1205 ft²', price: '₹6000/ft²' },
+      { configuration: 'Not specified', size: '1305 ft²', price: '₹6000/ft²' },
+      { configuration: 'Not specified', size: '1840 ft²', price: '₹6200/ft²' },
+      { configuration: 'Not specified', size: '1995 ft²', price: '₹6200/ft²' },
+      { configuration: 'Not specified', size: '2690 ft²', price: '₹7000/ft²' },
+      { configuration: 'Not specified', size: '2690 ft²', price: '₹7000/ft²' },
+    ],
   },
   {
-    id: 'palm-grove-proj',
-    name: 'Palm Grove Villas',
-    category: 'Completed',
+    id: 'kosmos-under-construction',
+    name: 'Kosmos',
+    category: 'Under Construction',
+    location: 'Greater Noida',
+    image: projectImages[0],
+    short: 'Under-construction residential project with multiple BHK configurations and development references.',
+    description: 'Under construction project with project reference codes and 2 BHK / 3 BHK options.',
+    overview: 'Kosmos is an under-construction residential project offering multiple layouts and development references across the site plan.',
+    amenities: ['Flexible Layouts', 'Residential Community', 'Family Value', 'Prime Location'],
+    specifications: [
+      { label: 'Configuration', value: '2 BHK • 3 BHK' },
+      { label: 'Status', value: 'Under Construction' },
+      { label: 'Project References', value: 'KM-60, KM-61, KM-68, KM-69, KM-71, KM-72A, KM-72B, KM-72C, KM-80, KM-79, KM-79A, KM-79B' },
+      { label: 'KBA References', value: 'KBA-15, KBA-16, KBA-17, KBA-18, KBA-19, KBA-20, KBA-21, KBA-22' },
+    ],
+    status: 'Under Construction',
+    brochure: 'kosmos project details.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '2 BHK', size: 'Not specified', price: 'Not specified' },
+      { configuration: '3 BHK', size: 'Not specified', price: 'Not specified' },
+    ],
+  },
+  {
+    id: 'kba-kensington-boulevard-apartments',
+    name: 'KBA — Kensington Boulevard Apartments',
+    category: 'Under Construction',
+    location: 'Noida',
+    image: projectImages[0],
+    short: 'Under-construction apartment project with 3 BHK and 4 BHK layouts.',
+    description: 'Under construction apartment project with residential layouts and references.',
+    overview: 'Kensington Boulevard Apartments is an under-construction residential development with multiple layout references and configurations.',
+    amenities: ['Apartment Living', 'Structured Planning', 'Residential Community', 'Family-Oriented Design'],
+    specifications: [
+      { label: 'Project Name', value: 'Kensington Boulevard Apartments' },
+      { label: 'Configuration', value: '3 BHK • 4 BHK' },
+      { label: 'Status', value: 'Under Construction' },
+      { label: 'KBA References', value: 'KBA-15, KBA-16, KBA-17, KBA-18, KBA-19, KBA-20, KBA-21, KBA-22' },
+    ],
+    status: 'Under Construction',
+    brochure: 'Kensington boulevard apartment sector 128.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '3 BHK', size: '1650 ft²', price: 'Not specified' },
+      { configuration: '4 BHK', size: 'Not specified', price: 'Not specified' },
+    ],
+  },
+  {
+    id: 'kosmos-ready-to-move',
+    name: 'Kosmos',
+    category: 'Ready to Move',
+    location: 'Greater Noida',
+    image: projectImages[0],
+    short: 'Ready-to-move apartment inventory with competitive pricing bands.',
+    description: 'Ready to move residential project with multiple pricing and configuration options.',
+    overview: 'Kosmos is available in ready-to-move inventory with clear pricing information across varied BHK sizes.',
+    amenities: ['Ready to Move', 'Value Layouts', 'Secure Community', 'Family Living'],
+    specifications: [
+      { label: 'Configuration', value: '2 BHK • 3 BHK • 3 BHK + Servant • 4 BHK + Servant' },
+      { label: 'Status', value: 'Ready to Move' },
+    ],
+    status: 'Ready to Move',
+    brochure: 'kosmos project details.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '2 BHK', size: '950 ft²', price: '₹75 Lakhs' },
+      { configuration: '3 BHK', size: '1270 ft²', price: '₹1.05–1.10 Cr' },
+      { configuration: '3 BHK + Servant', size: '1370 ft²', price: '₹1.10–1.15 Cr' },
+      { configuration: '3 BHK + Servant', size: '1470 ft²', price: '₹1.50 Lakh' },
+      { configuration: '4 BHK + Servant', size: '2110 ft²', price: '₹2.20–2.25 Cr' },
+    ],
+  },
+  {
+    id: 'klassic',
+    name: 'Klassic',
+    category: 'Ready to Move',
     location: 'Faridabad',
-    image: projectOne,
-    short: '36 resort-style villas near the airport.',
-    description: 'Resort-style living delivered and occupied.',
-    overview: 'Palm Grove Villas was completed in 2022. The 36-villa community features a clubhouse, spa and infinity pool, all managed by the residents association.',
-    amenities: ['Private Garden', 'Spa', 'Infinity Pool', 'Tennis Court', 'Concierge'],
+    image: projectImages[0],
+    short: 'Ready-to-move residential development with multiple BHK options.',
+    description: 'Ready to move residential apartments with varied configurations and prices.',
+    overview: 'Klassic offers a mix of ready-to-move apartment options and family-sized layouts across balanced pricing bands.',
+    amenities: ['Ready to Move', 'Family Layouts', 'Comfortable Living', 'Residential Convenience'],
     specifications: [
-      { label: 'Configuration', value: '4 BHK Villas' },
-      { label: 'Units', value: '36' },
-      { label: 'Handed Over', value: '2022' },
+      { label: 'Configuration', value: '2 BHK • 3 BHK • 4 BHK • 2 BHK + Study • 3 BHK + Servant' },
+      { label: 'Status', value: 'Ready to Move' },
     ],
-    status: 'Ready To Move - Handed Over 2022',
-    brochure: brochureFiles[9],
-    gallery: [propertySvg('Palm Grove - Exterior'), gallerySvg('Palm Grove')],
+    status: 'Ready to Move',
+    brochure: 'klassic heights.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '2 BHK', size: '1170 ft²', price: '₹95 Lakhs' },
+      { configuration: '3 BHK', size: '1550 ft²', price: '₹1.35 Cr' },
+      { configuration: '4 BHK', size: '2370 ft²', price: '₹2.10 Cr' },
+      { configuration: '2 BHK + Study', size: '1270 ft²', price: '₹1.20 Lakhs' },
+      { configuration: '3 BHK + Servant', size: '1650 ft²', price: '₹1.50 Cr' },
+      { configuration: '3 BHK + Servant', size: '1750 ft²', price: '₹1.65 Cr' },
+      { configuration: '3 BHK + Servant', size: '1850 ft²', price: '₹1.80 Cr' },
+      { configuration: '4 BHK + Servant', size: '2370 ft²', price: '₹2.40 Cr' },
+    ],
   },
   {
-    id: 'azure-heights-proj',
-    name: 'Azure Heights',
-    category: 'Upcoming',
+    id: 'klassic-duplex',
+    name: 'Klassic Duplex',
+    category: 'Ready to Move',
     location: 'South Delhi',
-    image: heroResidential,
-    short: 'Low-density 3 & 4 BHK apartments.',
-    description: 'A new launch with pre-launch booking now open.',
-    overview: 'Azure Heights is a new launch with pre-launch booking now open. The low-density community of 120 homes is designed around a central courtyard with villa-like privacy. Construction begins Q1 2026.',
-    amenities: ['Central Courtyard', 'Clubhouse', 'Pool', 'Sports Court', 'Reading Lounge'],
+    image: projectImages[0],
+    short: 'Ready-to-move duplex apartments with larger family layouts.',
+    description: 'Ready to move duplex project with multiple apartment configurations.',
+    overview: 'Klassic Duplex offers a compact yet premium ready-to-move portfolio with balanced family living options.',
+    amenities: ['Ready to Move', 'Duplex Layouts', 'Family Comfort', 'Premium Feeling'],
     specifications: [
-      { label: 'Configuration', value: '3 & 4 BHK' },
-      { label: 'Units', value: '120' },
-      { label: 'Launch', value: 'Pre-Launch' },
+      { label: 'Configuration', value: '2 BHK • 3 BHK + Servant • 4 BHK + Study' },
+      { label: 'Status', value: 'Ready to Move' },
     ],
-    status: 'New Launch - Pre-Launch Booking Open',
-    brochure: brochureFiles[10],
-    gallery: [propertySvg('Azure - Tower'), gallerySvg('Azure Courtyard')],
+    status: 'Ready to Move',
+    brochure: 'klassic duplex project details.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '2 BHK', size: '1170 ft²', price: '₹95 Lakhs' },
+      { configuration: '3 BHK + Servant', size: '1500 ft²', price: '₹1.20 Lakhs' },
+      { configuration: '4 BHK + Study', size: '2550 ft²', price: '₹2.20 Lakhs' },
+    ],
   },
   {
-    id: 'lakeside-township',
-    name: 'Lakeside Integrated Township',
-    category: 'Upcoming',
-    location: 'Greater Noida',
-    image: heroCommercial,
-    short: 'A 60-acre integrated township by the lake.',
-    description: 'An upcoming mega township with villas, apartments and retail.',
-    overview: 'Lakeside Integrated Township is our most ambitious upcoming project - a 60-acre master-planned community with villas, apartments, a school, retail and a lakefront promenade. Launching 2026.',
-    amenities: ['Lakefront Promenade', 'School', 'Retail', 'Clubhouse', 'Central Park'],
+    id: 'kba-ready-to-move',
+    name: 'KBA — Kensington Boulevard Apartments',
+    category: 'Ready to Move',
+    location: 'Noida',
+    image: projectImages[0],
+    short: 'Ready-to-move KBA apartments with compact and family-sized units.',
+    description: 'Ready to move apartment units in Kensington Boulevard Apartments.',
+    overview: 'KBA — Kensington Boulevard Apartments offers ready-to-move apartment inventory with 1 BHK and 2 BHK options.',
+    amenities: ['Ready to Move', 'Compact Apartments', 'Comfortable Living', 'Straightforward Pricing'],
     specifications: [
-      { label: 'Project Area', value: '60 Acres' },
-      { label: 'Launch', value: '2026' },
+      { label: 'Project Name', value: 'Kensington Boulevard Apartments' },
+      { label: 'Configuration', value: '1 BHK • 2 BHK' },
+      { label: 'Status', value: 'Ready to Move' },
     ],
-    status: 'Upcoming - Launching 2026',
-    brochure: brochureFiles[11],
-    gallery: [propertySvg('Lakeside - Masterplan'), gallerySvg('Lakeside')],
+    status: 'Ready to Move',
+    brochure: 'Kensington boulevard apartment sector 128.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '1 BHK', size: '665 ft²', price: '₹60 Lakhs' },
+      { configuration: '2 BHK', size: '1050 ft²', price: '₹95 Lakhs' },
+    ],
+  },
+  {
+    id: 'kpa-ready-to-move',
+    name: 'KPA — Kensington Park Apartments',
+    category: 'Ready to Move',
+    location: 'Noida',
+    image: projectImages[0],
+    short: 'Ready-to-move apartment inventory with family-sized layouts.',
+    description: 'Ready to move residential options in Kensington Park Apartments.',
+    overview: 'KPA — Kensington Park Apartments offers ready-to-move apartment sizes and pricing for family homes and investment buyers.',
+    amenities: ['Ready to Move', 'Apartment Living', 'Family Sizes', 'Established Community'],
+    specifications: [
+      { label: 'Project Name', value: 'Kensington Park Apartments' },
+      { label: 'Configuration', value: '2 BHK • 3 BHK • 4 BHK' },
+      { label: 'Status', value: 'Ready to Move' },
+    ],
+    status: 'Ready to Move',
+    brochure: 'Kensington park apartments.pdf',
+    gallery: projectImages,
+    inventory: [
+      { configuration: '2 BHK', size: '1170 ft²', price: '₹95 Lakhs' },
+      { configuration: '3 BHK', size: '1560 ft²', price: '₹1.35 Lakhs' },
+      { configuration: '4 BHK', size: '1950 ft²', price: '₹2.30 Lakhs' },
+    ],
   },
 ]
 

@@ -10,7 +10,7 @@ const residentialStatuses = {
   'new-launch': { label: 'New Launch', color: '#FF6B35' },
   'under-construction': { label: 'Under Construction', color: '#F7931E' },
   'possession': { label: 'Possession Soon', color: '#4CAF50' },
-  'ready-to-move': { label: 'Ready To Move', color: '#2196F3' },
+  'ready-to-move': { label: 'Ready To Move', color: '#D4AF37' },
   'pre-launch': { label: 'Pre Launch', color: '#9C27B0' },
 }
 
@@ -77,7 +77,7 @@ export default function ResidentialProjects() {
   }
 
   return (
-    <section id="residential-projects" className="section" style={{ background: '#fff' }}>
+    <section id="residential-projects" className="section" style={{ background: '#080808' }}>
       <div className="container-wide">
         {/* Section Header */}
         <Reveal>
@@ -117,7 +117,7 @@ export default function ResidentialProjects() {
                   transition: 'all 0.3s ease',
                   background: activeCategory === cat.key
                     ? 'var(--color-primary)'
-                    : '#f0f0f0',
+                    : '#151515',
                   color: activeCategory === cat.key ? '#fff' : 'var(--text)',
                 }}
               >
@@ -153,7 +153,7 @@ export default function ResidentialProjects() {
                       flex: '0 0 350px',
                       borderRadius: 'var(--radius-lg)',
                       overflow: 'hidden',
-                      background: '#fff',
+                      background: '#151515',
                       boxShadow: 'var(--shadow-sm)',
                       border: '1px solid var(--color-border)',
                       transition: 'all 0.3s ease',
@@ -284,7 +284,7 @@ export default function ResidentialProjects() {
             <div style={{
               textAlign: 'center',
               padding: 60,
-              background: '#f7f7f7',
+              background: '#151515',
               borderRadius: 'var(--radius-lg)',
             }}>
               <Zap size={48} style={{ margin: '0 auto 16px', opacity: 0.4 }} />
