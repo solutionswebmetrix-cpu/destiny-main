@@ -117,7 +117,7 @@ export default function Partners() {
     <section id="partners" className="section" style={{ background: '#080808' }}>
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">Trusted Partners</span>
             <h2 className="section-title">Our Partners</h2>
             <div className="divider" />
@@ -135,7 +135,7 @@ export default function Partners() {
             style={{
               position: 'relative',
               overflow: 'hidden',
-              marginBottom: 48,
+              marginBottom: 32,
             }}
           >
             {/* Carousel Container */}

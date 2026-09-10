@@ -8,7 +8,7 @@ export default function Leadership() {
     <section id="leadership" className="section">
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">Leadership Team</span>
             <h2 className="section-title">The People Behind Destiny Buildwell</h2>
             <div className="divider" />

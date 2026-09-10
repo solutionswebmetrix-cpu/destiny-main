@@ -39,7 +39,7 @@ export default function OurPresence() {
     <section id="presence" className="section" style={{ background: '#080808', color: '#F5F5F5' }}>
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">Our Presence</span>
             <h2 className="section-title" style={{ color: '#D4AF37' }}>Our Presence</h2>
             <div className="divider" />

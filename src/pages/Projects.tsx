@@ -31,7 +31,7 @@ export default function Projects() {
       <section className="section">
         <div className="container-wide">
           <Reveal>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 44 }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 10, flexWrap: 'wrap', marginBottom: 28 }}>
               {categories.map((c) => (
                 <button key={c} onClick={() => setCat(c)} style={{
                   padding: '9px 22px', borderRadius: 999, fontSize: '0.85rem', fontWeight: 500,
@@ -44,7 +44,7 @@ export default function Projects() {
             </div>
           </Reveal>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))', gap: 28 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))', gap: 20 }}>
             {list.map((p, i) => {
               const inventory = p.inventory ?? []
               const inventorySummary = inventory.length > 0 ? `${inventory.length} inventory options` : 'Project details available'

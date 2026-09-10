@@ -6,7 +6,7 @@ export default function Founder() {
   const founder = team.find((m) => m.role.includes('Founder')) || team[0]
 
   return (
-    <section id="founder" className="section" style={{ background: '#080808', paddingTop: 72, paddingBottom: 72 }}>
+    <section id="founder" className="section" style={{ background: '#080808', paddingTop: 64, paddingBottom: 64 }}>
       <div className="container-wide">
         <div className="founder-mobile-heading">
           <span className="eyebrow">A MESSAGE FROM THE FOUNDER</span>

@@ -28,7 +28,7 @@ export default function Services() {
     <section id="services" className="section">
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">Our Services</span>
             <h2 className="section-title">Comprehensive Construction & Design</h2>
             <div className="divider" />

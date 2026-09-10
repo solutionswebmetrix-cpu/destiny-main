@@ -17,7 +17,7 @@ export default function CommercialProjects() {
       <div className="container-wide">
         {/* Section Header */}
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ textAlign: 'center', marginBottom: 32 }}>
             <span className="eyebrow">Handpicked Portfolio</span>
             <h2 className="section-title">Projects Commercial</h2>
             <div className="divider" />
@@ -29,7 +29,7 @@ export default function CommercialProjects() {
           <div style={{
             display: 'flex',
             gap: 12,
-            marginBottom: 48,
+            marginBottom: 32,
             flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'center',
@@ -66,7 +66,7 @@ export default function CommercialProjects() {
             style={{
               background: '#151515',
               borderRadius: 'var(--radius-lg)',
-              padding: '80px 40px',
+              padding: '60px 40px',
               textAlign: 'center',
               border: '2px dashed var(--color-border)',
             }}

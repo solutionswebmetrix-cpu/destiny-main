@@ -110,8 +110,16 @@ ul {
   white-space: nowrap;
 }
 
+.nav-shell {
+  min-height: 100px;
+}
+
+.page-hero {
+  padding: 96px 0 48px;
+}
+
 .section {
-  padding: 96px 0;
+  padding: 64px 0;
 }
 
 .section-alt {
@@ -130,7 +138,7 @@ ul {
 }
 
 .why-title {
-  margin-bottom: 42px;
+  margin-bottom: 34px;
 }
 
 .why-grid {
@@ -174,7 +182,7 @@ ul {
 
 .testimonials-heading {
   text-align: center;
-  margin-bottom: 46px;
+  margin-bottom: 38px;
 }
 
 .testimonials-section .eyebrow,
@@ -226,8 +234,8 @@ ul {
 }
 
 .faq-section {
-  padding-top: 72px;
-  padding-bottom: 72px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .faq-heading {
@@ -248,7 +256,7 @@ ul {
   text-align: center;
   color: var(--text-muted);
   max-width: 640px;
-  margin: 0 auto 56px;
+  margin: 0 auto 40px;
   font-size: 1.02rem;
 }
 
@@ -317,14 +325,15 @@ ul {
 }
 
 .btn-ghost-light {
-  background: transparent;
-  color: var(--color-white);
-  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.65);
+  color: #FFFFFF;
+  border: 1px solid #D4AF37;
 }
 
 .btn-ghost-light:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: #fff;
+  background: #D4AF37;
+  color: #000000;
+  border-color: #D4AF37;
 }
 
 /* Cards */
@@ -447,7 +456,10 @@ ul {
 }
 
 @media (max-width: 768px) {
-  .section { padding: 64px 0; }
+  .section { padding: 40px 0; }
+  .page-hero { padding: 80px 0 40px; }
+  .nav-shell { min-height: 80px; height: 80px !important; }
+  .nav-shell > a img { width: 84px !important; height: 84px !important; max-width: 84px !important; max-height: 84px !important; }
   .container, .container-wide { padding: 0 18px; }
   .section-title { font-size: 1.8rem; }
   .masonry { columns: 2 !important; }
@@ -457,12 +469,13 @@ ul {
   .testimonial-item { padding: 32px 20px; }
   .testimonial-item + .testimonial-item { border-left: 0; border-top: 1px solid var(--color-border); }
   .testimonial-text { min-height: 0; }
-  .faq-section { padding-top: 52px; padding-bottom: 52px; }
+  .faq-section { padding-top: 42px; padding-bottom: 42px; }
 }
 
 @media (max-width: 560px) {
   .masonry { columns: 1 !important; }
   .nav-cta .btn { display: none; }
+  .nav-shell > a img { width: 76px !important; height: 76px !important; max-width: 76px !important; max-height: 76px !important; }
   .navbar-tagline { font-size: 0.62rem; }
   .gallery-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; }

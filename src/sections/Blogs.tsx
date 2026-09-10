@@ -20,7 +20,7 @@ export default function Blogs() {
     <section id="blogs" className="section section-alt">
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">Latest Blogs</span>
             <h2 className="section-title">Insights & Resources</h2>
             <div className="divider" />

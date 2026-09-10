@@ -7,7 +7,7 @@ export default function Amenities() {
     <section id="amenities" className="section section-alt">
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">World-Class Amenities</span>
             <h2 className="section-title">Lifestyle Beyond Four Walls</h2>
             <div className="divider" />

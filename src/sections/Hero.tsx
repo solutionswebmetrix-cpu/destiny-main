@@ -58,7 +58,7 @@ export default function Hero() {
           </p>
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link to="/contact" className="btn btn-light" style={{ gap: 8 }}>Book Consultation <ArrowRight size={17} /></Link>
-            <Link to="/properties" className="btn btn-ghost-light" style={{ gap: 8 }}>Explore Projects</Link>
+            <Link to="/properties" className="btn btn-ghost-light" style={{ gap: 8 }}>Explore Projects <ArrowRight size={17} /></Link>
           </div>
         </motion.div>
 
@@ -68,7 +68,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           style={{
-            marginTop: 56, background: '#0B0B0B', border: '1px solid rgba(212,175,55,0.35)', borderRadius: 'var(--radius-lg)',
+            marginTop: 40, background: '#0B0B0B', border: '1px solid rgba(212,175,55,0.35)', borderRadius: 'var(--radius-lg)',
             padding: '22px 24px', boxShadow: '0 16px 42px rgba(212,175,55,0.14)', maxWidth: 920,
             display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 16, alignItems: 'end',
           }}

@@ -90,7 +90,7 @@ export default function Properties() {
         <div className="container-wide">
           {/* Filter bar */}
           <Reveal>
-            <div className="card" style={{ padding: '22px 24px', marginBottom: 36, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, alignItems: 'end' }}>
+            <div className="card" style={{ padding: '22px 24px', marginBottom: 24, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 16, alignItems: 'end' }}>
               <div>
                 <label style={labelStyle}><SlidersHorizontal size={13} /> Property Type</label>
                 <select value={type} onChange={(e) => {
@@ -128,9 +128,9 @@ export default function Properties() {
             </div>
           </Reveal>
 
-          <p className="muted" style={{ marginBottom: 24, fontSize: '0.88rem' }}>Showing {filtered.length} {filtered.length === 1 ? 'property' : 'properties'}</p>
+          <p className="muted" style={{ marginBottom: 16, fontSize: '0.88rem' }}>Showing {filtered.length} {filtered.length === 1 ? 'property' : 'properties'}</p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))', gap: 28 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))', gap: 20 }}>
             {filtered.map((p, i) => (
               <Reveal key={p.id} delay={i * 0.05}>
                 <motion.div whileHover={{ y: -8 }} transition={{ duration: 0.3 }} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
@@ -180,7 +180,7 @@ export default function Properties() {
 
 export function PageHero({ title, subtitle, breadcrumb }: { title: string; subtitle: string; breadcrumb: string }) {
   return (
-    <section style={{ position: 'relative', paddingTop: 120, paddingBottom: 64, background: '#0B0B0B', borderBottom: '1px solid rgba(212,175,55,.28)', overflow: 'hidden' }}>
+    <section className="page-hero" style={{ position: 'relative', background: '#0B0B0B', borderBottom: '1px solid rgba(212,175,55,.28)', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, opacity: 0.08, backgroundImage: 'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 1px, transparent 40px)' }} />
       <div className="container-wide" style={{ position: 'relative', textAlign: 'center', color: '#fff' }}>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} style={{ color: '#D4AF37', fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: 12 }}>{title}</motion.h1>

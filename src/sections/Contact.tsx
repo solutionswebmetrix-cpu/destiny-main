@@ -16,7 +16,7 @@ export default function Contact() {
     <section id="contact" className="section section-alt">
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">Get in Touch</span>
             <h2 className="section-title">Let's Build Your Destiny</h2>
             <div className="divider" />

@@ -7,7 +7,7 @@ export default function WhyChooseUs() {
     <section id="why" className="section why-section">
       <div className="container-wide">
         <Reveal>
-          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
             <span className="eyebrow">Our Difference</span>
             <h2 className="section-title why-title">What Makes Us Better</h2>
             <div className="divider" />

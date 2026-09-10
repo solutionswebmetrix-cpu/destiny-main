@@ -13,9 +13,9 @@ export default function Footer() {
   }
 
   return (
-    <footer style={{ background: '#0a0a0a', color: '#fff', paddingTop: 72 }}>
+    <footer style={{ background: '#0a0a0a', color: '#fff', paddingTop: 56 }}>
       <div className="container-wide">
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, paddingBottom: 56 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, paddingBottom: 40 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
               <img src={logo} alt="Destiny Buildwell logo" style={{ width: 42, height: 42, objectFit: 'contain' }} />
