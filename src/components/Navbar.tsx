@@ -69,8 +69,8 @@ export default function Navbar() {
       }}
     >
       <nav className="container-wide nav-shell" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 100 }}>
-        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src={logo} alt="Destiny Buildwell logo" style={{ width: 100, height: 100, maxWidth: 100, maxHeight: 100, objectFit: 'contain' }} />
+        <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} style={{ display: 'flex', alignItems: 'center', gap: 10, flexShrink: 0 }}>
+          <img className="navbar-logo" src={logo} alt="Destiny Buildwell logo" style={{ width: 100, height: 100, maxWidth: 100, maxHeight: 100, objectFit: 'contain' }} />
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: 1.1 }}>
             <div style={{
               fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.15rem',

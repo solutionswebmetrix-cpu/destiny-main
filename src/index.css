@@ -114,6 +114,18 @@ ul {
   min-height: 100px;
 }
 
+.navbar-logo {
+  width: 100px !important;
+  height: 100px !important;
+  min-width: 100px !important;
+  min-height: 100px !important;
+  max-width: 100px !important;
+  max-height: 100px !important;
+  flex: 0 0 100px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain;
+}
+
 .page-hero {
   padding: 96px 0 48px;
 }
@@ -459,7 +471,7 @@ ul {
   .section { padding: 40px 0; }
   .page-hero { padding: 80px 0 40px; }
   .nav-shell { min-height: 80px; height: 80px !important; }
-  .nav-shell > a img { width: 84px !important; height: 84px !important; max-width: 84px !important; max-height: 84px !important; }
+  .navbar-logo { width: 84px !important; height: 84px !important; min-width: 84px !important; min-height: 84px !important; max-width: 84px !important; max-height: 84px !important; flex: 0 0 84px !important; }
   .container, .container-wide { padding: 0 18px; }
   .section-title { font-size: 1.8rem; }
   .masonry { columns: 2 !important; }
@@ -475,7 +487,7 @@ ul {
 @media (max-width: 560px) {
   .masonry { columns: 1 !important; }
   .nav-cta .btn { display: none; }
-  .nav-shell > a img { width: 76px !important; height: 76px !important; max-width: 76px !important; max-height: 76px !important; }
+  .navbar-logo { width: 76px !important; height: 76px !important; min-width: 76px !important; min-height: 76px !important; max-width: 76px !important; max-height: 76px !important; flex: 0 0 76px !important; }
   .navbar-tagline { font-size: 0.62rem; }
   .gallery-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; }
