@@ -8,10 +8,20 @@ interface BrochureViewerProps {
 }
 
 export default function BrochureViewer({ brochure, title }: BrochureViewerProps) {
-  const [open, setOpen] = useState(false)
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false)
+  const [brochureUrl, setBrochureUrl] = useState<string | null>(null)
 
-  // Use actual PDF file from src/assets/Project
   const pdfUrl = new URL(`../assets/Project/${brochure}`, import.meta.url).href
+
+  const openBrochure = () => {
+    setBrochureUrl(pdfUrl)
+    setIsBrochureOpen(true)
+  }
+
+  const closeBrochure = () => {
+    setIsBrochureOpen(false)
+    setBrochureUrl(null)
+  }
 
   const download = () => {
     const a = document.createElement('a')
@@ -24,7 +34,7 @@ export default function BrochureViewer({ brochure, title }: BrochureViewerProps)
   return (
     <>
       <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-        <button className="btn btn-primary" onClick={() => setOpen(true)} style={{ gap: 8 }}>
+        <button className="btn btn-primary" onClick={openBrochure} style={{ gap: 8 }}>
           <FileText size={17} /> View Brochure
         </button>
         <button className="btn btn-outline" onClick={download} style={{ gap: 8 }}>
@@ -33,14 +43,14 @@ export default function BrochureViewer({ brochure, title }: BrochureViewerProps)
       </div>
 
       <AnimatePresence>
-        {open && (
+        {isBrochureOpen && brochureUrl && (
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             style={{
               position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(0,0,0,0.72)',
               backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
             }}
-            onClick={() => setOpen(false)}
+            onClick={closeBrochure}
           >
             <motion.div
               initial={{ scale: 0.92, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.92, y: 20 }}
@@ -59,11 +69,11 @@ export default function BrochureViewer({ brochure, title }: BrochureViewerProps)
                 <h3 style={{ fontSize: '1.05rem', margin: 0 }}>{title} - Brochure</h3>
                 <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
                   <button onClick={download} style={{ padding: '8px 14px', borderRadius: 8, background: 'var(--color-primary)', color: '#fff', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: 6 }}><Download size={15} /> Download</button>
-                  <button onClick={() => setOpen(false)} style={{ padding: 8, borderRadius: 8, border: '1px solid var(--color-border)', display: 'grid', placeItems: 'center' }} aria-label="Close"><X size={18} /></button>
+                  <button onClick={closeBrochure} style={{ padding: 8, borderRadius: 8, border: '1px solid var(--color-border)', display: 'grid', placeItems: 'center' }} aria-label="Close"><X size={18} /></button>
                 </div>
               </div>
               <div style={{ overflow: 'auto', padding: 0, background: 'var(--color-light-grey)', flex: 1 }}>
-                <iframe src={pdfUrl} title={`${title} Brochure`} style={{ width: '100%', height: '75vh', border: 'none' }} />
+                <iframe src={brochureUrl} title={`${title} Brochure`} style={{ width: '100%', height: '75vh', border: 'none' }} />
               </div>
             </motion.div>
           </motion.div>
