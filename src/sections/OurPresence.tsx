@@ -1,35 +1,26 @@
 import { motion } from 'framer-motion'
-import { MapPin, ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { MapPin } from 'lucide-react'
 import Reveal from '../components/Reveal'
-import heroResidential from '../assets/Residential Construction.jpg'
-import heroCommercial from '../assets/Commercial Projects.jpg'
-import architecture from '../assets/Architecture.jpg'
-import renovation from '../assets/Renovation.jpg'
 
 const locations = [
   {
     name: 'Noida',
     description: 'Premium residential and commercial projects across multiple sectors',
-    image: heroResidential,
     id: 'noida',
   },
   {
     name: 'Greater Noida',
     description: 'Large-scale township and villa community projects',
-    image: architecture,
     id: 'greater-noida',
   },
   {
     name: 'South Delhi',
     description: 'Luxury villa and high-end residential developments',
-    image: renovation,
     id: 'south-delhi',
   },
   {
     name: 'Faridabad',
     description: 'Strategic commercial and mixed-use developments',
-    image: heroCommercial,
     id: 'faridabad',
   },
 ]
@@ -58,47 +49,25 @@ export default function OurPresence() {
                 className="location-card"
                 style={{
                   position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '38px 24px 30px',
+                  background: '#0B0B0B',
                   borderRadius: 22,
-                  overflow: 'hidden',
                   height: 320,
                   cursor: 'pointer',
-                  boxShadow: '0 18px 42px rgba(17, 24, 39, 0.12)',
-                  border: '1px solid rgba(212,175,55,0.28)',
+                  boxShadow: '0 18px 42px rgba(0, 0, 0, 0.24)',
+                  border: '1px solid rgba(212,175,55,0.4)',
                 }}
               >
-                <img
-                  src={location.image}
-                  alt={location.name}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block',
-                    transition: 'transform 0.45s ease',
-                  }}
-                  loading="lazy"
-                  className="location-image"
-                />
-
-                <div
-                  className="location-overlay"
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.28) 42%, rgba(0,0,0,0.68) 100%)',
-                    transition: 'background 0.35s ease',
-                  }}
-                />
-
                 <div
                   style={{
-                    position: 'absolute',
-                    inset: 0,
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '38px 24px 30px',
                     color: '#fff',
                     textAlign: 'center',
                   }}
@@ -108,7 +77,6 @@ export default function OurPresence() {
                     style={{
                       marginBottom: 20,
                       color: '#D4AF37',
-                      filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.35))',
                     }}
                   />
                   <h3
@@ -120,7 +88,6 @@ export default function OurPresence() {
                       color: '#FFFFFF',
                       fontFamily: 'var(--font-heading)',
                       letterSpacing: '0.01em',
-                      textShadow: '0 2px 8px rgba(0,0,0,0.45)',
                     }}
                   >
                     {location.name}
@@ -133,7 +100,6 @@ export default function OurPresence() {
                       lineHeight: 1.5,
                       color: '#FFFFFF',
                       opacity: 0.96,
-                      textShadow: '0 2px 6px rgba(0,0,0,0.35)',
                     }}
                   >
                     {location.description}
@@ -148,10 +114,6 @@ export default function OurPresence() {
       <style>{`
         .location-card {
           border-radius: 22px;
-        }
-
-        .location-image {
-          transition: transform 0.45s ease;
         }
 
         @media (max-width: 1024px) {
@@ -172,15 +134,6 @@ export default function OurPresence() {
           }
         }
 
-        @media (hover: hover) {
-          #presence > .container-wide > div:last-child > div:hover .location-image {
-            transform: scale(1.04);
-          }
-
-          #presence > .container-wide > div:last-child > div:hover .location-overlay {
-            background: linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.3) 42%, rgba(0,0,0,0.75) 100%) !important;
-          }
-        }
       `}</style>
     </section>
   )
