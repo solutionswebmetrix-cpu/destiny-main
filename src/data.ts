@@ -9,11 +9,12 @@ import {
 import heroBanner from './assets/banner.png'
 import heroResidential from './assets/Residential Construction.jpg'
 import heroCommercial from './assets/Commercial Projects.jpg'
-import aboutImage from './assets/Architecture.jpg'
-import projectOne from './assets/Project/one.jpeg'
 import projectImageOne from './assets/Project/Project.png'
 import projectImageTwo from './assets/Project/Project 1.png'
 import projectImageThree from './assets/Project/Project 2.png'
+import propertyPlots from './assets/Properties/plots.png'
+import propertyVillas from './assets/Properties/Luxury Villas.png'
+import propertyApartments from './assets/Properties/apartments.png'
 
 const projectImages = [projectImageOne, projectImageTwo, projectImageThree]
 
@@ -218,49 +219,6 @@ export const aboutVisual =
     </svg>`
   )
 
-const propertySvg = (label: string, tone: 'light' | 'dark' = 'light') =>
-  'data:image/svg+xml,' +
-  encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
-      <defs><linearGradient id='pg' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='${tone === 'dark' ? '#0B0B0B' : '#151515'}'/>
-        <stop offset='1' stop-color='${tone === 'dark' ? '#151515' : '#0B0B0B'}'/>
-      </linearGradient></defs>
-      <rect width='800' height='600' fill='url(#pg)'/>
-      <g fill='rgba(255,255,255,0.9)'>
-        <rect x='120' y='300' width='180' height='260' rx='4'/>
-        <rect x='340' y='240' width='220' height='320' rx='4'/>
-        <rect x='600' y='320' width='160' height='240' rx='4'/>
-      </g>
-      <g fill='rgba(212,175,55,0.28)'>
-        <rect x='140' y='330' width='40' height='40'/><rect x='200' y='330' width='40' height='40'/>
-        <rect x='140' y='390' width='40' height='40'/><rect x='200' y='390' width='40' height='40'/>
-        <rect x='360' y='270' width='50' height='50'/><rect x='430' y='270' width='50' height='50'/>
-        <rect x='500' y='270' width='50' height='50'/><rect x='360' y='340' width='50' height='50'/>
-        <rect x='430' y='340' width='50' height='50'/><rect x='500' y='340' width='50' height='50'/>
-        <rect x='620' y='350' width='45' height='45'/><rect x='685' y='350' width='45' height='45'/>
-      </g>
-      <text x='400' y='90' font-family='Playfair Display, serif' font-size='44' fill='rgba(255,255,255,0.95)' text-anchor='middle' font-weight='600'>${label}</text>
-    </svg>`
-  )
-
-const gallerySvg = (label: string) =>
-  'data:image/svg+xml,' +
-  encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'>
-      <defs><linearGradient id='gg' x1='0' y1='0' x2='1' y2='1'>
-        <stop offset='0' stop-color='#151515'/><stop offset='1' stop-color='#0B0B0B'/>
-      </linearGradient></defs>
-      <rect width='800' height='600' fill='url(#gg)'/>
-      <g fill='rgba(255,255,255,0.85)'>
-        <rect x='100' y='320' width='200' height='240' rx='4'/>
-        <rect x='340' y='260' width='240' height='300' rx='4'/>
-        <rect x='620' y='340' width='160' height='220' rx='4'/>
-      </g>
-      <text x='400' y='160' font-family='Poppins, sans-serif' font-size='30' fill='rgba(255,255,255,0.92)' text-anchor='middle' font-weight='500' letter-spacing='2'>${label.toUpperCase()}</text>
-    </svg>`
-  )
-
 const teamSvg = (initials: string) =>
   'data:image/svg+xml,' +
   encodeURIComponent(
@@ -299,146 +257,146 @@ export const heroSlides = [
 ]
 
 export const properties: Property[] = [
-  // {
-  //   id: 'serene-villas',
-  //   title: 'Serene Luxury Villas',
-  //   type: 'Villa',
-  //   location: 'Greater Noida',
-  //   area: '3,200 - 4,500 sq.ft',
-  //   price: '₹2.4 Cr onwards',
-  //   beds: 4, baths: 5,
-  //   image: projectOne,
-  //   tag: 'Best Seller',
-  //   description: 'Gated villa community with private gardens and clubhouse access.',
-  //   overview: 'Serene Luxury Villas is an exclusive gated community of 48 premium villas set amidst landscaped gardens. Each home features double-height living spaces, private terraces and smart-home integration, designed for families who value space, privacy and timeless architecture.',
-  //   amenities: ['Private Garden', 'Clubhouse', 'Swimming Pool', 'Smart Home', 'Home Theatre', 'Modular Kitchen'],
-  //   specifications: [
-  //     { label: 'Configuration', value: '4 & 5 BHK Villas' },
-  //     { label: 'Land Area', value: '3,200 - 4,500 sq.ft' },
-  //     { label: 'Units', value: '48 Villas' },
-  //     { label: 'Possession', value: 'Ready to Move' },
-  //     { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-001' },
-  //   ],
-  //   brochure: brochureFiles[0],
-  //   gallery: [propertySvg('Serene - Exterior'), propertySvg('Serene - Interior'), propertySvg('Serene - Living'), gallerySvg('Serene Living')],
-  //   status: 'Ready to Move',
-  // },
-  // {
-  //   id: 'skyline-residences',
-  //   title: 'Skyline Park Residences',
-  //   type: 'Apartment',
-  //   location: 'Noida',
-  //   area: '1,450 - 2,300 sq.ft',
-  //   price: '₹95 L onwards',
-  //   beds: 3, baths: 3,
-  //   image: heroResidential,
-  //   tag: 'New Launch',
-  //   description: 'High-rise apartments with panoramic city and lake views.',
-  //   overview: 'Skyline Park Residences offers 2 & 3 BHK sky homes across two soaring towers of 32 floors each. With a central podium of amenities, sky lounges and curated landscaping, it redefines modern high-rise living in Noida.',
-  //   amenities: ['Sky Lounge', 'Infinity Pool', 'Gym', 'Co-Working', 'Multipurpose Hall', 'EV Charging'],
-  //   specifications: [
-  //     { label: 'Configuration', value: '2 & 3 BHK Apartments' },
-  //     { label: 'Built-up Area', value: '1,450 - 2,300 sq.ft' },
-  //     { label: 'Towers', value: '2 Towers, G+32' },
-  //     { label: 'Possession', value: 'Dec 2026' },
-  //     { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-002' },
-  //   ],
-  //   brochure: brochureFiles[1],
-  //   gallery: [propertySvg('Skyline - Tower'), propertySvg('Skyline - Living'), propertySvg('Skyline - View'), gallerySvg('Skyline View')],
-  //   status: 'Under Construction',
-  // },
-  // {
-  //   id: 'meridian-plaza',
-  //   title: 'Meridian Business Plaza',
-  //   type: 'Commercial',
-  //   location: 'Noida',
-  //   area: '600 - 12,000 sq.ft',
-  //   price: '₹1.1 Cr onwards',
-  //   image: heroCommercial,
-  //   tag: 'Investment',
-  //   description: 'Grade-A office spaces with retail frontage on the Outer Ring Road.',
-  //   overview: 'Meridian Business Plaza is a LEED-certified commercial development with grade-A office floors, ground-floor retail and a dedicated business lounge. Designed for growth-stage companies, it offers flexible floor plates and premium building management systems.',
-  //   amenities: ['Grade-A Offices', 'Retail Frontage', 'Business Lounge', 'Central AC', 'Parking 1:1000', 'Food Court'],
-  //   specifications: [
-  //     { label: 'Typical Floor', value: '18,000 sq.ft' },
-  //     { label: 'Unit Sizes', value: '600 - 12,000 sq.ft' },
-  //     { label: 'Floors', value: 'G+14' },
-  //     { label: 'Possession', value: 'Mar 2026' },
-  //     { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-003' },
-  //   ],
-  //   brochure: brochureFiles[2],
-  //   gallery: [propertySvg('Meridian - Tower'), propertySvg('Meridian - Lobby'), propertySvg('Meridian - Office'), gallerySvg('Meridian Office')],
-  //   status: 'Under Construction',
-  // },
-  // {
-  //   id: 'greenfield-plots',
-  //   title: 'Greenfield Villa Plots',
-  //   type: 'Plot',
-  //   location: 'Greater Noida',
-  //   area: '1,200 - 2,400 sq.ft',
-  //   price: '₹48 L onwards',
-  //   image: aboutImage,
-  //   description: 'DTCP-approved residential plots in a planned township.',
-  //   overview: 'Greenfield Villa Plots is a 28-acre plotted development with wide internal roads, underground utilities and a central park. Build your dream villa your way, with ready infrastructure and clear titles.',
-  //   amenities: ['Central Park', 'Wide Roads', 'Underground Utilities', 'Gated Security', 'Street Lighting', 'Avenue Plantation'],
-  //   specifications: [
-  //     { label: 'Plot Sizes', value: '1,200 - 2,400 sq.ft' },
-  //     { label: 'Total Plots', value: '210' },
-  //     { label: 'Project Area', value: '28 Acres' },
-  //     { label: 'Approvals', value: 'DTCP & RERA Approved' },
-  //     { label: 'Possession', value: 'Ready to Register' },
-  //   ],
-  //   brochure: brochureFiles[3],
-  //   gallery: [propertySvg('Greenfield - Layout'), propertySvg('Greenfield - Park'), gallerySvg('Greenfield')],
-  //   status: 'Ready to Move',
-  // },
-  // {
-  //   id: 'azure-heights',
-  //   title: 'Azure Heights',
-  //   type: 'Apartment',
-  //   location: 'South Delhi',
-  //   area: '1,650 - 2,800 sq.ft',
-  //   price: '₹1.3 Cr onwards',
-  //   beds: 3, baths: 4,
-  //   image: heroResidential,
-  //   tag: 'Premium',
-  //   description: 'Spacious 3 & 4 BHK homes around a central courtyard.',
-  //   overview: 'Azure Heights is a low-density apartment community of just 120 homes spread across 4 acres. With a central courtyard design, cross-ventilated homes and no common walls, it offers villa-like privacy in apartment convenience.',
-  //   amenities: ['Central Courtyard', 'Clubhouse', 'Pool', 'Sports Court', 'Reading Lounge', 'Creche'],
-  //   specifications: [
-  //     { label: 'Configuration', value: '3 & 4 BHK' },
-  //     { label: 'Built-up Area', value: '1,650 - 2,800 sq.ft' },
-  //     { label: 'Units', value: '120' },
-  //     { label: 'Possession', value: 'Jun 2027' },
-  //     { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-005' },
-  //   ],
-  //   brochure: brochureFiles[4],
-  //   gallery: [propertySvg('Azure - Tower'), propertySvg('Azure - Courtyard'), gallerySvg('Azure Courtyard')],
-  //   status: 'New Launch',
-  // },
-  // {
-  //   id: 'palm-grove-villas',
-  //   title: 'Palm Grove Villas',
-  //   type: 'Villa',
-  //   location: 'Faridabad',
-  //   area: '2,800 - 3,600 sq.ft',
-  //   price: '₹2.1 Cr onwards',
-  //   beds: 4, baths: 5,
-  //   image: projectOne,
-  //   description: 'Resort-style villas near the international airport.',
-  //   overview: 'Palm Grove Villas brings resort living home. Each villa opens onto a private palm-lined garden, with a clubhouse, spa and infinity pool shared by a close-knit community of 36 families.',
-  //   amenities: ['Private Garden', 'Spa', 'Infinity Pool', 'Clubhouse', 'Tennis Court', 'Concierge'],
-  //   specifications: [
-  //     { label: 'Configuration', value: '4 BHK Villas' },
-  //     { label: 'Land Area', value: '2,800 - 3,600 sq.ft' },
-  //     { label: 'Units', value: '36' },
-  //     { label: 'Possession', value: 'Ready to Move' },
-  //     { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-006' },
-  //   ],
-  //   brochure: brochureFiles[5],
-  //   gallery: [propertySvg('Palm Grove - Exterior'), propertySvg('Palm Grove - Pool'), gallerySvg('Palm Grove')],
-  //   status: 'Ready to Move',
-  // },
+  {
+    id: 'serene-villas',
+    title: 'Serene Luxury Villas',
+    type: 'Villa',
+    location: 'Greater Noida',
+    area: '3,200 - 4,500 sq.ft',
+    price: '₹2.4 Cr onwards',
+    beds: 4, baths: 5,
+    image: propertyVillas,
+    tag: 'Best Seller',
+    description: 'Gated villa community with private gardens and clubhouse access.',
+    overview: 'Serene Luxury Villas is an exclusive gated community of 48 premium villas set amidst landscaped gardens. Each home features double-height living spaces, private terraces and smart-home integration, designed for families who value space, privacy and timeless architecture.',
+    amenities: ['Private Garden', 'Clubhouse', 'Swimming Pool', 'Smart Home', 'Home Theatre', 'Modular Kitchen'],
+    specifications: [
+      { label: 'Configuration', value: '4 & 5 BHK Villas' },
+      { label: 'Land Area', value: '3,200 - 4,500 sq.ft' },
+      { label: 'Units', value: '48 Villas' },
+      { label: 'Possession', value: 'Ready to Move' },
+      { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-001' },
+    ],
+    brochure: brochureFiles[0],
+    gallery: [propertyVillas],
+    status: 'Ready to Move',
+  },
+  {
+    id: 'skyline-residences',
+    title: 'Skyline Park Residences',
+    type: 'Apartment',
+    location: 'Noida',
+    area: '1,450 - 2,300 sq.ft',
+    price: '₹95 L onwards',
+    beds: 3, baths: 3,
+    image: propertyApartments,
+    tag: 'New Launch',
+    description: 'High-rise apartments with panoramic city and lake views.',
+    overview: 'Skyline Park Residences offers 2 & 3 BHK sky homes across two soaring towers of 32 floors each. With a central podium of amenities, sky lounges and curated landscaping, it redefines modern high-rise living in Noida.',
+    amenities: ['Sky Lounge', 'Infinity Pool', 'Gym', 'Co-Working', 'Multipurpose Hall', 'EV Charging'],
+    specifications: [
+      { label: 'Configuration', value: '2 & 3 BHK Apartments' },
+      { label: 'Built-up Area', value: '1,450 - 2,300 sq.ft' },
+      { label: 'Towers', value: '2 Towers, G+32' },
+      { label: 'Possession', value: 'Dec 2026' },
+      { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-002' },
+    ],
+    brochure: brochureFiles[1],
+    gallery: [propertyApartments],
+    status: 'Under Construction',
+  },
+  {
+    id: 'meridian-plaza',
+    title: 'Meridian Business Plaza',
+    type: 'Commercial',
+    location: 'Noida',
+    area: '600 - 12,000 sq.ft',
+    price: '₹1.1 Cr onwards',
+    image: propertyApartments,
+    tag: 'Investment',
+    description: 'Grade-A office spaces with retail frontage on the Outer Ring Road.',
+    overview: 'Meridian Business Plaza is a LEED-certified commercial development with grade-A office floors, ground-floor retail and a dedicated business lounge. Designed for growth-stage companies, it offers flexible floor plates and premium building management systems.',
+    amenities: ['Grade-A Offices', 'Retail Frontage', 'Business Lounge', 'Central AC', 'Parking 1:1000', 'Food Court'],
+    specifications: [
+      { label: 'Typical Floor', value: '18,000 sq.ft' },
+      { label: 'Unit Sizes', value: '600 - 12,000 sq.ft' },
+      { label: 'Floors', value: 'G+14' },
+      { label: 'Possession', value: 'Mar 2026' },
+      { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-003' },
+    ],
+    brochure: brochureFiles[2],
+    gallery: [propertyApartments],
+    status: 'Under Construction',
+  },
+  {
+    id: 'greenfield-plots',
+    title: 'Greenfield Villa Plots',
+    type: 'Plot',
+    location: 'Greater Noida',
+    area: '1,200 - 2,400 sq.ft',
+    price: '₹48 L onwards',
+    image: propertyPlots,
+    description: 'DTCP-approved residential plots in a planned township.',
+    overview: 'Greenfield Villa Plots is a 28-acre plotted development with wide internal roads, underground utilities and a central park. Build your dream villa your way, with ready infrastructure and clear titles.',
+    amenities: ['Central Park', 'Wide Roads', 'Underground Utilities', 'Gated Security', 'Street Lighting', 'Avenue Plantation'],
+    specifications: [
+      { label: 'Plot Sizes', value: '1,200 - 2,400 sq.ft' },
+      { label: 'Total Plots', value: '210' },
+      { label: 'Project Area', value: '28 Acres' },
+      { label: 'Approvals', value: 'DTCP & RERA Approved' },
+      { label: 'Possession', value: 'Ready to Register' },
+    ],
+    brochure: brochureFiles[3],
+    gallery: [propertyPlots],
+    status: 'Ready to Move',
+  },
+  {
+    id: 'azure-heights',
+    title: 'Azure Heights',
+    type: 'Apartment',
+    location: 'South Delhi',
+    area: '1,650 - 2,800 sq.ft',
+    price: '₹1.3 Cr onwards',
+    beds: 3, baths: 4,
+    image: propertyApartments,
+    tag: 'Premium',
+    description: 'Spacious 3 & 4 BHK homes around a central courtyard.',
+    overview: 'Azure Heights is a low-density apartment community of just 120 homes spread across 4 acres. With a central courtyard design, cross-ventilated homes and no common walls, it offers villa-like privacy in apartment convenience.',
+    amenities: ['Central Courtyard', 'Clubhouse', 'Pool', 'Sports Court', 'Reading Lounge', 'Creche'],
+    specifications: [
+      { label: 'Configuration', value: '3 & 4 BHK' },
+      { label: 'Built-up Area', value: '1,650 - 2,800 sq.ft' },
+      { label: 'Units', value: '120' },
+      { label: 'Possession', value: 'Jun 2027' },
+      { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-005' },
+    ],
+    brochure: brochureFiles[4],
+    gallery: [propertyApartments],
+    status: 'New Launch',
+  },
+  {
+    id: 'palm-grove-villas',
+    title: 'Palm Grove Villas',
+    type: 'Villa',
+    location: 'Faridabad',
+    area: '2,800 - 3,600 sq.ft',
+    price: '₹2.1 Cr onwards',
+    beds: 4, baths: 5,
+    image: propertyVillas,
+    description: 'Resort-style villas near the international airport.',
+    overview: 'Palm Grove Villas brings resort living home. Each villa opens onto a private palm-lined garden, with a clubhouse, spa and infinity pool shared by a close-knit community of 36 families.',
+    amenities: ['Private Garden', 'Spa', 'Infinity Pool', 'Clubhouse', 'Tennis Court', 'Concierge'],
+    specifications: [
+      { label: 'Configuration', value: '4 BHK Villas' },
+      { label: 'Land Area', value: '2,800 - 3,600 sq.ft' },
+      { label: 'Units', value: '36' },
+      { label: 'Possession', value: 'Ready to Move' },
+      { label: 'RERA', value: 'PRM/KA/RERA/1251/446/PR-DB-006' },
+    ],
+    brochure: brochureFiles[5],
+    gallery: [propertyVillas],
+    status: 'Ready to Move',
+  },
 ]
 
 export const services: Service[] = [
