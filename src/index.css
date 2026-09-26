@@ -537,27 +537,31 @@ ul {
 
 .team-page-hero {
   padding: 132px 0 76px;
-  background: linear-gradient(135deg, #050505, #111111);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.24);
-  color: #ffffff;
+  background: var(--color-primary);
+  color: #17130a;
   text-align: center;
 }
 
 .team-page-hero .eyebrow {
-  color: #D4AF37;
+  color: #17130a;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .team-page-hero h1 {
   max-width: 820px;
   margin: 0 auto 16px;
-  color: var(--color-white);
+  color: #17130a;
+  font-family: var(--font-heading);
   font-size: clamp(2.2rem, 5vw, 3.5rem);
 }
 
 .team-page-hero p {
   max-width: 700px;
   margin: 0 auto;
-  color: #c4c4c4;
+  color: #29210f;
   font-size: 1.05rem;
 }
 
@@ -590,8 +594,7 @@ ul {
 
 .team-leadership-grid {
   display: grid;
-  grid-template-columns: minmax(0, 820px);
-  justify-content: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   margin-bottom: 76px;
 }
@@ -599,47 +602,6 @@ ul {
 .team-leadership-grid .team-leader-card {
   width: 100%;
   margin: 0;
-}
-
-.team-image-unavailable {
-  width: 180px;
-  height: 180px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(212, 175, 55, 0.28);
-  color: #c4c4c4;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.team-nikhil-card {
-  display: flex;
-  align-items: center;
-  gap: 34px;
-  max-width: 820px;
-  margin: 0 auto 76px;
-  padding: 28px;
-  border: 1px solid rgba(212, 175, 55, 0.28);
-  background: #111111;
-  box-shadow: none;
-}
-
-.team-nikhil-card img {
-  width: 180px;
-  height: 180px;
-  flex-shrink: 0;
-  object-fit: cover;
-}
-
-.team-nikhil-card .eyebrow {
-  margin-bottom: 8px;
-}
-
-.team-nikhil-card h3 {
-  margin-bottom: 6px;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  color: #ffffff;
 }
 
 .team-leader-card img {
@@ -713,9 +675,6 @@ ul {
   .team-leadership-grid { grid-template-columns: 1fr; margin-bottom: 58px; }
   .team-leader-card { flex-direction: column; text-align: center; }
   .team-leader-card img { width: 150px; height: 150px; }
-  .team-image-unavailable { width: 150px; height: 150px; }
-  .team-nikhil-card { flex-direction: column; text-align: center; margin-bottom: 58px; }
-  .team-nikhil-card img { width: 150px; height: 150px; }
   .team-members-grid { grid-template-columns: 1fr; }
 }
 

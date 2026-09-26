@@ -25,7 +25,6 @@ import teamAnkit from './assets/id card/Ankit.jpeg'
 import teamDigvijay from './assets/id card/DigVijay.jpeg'
 import teamBijay from './assets/id card/Bijay Agarwal.jpeg'
 import teamKushdeep from './assets/id card/Kushdeep.jpeg'
-import teamNikhil from './assets/id card/nikhil.jpeg'
 import teamVarun from './assets/id card/Varun.jpeg'
 import teamVinay from './assets/id card/Vinay.jpeg'
 
@@ -876,7 +875,6 @@ export const projects: Project[] = [
 export const team: TeamMember[] = [
   { name: 'Aditya Bhardwaj', role: 'Founder & Managing Director', image: teamDirector, bio: '' },
   { name: 'Bijay Agarwal', role: 'Legal Associate & Legal Partner', image: teamBijay, bio: '' },
-  { name: 'Nikhil Thakrani', role: 'Sales Head & Manager', image: teamNikhil, bio: '' },
   { name: 'Aman Pandey', role: 'Senior Project Lead', image: teamAman, bio: '' },
   { name: 'Vinay Kumar', role: 'Operation Head', image: teamVinay, bio: '' },
   { name: 'Ankit Tomar', role: 'Sales Executive', image: teamAnkit, bio: '' },

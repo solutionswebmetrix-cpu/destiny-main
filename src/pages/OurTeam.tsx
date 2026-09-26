@@ -3,9 +3,8 @@ import Reveal from '../components/Reveal'
 import { team } from '../data'
 
 export default function OurTeam() {
-  const leader = team[0]
-  const nikhil = team[2]
-  const members = [...team.slice(1, 2), ...team.slice(3)]
+  const leaders = team.slice(0, 2)
+  const members = team.slice(2)
 
   return (
     <>
@@ -31,28 +30,17 @@ export default function OurTeam() {
 
           <Reveal>
             <div className="team-leadership-grid">
-              {[leader].map((member) => (
+              {leaders.map((member) => (
                 <article className="team-leader-card" key={member.name}>
-                  {member.image ? <img src={member.image} alt={member.name} /> : <div className="team-image-unavailable">Image unavailable</div>}
+                  <img src={member.image} alt={member.name} />
                   <div>
-                    <span className="eyebrow">{member.name === 'Aditya Bhardwaj' ? 'Founder & Managing Director' : member.role}</span>
+                    <span className="eyebrow">{member.role}</span>
                     <h3>{member.name}</h3>
                     <p className="muted">{member.role}</p>
                   </div>
                 </article>
               ))}
             </div>
-          </Reveal>
-
-          <Reveal>
-            <article className="team-nikhil-card">
-              <img src={nikhil.image} alt={nikhil.name} />
-              <div>
-                <span className="eyebrow">{nikhil.role}</span>
-                <h3>{nikhil.name}</h3>
-                <p className="muted">{nikhil.role}</p>
-              </div>
-            </article>
           </Reveal>
 
           <Reveal>
