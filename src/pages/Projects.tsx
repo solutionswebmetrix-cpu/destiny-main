@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import ProjectCard from '../components/ProjectCard'
-import { projects } from '../data'
+import { projects, type Project } from '../data'
 import { PageHero } from './Properties'
 
 const statusFilters = ['All', 'New Launch', 'Under Construction', 'Possession Soon', 'Ready to Move', 'Pre Launch', 'Status not specified'] as const
