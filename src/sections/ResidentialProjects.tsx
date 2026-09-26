@@ -1,18 +1,9 @@
 import { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, MapPin, Zap } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Zap } from 'lucide-react'
 import Reveal from '../components/Reveal'
-import { projects } from '../data'
-
-// Define residential project statuses
-const residentialStatuses = {
-  'new-launch': { label: 'New Launch', color: '#FF6B35' },
-  'under-construction': { label: 'Under Construction', color: '#F7931E' },
-  'possession': { label: 'Possession Soon', color: '#4CAF50' },
-  'ready-to-move': { label: 'Ready To Move', color: '#D4AF37' },
-  'pre-launch': { label: 'Pre Launch', color: '#9C27B0' },
-}
+import ProjectCard from '../components/ProjectCard'
+import { projects, type Project } from '../data'
 
 const residentialCategories = [
   { key: 'new-launch', label: 'New Launch' },
@@ -20,15 +11,17 @@ const residentialCategories = [
   { key: 'possession', label: 'Possession Soon' },
   { key: 'ready-to-move', label: 'Ready To Move' },
   { key: 'pre-launch', label: 'Pre Launch' },
+  { key: 'status-not-specified', label: 'Status not specified' },
 ]
 
 // Map projects to residential categories (for demo, we'll use project status)
-const getResidentialCategory = (project: any): string | null => {
+const getResidentialCategory = (project: Project): string | null => {
   const status = project.status?.toLowerCase() || ''
   if (status.includes('new launch')) return 'new-launch'
   if (status.includes('under construction')) return 'under-construction'
   if (status.includes('possession')) return 'possession'
   if (status.includes('ready')) return 'ready-to-move'
+  if (status.includes('status not specified')) return 'status-not-specified'
   if (status.includes('upcoming') || status.includes('launching')) return 'pre-launch'
   return null
 }
@@ -40,13 +33,7 @@ export default function ResidentialProjects() {
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
 
-  // Filter residential projects (exclude only commercial projects)
-  const residentialProjects = projects.filter((p) => {
-    // Exclude purely commercial projects
-    if (p.name.toLowerCase().includes('meridian')) return false
-    // Include all other projects that have a valid residential category
-    return getResidentialCategory(p) !== null
-  })
+  const residentialProjects = projects.filter((project) => project.type === 'Residential')
 
   const filteredProjects = residentialProjects.filter(
     (p) => getResidentialCategory(p) === activeCategory
@@ -144,74 +131,11 @@ export default function ResidentialProjects() {
                   scrollbarWidth: 'none',
                 }}
               >
-                {filteredProjects.map((project) => (
-                  <motion.div
-                    key={project.id}
-                    whileHover={{ y: -8 }}
-                    transition={{ duration: 0.3 }}
-                    style={{
-                      flex: '0 0 350px',
-                      borderRadius: 'var(--radius-lg)',
-                      overflow: 'hidden',
-                      background: '#151515',
-                      boxShadow: 'var(--shadow-sm)',
-                      border: '1px solid var(--color-border)',
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    {/* Project Image */}
-                    <div style={{ position: 'relative', height: 240 }}>
-                      <img
-                        src={project.image}
-                        alt={project.name}
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                          transition: 'transform 0.4s ease',
-                        }}
-                        loading="lazy"
-                      />
-                      {/* Status Badge */}
-                      <div
-                        style={{
-                          position: 'absolute',
-                          top: 12,
-                          right: 12,
-                          background: residentialStatuses[getResidentialCategory(project) as keyof typeof residentialStatuses]?.color || '#666',
-                          color: '#fff',
-                          padding: '6px 12px',
-                          borderRadius: 6,
-                          fontSize: '0.75rem',
-                          fontWeight: 600,
-                        }}
-                      >
-                        {residentialStatuses[getResidentialCategory(project) as keyof typeof residentialStatuses]?.label}
-                      </div>
-                    </div>
-
-                    {/* Project Info */}
-                    <div style={{ padding: 24 }}>
-                      <h3 style={{ fontSize: '1.1rem', marginBottom: 10, color: 'var(--heading)' }}>
-                        {project.name}
-                      </h3>
-                      <div style={{ marginBottom: 16, display: 'flex', alignItems: 'center', gap: 8, fontSize: '0.9rem', color: 'var(--text-muted)' }}>
-                        <MapPin size={16} />
-                        {project.location}
-                      </div>
-                      <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'var(--text)', marginBottom: 20 }}>
-                        {project.short}
-                      </p>
-                      <Link
-                        to={`/projects/${project.id}`}
-                        className="btn btn-outline"
-                        style={{ width: '100%', justifyContent: 'center' }}
-                      >
-                        View Details
-                      </Link>
-                    </div>
-                  </motion.div>
-                ))}
+                            {filteredProjects.map((project, index) => (
+                              <div key={project.id} style={{ flex: '0 0 min(350px, 86vw)' }}>
+                                <ProjectCard project={project} delay={index * 0.07} />
+                              </div>
+                            ))}
               </div>
 
               {/* Scroll Arrows */}

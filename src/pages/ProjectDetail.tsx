@@ -15,26 +15,26 @@ export default function ProjectDetail() {
   const [lightbox, setLightbox] = useState(false)
 
   if (!project) return <Navigate to="/projects" replace />
-  const gallery = project.gallery.length ? project.gallery : [project.image]
+  const gallery = project.gallery.length ? project.gallery : project.image ? [project.image] : []
   const inventory = project.inventory ?? []
 
   return (
     <>
-      <PageHero title={project.name} subtitle={`${project.category} • ${project.location}`} breadcrumb={project.name} />
+      <PageHero title={project.name} subtitle={project.location ? `${project.category} • ${project.location}` : project.status} breadcrumb={project.name} />
 
       <section className="section">
         <div className="container-wide">
           <Link to="/projects" className="btn btn-outline" style={{ marginBottom: 28, padding: '8px 16px', fontSize: '0.84rem', gap: 6 }}><ArrowLeft size={15} /> Back to Projects</Link>
 
-          <Reveal>
+          {gallery.length > 0 && <Reveal>
             <div style={{ position: 'relative', borderRadius: 'var(--radius-lg)', overflow: 'hidden', cursor: 'pointer', marginBottom: 36, border: '1px solid var(--color-border)' }} onClick={() => setLightbox(true)}>
               <motion.img key={activeImg} initial={{ opacity: 0.5 }} animate={{ opacity: 1 }} src={gallery[activeImg]} alt={`${project.name} image ${activeImg + 1}`} style={{ width: '100%', height: 440, objectFit: 'cover' }} loading="eager" />
               <div style={{ position: 'absolute', bottom: 16, right: 16, background: 'rgba(255,255,255,0.95)', color: 'var(--color-primary)', padding: '6px 14px', borderRadius: 999, fontSize: '0.78rem', fontWeight: 600 }}>{activeImg + 1} / {gallery.length}</div>
             </div>
-          </Reveal>
+          </Reveal>}
 
           {/* Thumbnail strip */}
-          <Reveal delay={0.08}>
+          {gallery.length > 0 && <Reveal delay={0.08}>
             <div style={{ display: 'flex', gap: 12, marginBottom: 40, overflowX: 'auto', paddingBottom: 8 }}>
               {gallery.map((g, i) => (
                 <button key={i} onClick={() => setActiveImg(i)} style={{ borderRadius: 'var(--radius-md)', overflow: 'hidden', border: i === activeImg ? '2px solid var(--color-primary)' : '1px solid var(--color-border)', cursor: 'pointer', flexShrink: 0, width: 130, height: 90 }}>
@@ -42,25 +42,25 @@ export default function ProjectDetail() {
                 </button>
               ))}
             </div>
-          </Reveal>
+          </Reveal>}
 
           <div style={{ display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 40 }} className="detail-grid">
             <div>
               <Reveal>
                 <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 16 }}>
-                  <span style={{ background: 'var(--color-primary)', color: '#fff', padding: '5px 14px', borderRadius: 999, fontSize: '0.74rem', fontWeight: 600 }}>{project.category}</span>
+                  {project.hasFullDetails !== false && <span style={{ background: 'var(--color-primary)', color: '#fff', padding: '5px 14px', borderRadius: 999, fontSize: '0.74rem', fontWeight: 600 }}>{project.category}</span>}
                   <span style={{ background: 'var(--color-light-grey)', color: 'var(--color-secondary)', padding: '5px 14px', borderRadius: 999, fontSize: '0.74rem', fontWeight: 600, border: '1px solid var(--color-border)', display: 'flex', alignItems: 'center', gap: 5 }}><Calendar size={13} /> {project.status}</span>
                 </div>
                 <h1 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', marginBottom: 10 }}>{project.name}</h1>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)', marginBottom: 24 }}><MapPin size={16} /> {project.location}</div>
+                {project.location && <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: 'var(--text-muted)', marginBottom: 24 }}><MapPin size={16} /> {project.location}</div>}
               </Reveal>
 
-              <Reveal delay={0.1}>
+              {project.overview && <Reveal delay={0.1}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 14 }}>Overview</h2>
                 <p className="muted" style={{ fontSize: '0.96rem', lineHeight: 1.8, marginBottom: 36 }}>{project.overview}</p>
-              </Reveal>
+              </Reveal>}
 
-              <Reveal delay={0.12}>
+              {project.specifications.length > 0 && <Reveal delay={0.12}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Specifications</h2>
                 <div className="card" style={{ padding: 0, overflow: 'hidden', marginBottom: 36 }}>
                   {project.specifications.map((s, i) => (
@@ -70,7 +70,7 @@ export default function ProjectDetail() {
                     </div>
                   ))}
                 </div>
-              </Reveal>
+              </Reveal>}
 
               <Reveal delay={0.13}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Inventory</h2>
@@ -111,7 +111,7 @@ export default function ProjectDetail() {
                 </div>
               </Reveal>
 
-              <Reveal delay={0.14}>
+              {project.amenities.length > 0 && <Reveal delay={0.14}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Amenities</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: 12, marginBottom: 36 }}>
                   {project.amenities.map((a) => (
@@ -120,9 +120,9 @@ export default function ProjectDetail() {
                     </div>
                   ))}
                 </div>
-              </Reveal>
+              </Reveal>}
 
-              <Reveal delay={0.16}>
+              {project.hasFullDetails !== false && gallery.length > 0 && <Reveal delay={0.16}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Floor Plans & Master Plan</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18, marginBottom: 36 }} className="plans-grid">
                   <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
@@ -134,9 +134,9 @@ export default function ProjectDetail() {
                     <div style={{ padding: '14px 18px', fontSize: '0.86rem', fontWeight: 600, color: 'var(--color-primary)' }}>Master Plan</div>
                   </div>
                 </div>
-              </Reveal>
+              </Reveal>}
 
-              <Reveal delay={0.18}>
+              {project.hasFullDetails !== false && <Reveal delay={0.18}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Construction Status</h2>
                 <div className="card" style={{ padding: 28, marginBottom: 36 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 18 }}>
@@ -148,9 +148,9 @@ export default function ProjectDetail() {
                   </div>
                   <p className="muted" style={{ fontSize: '0.84rem' }}>{project.category === 'Ready to Move' ? 'Ready-to-move inventory is available for immediate review and booking.' : 'Construction in progress with monthly updates shared with booked customers.'}</p>
                 </div>
-              </Reveal>
+              </Reveal>}
 
-              <Reveal delay={0.2}>
+              {project.brochure && <Reveal delay={0.2}>
                 <h2 style={{ fontSize: '1.5rem', marginBottom: 18 }}>Download Brochure</h2>
                 <div className="card" style={{ padding: 28, display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
                   <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-md)', background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent-gold))', display: 'grid', placeItems: 'center', color: '#fff', flexShrink: 0 }}><FileText size={26} /></div>
@@ -160,7 +160,7 @@ export default function ProjectDetail() {
                   </div>
                   <BrochureViewer brochure={project.brochure} title={project.name} />
                 </div>
-              </Reveal>
+              </Reveal>}
             </div>
 
             <div>
@@ -182,7 +182,7 @@ export default function ProjectDetail() {
       </section>
 
       <AnimatePresence>
-        {lightbox && (
+        {lightbox && gallery.length > 0 && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setLightbox(false)} style={{ position: 'fixed', inset: 0, zIndex: 2000, background: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(8px)', display: 'grid', placeItems: 'center', padding: 24 }}>
             <button onClick={() => setLightbox(false)} aria-label="Close" style={{ position: 'absolute', top: 24, right: 24, width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.4)', display: 'grid', placeItems: 'center', color: '#fff' }}><X size={22} /></button>
             <motion.img initial={{ scale: 0.9 }} animate={{ scale: 1 }} exit={{ scale: 0.9 }} src={gallery[activeImg]} alt={project.name} style={{ maxWidth: '90%', maxHeight: '85vh', borderRadius: 'var(--radius-md)' }} />

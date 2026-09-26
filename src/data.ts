@@ -9,19 +9,22 @@ import {
 import heroBanner from './assets/banner.png'
 import heroResidential from './assets/Residential Construction.jpg'
 import heroCommercial from './assets/Commercial Projects.jpg'
-import projectImageOne from './assets/Project/Project.png'
-import projectImageTwo from './assets/Project/Project 1.png'
-import projectImageThree from './assets/Project/Project 2.png'
+import projectImageOne from './assets/Project/Project 1.png'
+import projectImageTwo from './assets/Project/Project 2.png'
+import projectImageThree from './assets/Project/project 4.png'
+import projectImageFour from './assets/Project/projcet 5.png'
 import propertyPlots from './assets/Properties/plots.png'
 import propertyVillas from './assets/Properties/Luxury Villas.png'
 import propertyApartments from './assets/Properties/apartments.png'
 
-const projectImages = [projectImageOne, projectImageTwo, projectImageThree]
+const projectImages = [projectImageOne, projectImageTwo, projectImageThree, projectImageFour]
 
 import teamDirector from './assets/id card/Director.jpeg'
 import teamAman from './assets/id card/Aman.jpeg'
 import teamAnkit from './assets/id card/Ankit.jpeg'
 import teamDigvijay from './assets/id card/DigVijay.jpeg'
+import teamBijay from './assets/id card/Bijay Agarwal.jpeg'
+import teamKushdeep from './assets/id card/Kushdeep.jpeg'
 import teamNikhil from './assets/id card/nikhil.jpeg'
 import teamVarun from './assets/id card/Varun.jpeg'
 import teamVinay from './assets/id card/Vinay.jpeg'
@@ -42,15 +45,15 @@ import gallerySkylineTower from './assets/gallery/Skyline Tower.png'
 // Available brochure PDFs from src/assets/Project
 const brochureFiles = [
   'imperial court.pdf',
-  'kasa isles project.pdf',
+  'Kasa Isles Broucher.pdf',
   'Kensington boulevard apartment sector 128.pdf',
   'Kensington park apartments.pdf',
   'klassic duplex project details.pdf',
   'klassic heights.pdf',
   'klassic shoorya kng.pdf',
   'knight court.pdf',
-  'kosmos project details.pdf',
-  'krescent home project details.pdf',
+  'kosmos.pdf',
+  'Krecent Home Brochure.pdf',
   'pavilion court.pdf',
   'pavilion heights.pdf',
 ]
@@ -86,7 +89,8 @@ export interface ProjectInventoryItem {
 export interface Project {
   id: string
   name: string
-  category: 'Under Construction' | 'Ready to Move'
+  type: 'Residential' | 'Commercial'
+  category: 'Under Construction' | 'Ready to Move' | 'Status not specified'
   location: string
   image: string
   short: string
@@ -98,6 +102,14 @@ export interface Project {
   brochure: string
   gallery: string[]
   inventory?: ProjectInventoryItem[]
+  hasFullDetails?: boolean
+}
+
+export const companyContact = {
+  phone: '+91 9891128882',
+  phoneLink: 'tel:+919891128882',
+  email: 'destinybuildwell@gmail.com',
+  emailLink: 'mailto:destinybuildwell@gmail.com',
 }
 
 export interface Service {
@@ -446,9 +458,10 @@ export const projects: Project[] = [
   {
     id: 'krecent-homes',
     name: 'Krecent Homes',
+    type: 'Residential',
     category: 'Under Construction',
     location: 'Noida sector -129 ',
-    image: projectImageOne,
+    image: projectImages[0],
     short: 'Premium under-construction residences with flexible BHK options.',
     description: 'Under construction residential project with multiple inventory options.',
     overview: 'Krecent Homes is an under-construction residential development offering a range of 2 BHK to 4 BHK + Servant configurations in a value-focused offering.',
@@ -456,25 +469,26 @@ export const projects: Project[] = [
     specifications: [
       { label: 'Configuration', value: '2 BHK • 3 BHK + Servant • 4 BHK + Servant' },
       { label: 'Status', value: 'Under Construction' },
-      { label: 'Pricing Basis', value: '₹7000/ft²' },
+      { label: 'Pricing Basis', value: '₹7000/sq ft' },
     ],
     status: 'Under Construction',
-    brochure: 'krescent home project details.pdf',
-    gallery: projectImages,
+    brochure: 'Krecent Home Brochure.pdf',
+    gallery: [projectImages[0]],
     inventory: [
-      { configuration: '2 BHK', size: '1115 ft²', price: '₹7000/ft²' },
-      { configuration: '2 BHK', size: '1230 ft²', price: '₹7000/ft²' },
-      { configuration: '3 BHK + Servant', size: '1680 ft²', price: '₹7000/ft²' },
-      { configuration: '3 BHK + Servant', size: '1980 ft²', price: '₹7000/ft²' },
-      { configuration: '4 BHK + Servant', size: '2375 ft²', price: '₹7000/ft²' },
+      { configuration: '2 BHK', size: '1115 ft²', price: '₹7000/sq ft' },
+      { configuration: '2 BHK', size: '1230 ft²', price: '₹7000/sq ft' },
+      { configuration: '3 BHK + Servant', size: '1680 ft²', price: '₹7000/sq ft' },
+      { configuration: '3 BHK + Servant', size: '1980 ft²', price: '₹7000/sq ft' },
+      { configuration: '4 BHK + Servant', size: '2375 ft²', price: '₹7000/sq ft' },
     ],
   },
   {
     id: 'kasa-isles',
     name: 'Kasa Isles',
+    type: 'Residential',
     category: 'Under Construction',
     location: 'Noida Sector -129 ',
-    image: projectImageTwo,
+    image: projectImages[1],
     short: 'A wide range of apartment sizes with under-construction pricing options.',
     description: 'Under construction residential project with multiple apartment configuration options.',
     overview: 'Kasa Isles offers a broad mix of apartment sizes designed to suit varied budgets and family requirements.',
@@ -482,29 +496,30 @@ export const projects: Project[] = [
     specifications: [
       { label: 'Configuration', value: '1 BHK • 2 BHK • 3 BHK • 4 BHK' },
       { label: 'Status', value: 'Under Construction' },
-      { label: 'Pricing Basis', value: '₹8000/ft² / 46 Lakh plus last demand' },
+      { label: 'Pricing Basis', value: '₹46 Lakhs + last demand; ₹80 Lakhs all inclusive; ₹8000/sq ft' },
     ],
     status: 'Under Construction',
-    brochure: 'kasa isles project.pdf',
-    gallery: projectImages,
+    brochure: 'Kasa Isles Broucher.pdf',
+    gallery: [projectImages[1]],
     inventory: [
-      { configuration: '1 BHK', size: '535 ft²', price: '₹46 Lakh plus last demand' },
-      { configuration: 'Not specified', size: '920 ft²', price: '₹80 Lakh all inclusive' },
-      { configuration: 'Not specified', size: '1250 ft²', price: '₹8000/ft²' },
-      { configuration: 'Not specified', size: '1370 ft²', price: '₹8000/ft²' },
-      { configuration: 'Not specified', size: '1570 ft²', price: '₹8000/ft²' },
-      { configuration: 'Not specified', size: '1935 ft²', price: '₹8000/ft²' },
-      { configuration: 'Not specified', size: '1870 ft²', price: '₹8000/ft²' },
-      { configuration: 'Not specified', size: '1935 ft²', price: '₹8000/ft²' },
-      { configuration: 'Not specified', size: '2300 ft²', price: '₹8000/ft²' },
+      { configuration: '1 BHK', size: '535 ft²', price: '₹46 Lakhs + last demand' },
+      { configuration: 'Not specified', size: '920 ft²', price: '₹80 Lakhs all inclusive' },
+      { configuration: 'Not specified', size: '1250 ft²', price: '₹8000/sq ft' },
+      { configuration: 'Not specified', size: '1370 ft²', price: '₹8000/sq ft' },
+      { configuration: 'Not specified', size: '1570 ft²', price: '₹8000/sq ft' },
+      { configuration: 'Not specified', size: '1935 ft²', price: '₹8000/sq ft' },
+      { configuration: 'Not specified', size: '1870 ft²', price: '₹8000/sq ft' },
+      { configuration: 'Not specified', size: '1935 ft²', price: '₹8000/sq ft' },
+      { configuration: 'Not specified', size: '2300 ft²', price: '₹8000/sq ft' },
     ],
   },
   {
     id: 'garden-isles',
     name: 'Garden Isles',
+    type: 'Residential',
     category: 'Under Construction',
     location: 'Greater Noida',
-    image: projectImageThree,
+    image: projectImages[2],
     short: 'Residential layouts across multiple sizes and pricing bands.',
     description: 'Under construction project with a range of apartment and villa-style sizes.',
     overview: 'Garden Isles presents a wide spread of home sizes and pricing to cater to family and investment preferences.',
@@ -512,26 +527,27 @@ export const projects: Project[] = [
     specifications: [
       { label: 'Configuration', value: 'Multiple layouts' },
       { label: 'Status', value: 'Under Construction' },
-      { label: 'Pricing Basis', value: '₹6000/ft² - ₹7000/ft²' },
+      { label: 'Pricing Basis', value: '₹6000/sq ft – ₹7000/sq ft' },
     ],
     status: 'Under Construction',
-    brochure: 'kasa isles project.pdf',
-    gallery: projectImages,
+    brochure: 'Garden Isles.pdf',
+    gallery: [projectImages[2]],
     inventory: [
-      { configuration: 'Not specified', size: '1205 ft²', price: '₹6000/ft²' },
-      { configuration: 'Not specified', size: '1305 ft²', price: '₹6000/ft²' },
-      { configuration: 'Not specified', size: '1840 ft²', price: '₹6200/ft²' },
-      { configuration: 'Not specified', size: '1995 ft²', price: '₹6200/ft²' },
-      { configuration: 'Not specified', size: '2690 ft²', price: '₹7000/ft²' },
-      { configuration: 'Not specified', size: '2690 ft²', price: '₹7000/ft²' },
+      { configuration: 'Not specified', size: '1205 ft²', price: '₹6000/sq ft' },
+      { configuration: 'Not specified', size: '1305 ft²', price: '₹6000/sq ft' },
+      { configuration: 'Not specified', size: '1840 ft²', price: '₹6200/sq ft' },
+      { configuration: 'Not specified', size: '1995 ft²', price: '₹6200/sq ft' },
+      { configuration: 'Not specified', size: '2690 ft²', price: '₹7000/sq ft' },
+      { configuration: 'Not specified', size: '2690 ft²', price: '₹7000/sq ft' },
     ],
   },
   {
     id: 'kosmos-under-construction',
     name: 'Kosmos',
+    type: 'Residential',
     category: 'Under Construction',
     location: 'Noida sector-134',
-    image: projectImages[0],
+    image: projectImages[3],
     short: 'Under-construction residential project with multiple BHK configurations and development references.',
     description: 'Under construction project with project reference codes and 2 BHK / 3 BHK options.',
     overview: 'Kosmos is an under-construction residential project offering multiple layouts and development references across the site plan.',
@@ -543,16 +559,17 @@ export const projects: Project[] = [
       { label: 'KBA References', value: 'KBA-15, KBA-16, KBA-17, KBA-18, KBA-19, KBA-20, KBA-21, KBA-22' },
     ],
     status: 'Under Construction',
-    brochure: 'kosmos project details.pdf',
-    gallery: projectImages,
+    brochure: 'kosmos.pdf',
+    gallery: [projectImages[3]],
     inventory: [
-      { configuration: '2 BHK', size: 'Not specified', price: 'Not specified' },
-      { configuration: '3 BHK', size: 'Not specified', price: 'Not specified' },
+      { configuration: '2 BHK', size: 'Not specified', price: 'Price details available on request' },
+      { configuration: '3 BHK', size: 'Not specified', price: 'Price details available on request' },
     ],
   },
   {
     id: 'kba-kensington-boulevard-apartments',
     name: 'KBA — Kensington Boulevard Apartments',
+    type: 'Residential',
     category: 'Under Construction',
     location: 'Noida sector-131',
     image: projectImages[0],
@@ -568,18 +585,19 @@ export const projects: Project[] = [
     ],
     status: 'Under Construction',
     brochure: 'Kensington boulevard apartment sector 128.pdf',
-    gallery: projectImages,
+    gallery: [projectImages[0]],
     inventory: [
-      { configuration: '3 BHK', size: '1650 ft²', price: 'Not specified' },
-      { configuration: '4 BHK', size: 'Not specified', price: 'Not specified' },
+      { configuration: '3 BHK', size: '1650 ft²', price: 'Price details available on request' },
+      { configuration: '4 BHK', size: 'Not specified', price: 'Price details available on request' },
     ],
   },
   {
     id: 'kosmos-ready-to-move',
     name: 'Kosmos',
+    type: 'Residential',
     category: 'Ready to Move',
     location: 'Noida sector-134',
-    image: projectImages[0],
+    image: projectImages[1],
     short: 'Ready-to-move apartment inventory with competitive pricing bands.',
     description: 'Ready to move residential project with multiple pricing and configuration options.',
     overview: 'Kosmos is available in ready-to-move inventory with clear pricing information across varied BHK sizes.',
@@ -589,22 +607,23 @@ export const projects: Project[] = [
       { label: 'Status', value: 'Ready to Move' },
     ],
     status: 'Ready to Move',
-    brochure: 'kosmos project details.pdf',
-    gallery: projectImages,
+    brochure: 'kosmos.pdf',
+    gallery: [projectImages[1]],
     inventory: [
       { configuration: '2 BHK', size: '950 ft²', price: '₹75 Lakhs' },
       { configuration: '3 BHK', size: '1270 ft²', price: '₹1.05–1.10 Cr' },
       { configuration: '3 BHK + Servant', size: '1370 ft²', price: '₹1.10–1.15 Cr' },
-      { configuration: '3 BHK + Servant', size: '1470 ft²', price: '₹1.50 Lakh' },
+      { configuration: '3 BHK + Servant', size: '1470 ft²', price: '₹1.50 Cr' },
       { configuration: '4 BHK + Servant', size: '2110 ft²', price: '₹2.20–2.25 Cr' },
     ],
   },
   {
     id: 'klassic',
     name: 'Klassic',
+    type: 'Residential',
     category: 'Ready to Move',
     location: 'Noida sector-134',
-    image: projectImages[0],
+    image: projectImages[2],
     short: 'Ready-to-move residential development with multiple BHK options.',
     description: 'Ready to move residential apartments with varied configurations and prices.',
     overview: 'Klassic offers a mix of ready-to-move apartment options and family-sized layouts across balanced pricing bands.',
@@ -615,12 +634,12 @@ export const projects: Project[] = [
     ],
     status: 'Ready to Move',
     brochure: 'klassic heights.pdf',
-    gallery: projectImages,
+    gallery: [projectImages[2]],
     inventory: [
       { configuration: '2 BHK', size: '1170 ft²', price: '₹95 Lakhs' },
       { configuration: '3 BHK', size: '1550 ft²', price: '₹1.35 Cr' },
       { configuration: '4 BHK', size: '2370 ft²', price: '₹2.10 Cr' },
-      { configuration: '2 BHK + Study', size: '1270 ft²', price: '₹1.20 Lakhs' },
+      { configuration: '2 BHK + Study', size: '1270 ft²', price: '₹1.20 Cr' },
       { configuration: '3 BHK + Servant', size: '1650 ft²', price: '₹1.50 Cr' },
       { configuration: '3 BHK + Servant', size: '1750 ft²', price: '₹1.65 Cr' },
       { configuration: '3 BHK + Servant', size: '1850 ft²', price: '₹1.80 Cr' },
@@ -630,9 +649,10 @@ export const projects: Project[] = [
   {
     id: 'klassic-duplex',
     name: 'Klassic Duplex',
+    type: 'Residential',
     category: 'Ready to Move',
     location: 'Noida sector-134',
-    image: projectImages[0],
+    image: projectImages[3],
     short: 'Ready-to-move duplex apartments with larger family layouts.',
     description: 'Ready to move duplex project with multiple apartment configurations.',
     overview: 'Klassic Duplex offers a compact yet premium ready-to-move portfolio with balanced family living options.',
@@ -643,16 +663,17 @@ export const projects: Project[] = [
     ],
     status: 'Ready to Move',
     brochure: 'klassic duplex project details.pdf',
-    gallery: projectImages,
+    gallery: [projectImages[3]],
     inventory: [
       { configuration: '2 BHK', size: '1170 ft²', price: '₹95 Lakhs' },
-      { configuration: '3 BHK + Servant', size: '1500 ft²', price: '₹1.20 Lakhs' },
-      { configuration: '4 BHK + Study', size: '2550 ft²', price: '₹2.20 Lakhs' },
+      { configuration: '3 BHK + Servant', size: '1500 ft²', price: '₹1.20 Cr' },
+      { configuration: '4 BHK + Study', size: '2550 ft²', price: '₹2.20 Cr' },
     ],
   },
   {
     id: 'kba-ready-to-move',
     name: 'KBA — Kensington Boulevard Apartments',
+    type: 'Residential',
     category: 'Ready to Move',
     location: 'Noida sector-131',
     image: projectImages[0],
@@ -667,7 +688,7 @@ export const projects: Project[] = [
     ],
     status: 'Ready to Move',
     brochure: 'Kensington boulevard apartment sector 128.pdf',
-    gallery: projectImages,
+    gallery: [projectImages[0]],
     inventory: [
       { configuration: '1 BHK', size: '665 ft²', price: '₹60 Lakhs' },
       { configuration: '2 BHK', size: '1050 ft²', price: '₹95 Lakhs' },
@@ -676,9 +697,10 @@ export const projects: Project[] = [
   {
     id: 'kpa-ready-to-move',
     name: 'KPA — Kensington Park Apartments',
+    type: 'Residential',
     category: 'Ready to Move',
     location: 'Noida sector-133',
-    image: projectImages[0],
+    image: projectImages[1],
     short: 'Ready-to-move apartment inventory with family-sized layouts.',
     description: 'Ready to move residential options in Kensington Park Apartments.',
     overview: 'KPA — Kensington Park Apartments offers ready-to-move apartment sizes and pricing for family homes and investment buyers.',
@@ -690,24 +712,177 @@ export const projects: Project[] = [
     ],
     status: 'Ready to Move',
     brochure: 'Kensington park apartments.pdf',
-    gallery: projectImages,
+    gallery: [projectImages[1]],
     inventory: [
       { configuration: '2 BHK', size: '1170 ft²', price: '₹95 Lakhs' },
-      { configuration: '3 BHK', size: '1560 ft²', price: '₹1.35 Lakhs' },
-      { configuration: '4 BHK', size: '1950 ft²', price: '₹2.30 Lakhs' },
+      { configuration: '3 BHK', size: '1560 ft²', price: '₹1.35 Cr' },
+      { configuration: '4 BHK', size: '1950 ft²', price: '₹2.30 Cr' },
+    ],
+  },
+  {
+    id: 'kalypso-court',
+    name: 'Kalypso Court',
+    type: 'Residential',
+    category: 'Ready to Move',
+    location: '',
+    image: projectImages[2],
+    short: 'Ready-to-move project with 2 BHK, 3 BHK and 4 BHK options.',
+    description: '',
+    overview: '',
+    amenities: [],
+    specifications: [],
+    status: 'Ready to Move',
+    brochure: '',
+    gallery: [projectImages[2]],
+    hasFullDetails: false,
+    inventory: [
+      { configuration: '2 BHK', size: '1820 sq ft', price: 'Price details available on request' },
+      { configuration: '3 BHK', size: '2600–2800 sq ft', price: 'Price details available on request' },
+      { configuration: '4 BHK', size: '3450–3550 sq ft', price: 'Price details available on request' },
+    ],
+  },
+  {
+    id: 'imperial-court',
+    name: 'Imperial Court',
+    type: 'Residential',
+    category: 'Ready to Move',
+    location: '',
+    image: projectImages[3],
+    short: 'Ready-to-move project with 3 BHK and 4 BHK options.',
+    description: '',
+    overview: '',
+    amenities: [],
+    specifications: [],
+    status: 'Ready to Move',
+    brochure: 'imperial court.pdf',
+    gallery: [projectImages[3]],
+    hasFullDetails: false,
+    inventory: [
+      { configuration: '3 BHK', size: '2800 sq ft', price: 'Price details available on request' },
+      { configuration: '4 BHK', size: '3750–3800 sq ft', price: 'Price details available on request' },
+    ],
+  },
+  {
+    id: 'pavilion-court',
+    name: 'Pavilion Court',
+    type: 'Residential',
+    category: 'Ready to Move',
+    location: '',
+    image: projectImages[0],
+    short: 'Ready-to-move project with 1 BHK, 2 BHK and 3 BHK options.',
+    description: '',
+    overview: '',
+    amenities: [],
+    specifications: [],
+    status: 'Ready to Move',
+    brochure: 'pavilion court.pdf',
+    gallery: [projectImages[0]],
+    hasFullDetails: false,
+    inventory: [
+      { configuration: '1 BHK', size: '936 sq ft', price: 'Price details available on request' },
+      { configuration: '2 BHK', size: '1350 sq ft', price: 'Price details available on request' },
+      { configuration: '3 BHK', size: '1820 sq ft', price: 'Price details available on request' },
+    ],
+  },
+  {
+    id: 'pavilion-heights',
+    name: 'Pavilion Heights',
+    type: 'Residential',
+    category: 'Ready to Move',
+    location: '',
+    image: projectImages[1],
+    short: 'Ready-to-move project with 2 BHK, 3 BHK and 4 BHK options.',
+    description: '',
+    overview: '',
+    amenities: [],
+    specifications: [],
+    status: 'Ready to Move',
+    brochure: 'pavilion heights.pdf',
+    gallery: [projectImages[1]],
+    hasFullDetails: false,
+    inventory: [
+      { configuration: '2 BHK', size: '1400 sq ft', price: 'Price details available on request' },
+      { configuration: '3 BHK', size: '1940 sq ft', price: 'Price details available on request' },
+      { configuration: '4 BHK', size: '2654 sq ft', price: 'Price details available on request' },
+    ],
+  },
+  {
+    id: 'knight-court',
+    name: 'Knight Court',
+    type: 'Residential',
+    category: 'Ready to Move',
+    location: '',
+    image: projectImages[2],
+    short: 'Ready-to-move project with 3 BHK and 4 BHK options.',
+    description: '',
+    overview: '',
+    amenities: [],
+    specifications: [],
+    status: 'Ready to Move',
+    brochure: 'knight court.pdf',
+    gallery: [projectImages[2]],
+    hasFullDetails: false,
+    inventory: [
+      { configuration: '3 BHK', size: '2200–2300 sq ft', price: 'Price details available on request' },
+      { configuration: '4 BHK', size: '2800–2900 sq ft', price: 'Price details available on request' },
+    ],
+  },
+  {
+    id: 'the-orchard',
+    name: 'The Orchard',
+    type: 'Residential',
+    category: 'Status not specified',
+    location: '',
+    image: projectImages[3],
+    short: 'Project configurations include 2 BHK, 3 BHK and 4 BHK options.',
+    description: '',
+    overview: '',
+    amenities: [],
+    specifications: [],
+    status: 'Status not specified',
+    brochure: '',
+    gallery: [projectImages[3]],
+    hasFullDetails: false,
+    inventory: [
+      { configuration: '2 BHK', size: '1235 sq ft', price: 'Price details available on request' },
+      { configuration: '3 BHK', size: '1798–2105 sq ft', price: 'Price details available on request' },
+      { configuration: '4 BHK', size: '2505–2620 sq ft', price: 'Price details available on request' },
+    ],
+  },
+  {
+    id: 'kube',
+    name: 'KUBE',
+    type: 'Residential',
+    category: 'Status not specified',
+    location: '',
+    image: projectImages[0],
+    short: 'Project configurations include 2 BHK, 3 BHK and 4 BHK options.',
+    description: '',
+    overview: '',
+    amenities: [],
+    specifications: [],
+    status: 'Status not specified',
+    brochure: '',
+    gallery: [projectImages[0]],
+    hasFullDetails: false,
+    inventory: [
+      { configuration: '2 BHK', size: '995 sq ft', price: 'Price details available on request' },
+      { configuration: '3 BHK', size: '1740 sq ft', price: 'Price details available on request' },
+      { configuration: '4 BHK', size: '4400 sq ft', price: 'Price details available on request' },
     ],
   },
 ]
 
 export const team: TeamMember[] = [
   { name: 'Aditya Bhardwaj', role: 'Founder & Managing Director', image: teamDirector, bio: '' },
-  { name: 'Bijay Agarwal', role: 'Legal Associate & Legal Partner', image: '', bio: '' },
+  { name: 'Bijay Agarwal', role: 'Legal Associate & Legal Partner', image: teamBijay, bio: '' },
   { name: 'Nikhil Thakrani', role: 'Sales Head & Manager', image: teamNikhil, bio: '' },
   { name: 'Aman Pandey', role: 'Senior Project Lead', image: teamAman, bio: '' },
   { name: 'Vinay Kumar', role: 'Operation Head', image: teamVinay, bio: '' },
   { name: 'Ankit Tomar', role: 'Sales Executive', image: teamAnkit, bio: '' },
   { name: 'Digvijay Singh', role: 'Business Development Lead', image: teamDigvijay, bio: '' },
   { name: 'Varun Panday', role: 'Sales Executive', image: teamVarun, bio: '' },
+  { name: 'Kushdeep', role: 'Sales Executive', image: teamKushdeep, bio: '' },
 ]
 
 export const galleryImages = [

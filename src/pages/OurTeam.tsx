@@ -4,9 +4,8 @@ import { team } from '../data'
 
 export default function OurTeam() {
   const leader = team[0]
-  const leadershipPartner = team[1]
   const nikhil = team[2]
-  const members = team.slice(3)
+  const members = [...team.slice(1, 2), ...team.slice(3)]
 
   return (
     <>
@@ -32,7 +31,7 @@ export default function OurTeam() {
 
           <Reveal>
             <div className="team-leadership-grid">
-              {[leader, leadershipPartner].map((member) => (
+              {[leader].map((member) => (
                 <article className="team-leader-card" key={member.name}>
                   {member.image ? <img src={member.image} alt={member.name} /> : <div className="team-image-unavailable">Image unavailable</div>}
                   <div>
