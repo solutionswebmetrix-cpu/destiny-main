@@ -26,7 +26,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+    <section id="hero" className="home-hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -39,23 +39,21 @@ export default function Hero() {
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', imageRendering: 'auto', filter: 'none' }}
           loading="eager"
         />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(10,10,10,0.18) 0%, rgba(10,10,10,0.58) 100%)' }} />
+        <div className="home-hero-overlay" style={{ position: 'absolute', inset: 0 }} />
       </motion.div>
 
-      <div className="container-wide" style={{ position: 'relative', zIndex: 2, paddingTop: 100, paddingBottom: 40 }}>
+      <div className="container-wide home-hero-content" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          style={{ maxWidth: 760, color: '#fff' }}
+          className="home-hero-copy"
         >
           <span className="eyebrow" style={{ color: 'rgba(255,255,255,0.9)' }}>Destiny Buildwell | Featured Project: JAYPEE</span>
-          <h1 style={{ color: '#fff', fontSize: 'clamp(2.4rem, 5.5vw, 4.2rem)', lineHeight: 1.1, marginBottom: 22, textShadow: '0 2px 20px rgba(0,0,0,0.2)' }}>
+          <h1 className="home-hero-title">
             {banner.title}
           </h1>
-          <p style={{ fontSize: '1.12rem', opacity: 0.92, maxWidth: 580, marginBottom: 34, lineHeight: 1.7 }}>
-            {banner.subtitle}
-          </p>
+          {banner.subtitle && <p className="home-hero-subtitle">{banner.subtitle}</p>}
           <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap' }}>
             <Link to="/contact" className="btn btn-light" style={{ gap: 8 }}>Book Consultation <ArrowRight size={17} /></Link>
             <Link to="/properties" className="btn btn-ghost-light" style={{ gap: 8 }}>Explore Projects <ArrowRight size={17} /></Link>
