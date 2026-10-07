@@ -114,7 +114,7 @@ export default function PropertyDetail() {
                     <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 600, marginBottom: 4 }}>{property.title} Brochure</div>
                     <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>PDF • Complete project details, floor plans & pricing</div>
                   </div>
-                  <BrochureViewer brochure={property.brochure} title={property.title} />
+                  <BrochureViewer brochure={property.brochure} title={property.title} location={property.location} />
                 </div>
               </Reveal>
             </div>

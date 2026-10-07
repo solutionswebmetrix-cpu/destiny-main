@@ -158,7 +158,7 @@ export default function ProjectDetail() {
                     <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', fontWeight: 600, marginBottom: 4 }}>{project.name} Brochure</div>
                     <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>PDF • Complete project details & specifications</div>
                   </div>
-                  <BrochureViewer brochure={project.brochure} title={project.name} />
+                  <BrochureViewer brochure={project.brochure} title={project.name} location={project.location} />
                 </div>
               </Reveal>}
             </div>

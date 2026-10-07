@@ -7,7 +7,7 @@ import { properties, type PropertyType } from '../data'
 
 const types: ('All' | PropertyType)[] = ['All', 'Villa', 'Apartment', 'Commercial', 'Plot']
 const budgets = ['Any', '₹50L - ₹1Cr', '₹1Cr - ₹2Cr', '₹2Cr & Above']
-const locations = ['All Locations', 'Noida', 'Greater Noida', 'South Delhi', 'Faridabad']
+const locations = ['All Locations', 'Noida', 'Noida Sector 128', 'Noida Sector 131', 'Greater Noida', 'South Delhi', 'Faridabad']
 
 const isPropertyType = (value: string | null): value is 'All' | PropertyType =>
   value === 'All' || value === 'Villa' || value === 'Apartment' || value === 'Commercial' || value === 'Plot'
@@ -24,6 +24,7 @@ const parsePriceToLakhs = (price: string) => {
 }
 
 const matchesBudget = (price: string, selectedBudget: string) => {
+  if (price.includes('/ Gaj')) return true
   const value = parsePriceToLakhs(price)
 
   switch (selectedBudget) {
@@ -68,9 +69,19 @@ export default function Properties() {
   const filtered = useMemo(() => {
     return properties.filter((p) => {
       if (type !== 'All' && p.type !== type) return false
-      if (location !== 'All Locations' && !p.location.includes(location)) return false
+      if (location !== 'All Locations' && !p.location.toLowerCase().includes(location.toLowerCase())) return false
       if (budget !== 'Any' && !matchesBudget(p.price, budget)) return false
-      if (query && !p.title.toLowerCase().includes(query.toLowerCase()) && !p.location.toLowerCase().includes(query.toLowerCase())) return false
+      const searchContent = [
+        p.title,
+        p.location,
+        p.description,
+        p.type,
+        p.tag ?? '',
+        p.area,
+        p.price,
+        ...p.specifications.map((specification) => `${specification.label} ${specification.value}`),
+      ].join(' ').toLowerCase()
+      if (query && !searchContent.includes(query.toLowerCase())) return false
       return true
     })
   }, [type, location, budget, query])
@@ -137,6 +148,7 @@ export default function Properties() {
                   <Link to={`/properties/${p.id}`} style={{ position: 'relative', display: 'block', overflow: 'hidden' }}>
                     <motion.img src={p.image} alt={p.title} style={{ width: '100%', height: 220, objectFit: 'cover' }} whileHover={{ scale: 1.06 }} transition={{ duration: 0.5 }} loading="lazy" />
                     <div style={{ position: 'absolute', top: 14, left: 14, background: 'var(--color-primary)', color: '#fff', padding: '5px 14px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 600 }}>{p.type}</div>
+                    {p.tag && <div style={{ position: 'absolute', top: 14, right: 14, background: 'rgba(11,11,11,0.88)', color: 'var(--color-primary)', padding: '5px 14px', borderRadius: 999, fontSize: '0.72rem', fontWeight: 600, border: '1px solid rgba(212,175,55,0.45)' }}>{p.tag}</div>}
                   </Link>
                   <div style={{ padding: '22px 22px 24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                     <h3 style={{ fontSize: '1.2rem', marginBottom: 8 }}>{p.title}</h3>
