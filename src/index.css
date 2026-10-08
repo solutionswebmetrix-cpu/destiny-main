@@ -458,7 +458,7 @@ ul {
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .nav-links, .nav-cta .nav-phone { display: none !important; }
+  .nav-links { display: none !important; }
   .nav-burger { display: grid !important; place-items: center; }
   .about-grid, .mv-grid, .contact-grid, .detail-grid, .detail-gallery {
     grid-template-columns: 1fr !important;

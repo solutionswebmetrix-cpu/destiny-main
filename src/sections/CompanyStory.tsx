@@ -129,7 +129,8 @@ const styles = `
   .company-mini-stats, .company-value-grid, .company-highlight-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
   .company-mini-stats div { padding: 18px; color: var(--color-primary); background: #151515; border: 1px solid var(--color-border); text-align: center; font-weight: 700; }
   .company-value-grid { gap: 14px; }
-  .company-value { display: flex; align-items: center; gap: 10px; min-height: 68px; padding: 16px; background: #151515; border: 1px solid var(--color-border); color: #F5F5F5; font-size: .84rem; font-weight: 700; }
+  .company-value { box-sizing: border-box; display: flex; align-items: center; gap: 14px; min-width: 0; min-height: 115px; padding: 16px; background: #151515; border: 1px solid var(--color-border); color: #F5F5F5; font-size: .84rem; font-weight: 700; }
+  .company-value span { min-width: 0; overflow-wrap: break-word; word-break: normal; white-space: normal; }
   .company-value svg { color: var(--color-primary); flex-shrink: 0; }
   .divider-left { margin-left: 0; }
   .own-office-section { background: var(--color-primary); color: #fff; }

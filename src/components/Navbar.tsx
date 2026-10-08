@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Phone } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import logo from '../assets/logo/logo.png'
 
 const navLinks = [
@@ -139,10 +139,6 @@ export default function Navbar() {
         </ul>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 14 }} className="nav-cta">
-          <a href="tel:+919891128882" style={{
-            display: 'flex', alignItems: 'center', gap: 6, fontSize: '0.85rem', fontWeight: 500,
-            color: scrolled ? '#fff' : '#fff',
-          }} className="nav-phone"><Phone size={15} /> +91 9891128882</a>
           <Link to="/contact" className="btn btn-primary" style={{ padding: '10px 22px', color: '#111111' }}>Book Consultation</Link>
         </div>
 
